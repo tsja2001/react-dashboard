@@ -8,4 +8,5 @@
 
 1. Vite 打包
 2. ESlint 代码检查 (需要下载 eslint 插件)
-3. Prettier 代码格式化 (需要下载 prettier 插件)
+3. Prettier 代码格式化 (需要下载 prettier 和 Prettier ESLint 插件)
+4.
