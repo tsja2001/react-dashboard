@@ -1,1 +1,17 @@
-{}
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
