@@ -9,7 +9,7 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --loglevel silent --write ."
   },
   "dependencies": {
     "autoprefixer": "^10.4.14",
