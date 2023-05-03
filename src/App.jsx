@@ -1,17 +1,10 @@
-import './App.css'
-import ChartDemo from './component/chart-demo'
-import ChartTooltip from './component/chart-tooltip'
-import DemoComponent from './component/demo'
-import DemoScatter from './component/demo-scatter'
+import style from './App.module.scss'
+import LayoutMain from './layout/layout'
 
 function App() {
   return (
-    <div>
-      <DemoComponent></DemoComponent>
-      <ChartDemo></ChartDemo>
-      <ChartTooltip></ChartTooltip>
-      <DemoScatter></DemoScatter>
-      <div className="demo">demo</div>
+    <div className={style.content}>
+      <LayoutMain></LayoutMain>
     </div>
   )
 }
