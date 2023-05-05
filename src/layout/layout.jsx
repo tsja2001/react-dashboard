@@ -2,19 +2,11 @@ import { Layout, Menu } from 'antd'
 import style from './layout.module.scss'
 import siderbarConfig from './siderbar-config'
 const { Header, Content, Sider } = Layout
+
 const LayoutMain = () => {
-  // const {
-  //   token: { colorBgContainer }
-  // } = theme.useToken()
   return (
     <Layout className={style.layout}>
-      <Sider
-        style={{
-          background: 'while',
-          height: '100%'
-        }}
-        // width={200}
-      >
+      <Sider className={style.sider}>
         <Menu
           mode="inline"
           defaultSelectedKeys={['home']}
@@ -22,14 +14,10 @@ const LayoutMain = () => {
           items={siderbarConfig}
         />
       </Sider>
-      <Content>
-        <Layout
-          style={{
-            height: '100%'
-          }}
-        >
-          <Header className={style.header}>Header</Header>
-          <Content>
+      <Content className={style.content}>
+        <Layout className={style.content_layout}>
+          <Header className={style.content_header}>header</Header>
+          <Content className={style.content_content}>
             <h1>aaaa</h1>
             <h1>aaaa</h1>
             <h1>aaaa</h1>
