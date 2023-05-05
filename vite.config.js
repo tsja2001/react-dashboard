@@ -6,6 +6,12 @@ import cssnano from 'cssnano'
 export default defineConfig({
   plugins: [react()],
 
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  },
+
   css: {
     postcss: {
       plugins: [

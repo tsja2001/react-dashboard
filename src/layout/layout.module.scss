@@ -4,9 +4,13 @@
   background-color: white;
   .sider {
     background-color: white;
-    height: 100vh;
-    overflow-y: scroll;
     width: 300px;
+    height: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+    .menu {
+      height: auto;
+    }
   }
   .content {
     width: calc(100vw - 300px);
@@ -24,8 +28,11 @@
     }
     .content_content {
       height: calc(100vh - 40px);
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
+    }
+    .content_content_inner {
+      height: auto;
     }
   }
 }
