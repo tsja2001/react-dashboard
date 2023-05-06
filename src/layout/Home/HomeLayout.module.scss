@@ -1,0 +1,43 @@
+.layout {
+  height: 100vh;
+  width: 100vw;
+  .header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 64px;
+    .logo {
+      width: 150px;
+      height: 35px;
+      background-color: #3c4a56;
+      margin-right: 20px;
+      color: white;
+      line-height: 35px;
+      text-align: center;
+    }
+    .menu {
+      flex: 1;
+    }
+  }
+  .layout_layout {
+    margin-top: 64px;
+    max-height: calc(100vh - 64px);
+    overflow-x: auto;
+    .content {
+      padding: 0 50px;
+      box-sizing: border-box;
+      min-height: calc(100vh - 64px - 80px);
+    }
+    .footer {
+      text-align: center;
+      color: #3c4a56;
+      background-color: antiquewhite;
+      height: 50px;
+      width: 100%;
+      line-height: 50px;
+    }
+  }
+}
