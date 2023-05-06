@@ -2,19 +2,16 @@ import { Layout, Menu } from 'antd'
 import homeMenuConfig from './homeMenu.config'
 import style from './HomeLayout.module.scss'
 import { Outlet } from 'react-router-dom'
+import router from '@/router/router.config'
 import { memo } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const { Header } = Layout
 
 export const HomeLayout = () => {
-  let menuClickHandler = null
-  const nav = useNavigate()
-
-  // 切换menu, 跳转路由
-  menuClickHandler = (e) => {
-    nav(e.key)
+  const menuClickHandler = (e) => {
+    router.navigate(e.key)
   }
+  console.log('-----')
 
   return (
     <Layout className={style.layout}>
@@ -33,7 +30,6 @@ export const HomeLayout = () => {
       </Header>
       <div className={style.layout_layout}>
         <div className={style.content}>
-          <Outlet />
           <h2>1aaaa</h2>
           <h2>2aaaa</h2>
           <h2>3aaaa</h2>
@@ -65,4 +61,4 @@ export const HomeLayout = () => {
   )
 }
 
-export default memo(HomeLayout)
+// export default memo(HomeLayout)

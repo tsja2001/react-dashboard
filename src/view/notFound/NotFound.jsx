@@ -1,14 +1,15 @@
-import router from '@/router/router.config'
 import { Button } from 'antd'
 import { memo, useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const NotFound = () => {
   const timeout = useRef(null)
+  const nav = useNavigate()
   const [ifCancleNav, setIfCancleNav] = useState(false)
 
   // 返回上一级
   const navBack = () => {
-    router.navigate(-1)
+    nav(-1)
   }
   // 取消跳转
   const cancleNav = () => {
