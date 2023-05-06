@@ -1,8 +1,8 @@
 import { Layout, Menu } from 'antd'
 import style from './layout.module.scss'
-import siderbarConfig from './siderbar-config'
+import siderbarConfig from './Home/homeMenu.config'
 import { RouterProvider } from 'react-router-dom'
-import router from '../router/router-config'
+import router from '../router/router.config'
 const { Header, Content, Sider } = Layout
 
 const LayoutMain = () => {

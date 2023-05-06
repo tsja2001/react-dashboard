@@ -1,25 +1,18 @@
-// import { Link } from 'react-router-dom'
-// import { Outlet } from 'react-router-dom'
-
-// const HomeLayout = () => {
-//   return (
-//     <div>
-//       <h1>HomeLayout</h1>
-//       <Link to="/home/chart">chart</Link>
-//       <Link to="/home/dashboard">dashboard</Link>
-//       <Outlet />
-//     </div>
-//   )
-// }
-// export default HomeLayout
 import { Layout, Menu } from 'antd'
-import siderbarConfig from '../siderbar-config'
+import homeMenuConfig from './homeMenu.config'
 import style from './HomeLayout.module.scss'
 import { Outlet } from 'react-router-dom'
+import router from '@/router/router.config'
+import { memo } from 'react'
 
 const { Header } = Layout
 
-const App = () => {
+export const HomeLayout = () => {
+  const menuClickHandler = (e) => {
+    router.navigate(e.key)
+  }
+  console.log('-----')
+
   return (
     <Layout className={style.layout}>
       <Header className={style.header}>
@@ -28,13 +21,15 @@ const App = () => {
           className={style.menu}
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['/chart']}
-          items={siderbarConfig}
+          defaultSelectedKeys={['/home/chart']}
+          items={homeMenuConfig}
+          onClick={(e) => {
+            menuClickHandler(e)
+          }}
         />
       </Header>
       <div className={style.layout_layout}>
         <div className={style.content}>
-          <Outlet />
           <h2>1aaaa</h2>
           <h2>2aaaa</h2>
           <h2>3aaaa</h2>
@@ -66,4 +61,4 @@ const App = () => {
   )
 }
 
-export default App
+// export default memo(HomeLayout)
