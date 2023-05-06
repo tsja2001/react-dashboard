@@ -6,8 +6,7 @@ const siderbarConfig = [
   },
   {
     label: '图表配置',
-    key: '/chart',
-    path: ''
+    key: '/chart'
   },
   {
     label: '大屏配置',
@@ -15,7 +14,7 @@ const siderbarConfig = [
   },
   {
     key: '/nav1',
-    label: 'subnav1',
+    label: '导航子选项1',
     children: [
       {
         key: '/nav1/1',
@@ -37,7 +36,7 @@ const siderbarConfig = [
   },
   {
     key: '/nav2',
-    label: 'subnav2',
+    label: '导航子选项2',
     children: [
       {
         key: '/nav2/1',
@@ -59,7 +58,7 @@ const siderbarConfig = [
   },
   {
     key: '/nav3',
-    label: 'subnav3',
+    label: '导航子选项3',
     children: [
       {
         key: '/nav3/1',

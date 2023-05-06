@@ -1,11 +1,7 @@
 import { memo } from 'react'
 
 const Chart = () => {
-  return (
-    <div>
-      <h1>Chart</h1>
-    </div>
-  )
+  return <div></div>
 }
 
 export default memo(Chart)
