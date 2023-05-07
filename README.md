@@ -6,7 +6,7 @@
 - 启动项目 `pnpm dev`
 - 打包项目 `pnpm build`
 
-### todo List
+### Todo List
 
 - [ ] @/view/home/.../header 抽取公共组件
 - [ ] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
@@ -22,7 +22,7 @@
 - 可以配置单个图表
 - 可以拖动图表配置数据大屏
 
-### 名词介绍
+## 名词介绍
 
 - chart - 单个图表
 - dashboard - 由多个图表组成的大屏
@@ -46,5 +46,5 @@
   1. Vite 预览/打包
   2. ESlint 代码检查
   3. Prettier 代码格式化
-  4. husky Git 提交前自动格式化
+  4. husky git 提交前自动格式化
   5. pnpm 包管理工具
