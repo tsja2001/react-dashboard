@@ -21,11 +21,16 @@
 - 可以配置单个图表
 - 可以拖动图表配置数据大屏
 
+### 名词介绍
+
+- chart - 单个图表
+- dashboard - 由多个图表组成的大屏
+
 ## 技术选型
 
 - React 18
 - React Router 6 路由
-- Sass + CSS Module 样式
+- Sass + CSS Module 样式(模块化 CSS)
 - ant-design/charts 组件库, 使用了其中的
   - G2Plot 图表库
   - And Design UI 组件库

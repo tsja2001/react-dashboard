@@ -5,6 +5,8 @@ import HomeLayout from '@/layout/Home/HomeLayout'
 import { createRoutesFromElements } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
+import Chart from '@/view/chart/Chart'
+import Dashboard from '@/view/dashboard/Dashboard'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,8 +22,8 @@ const router = createBrowserRouter(
         <Route path="/home/dashboard" element={<h1>dashboard</h1>} />
         <Route path="/home/*" element={<NotFound text="页面开发中..." />} />
       </Route>
-      <Route path="/chart" element={<h1>chart</h1>} />
-      <Route path="/dashboard" element={<h1>dashboard</h1>} />
+      <Route path="/chart" element={<Chart />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/*" element={<NotFound text="页面不存在" />} />
     </Route>
   )

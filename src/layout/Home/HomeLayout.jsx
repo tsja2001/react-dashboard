@@ -45,9 +45,6 @@ export const HomeLayout = () => {
       <div className={style.layout_layout}>
         <div className={style.content}>
           <Outlet />
-          {currentMeunActive}
-          {JSON.stringify(currentMeunActive === '/home/dashboard')}
-          <h2>1aaaa</h2>
         </div>
         <div className={style.footer}>云竹大屏 @ 2023</div>
       </div>
