@@ -2,16 +2,27 @@ import { Layout, Menu } from 'antd'
 import homeMenuConfig from './homeMenu.config'
 import style from './HomeLayout.module.scss'
 import { Outlet } from 'react-router-dom'
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const { Header } = Layout
 
 export const HomeLayout = () => {
   let menuClickHandler = null
-  const nav = useNavigate()
 
-  // 切换menu, 跳转路由
+  // 获取当前路由
+  const location = useLocation()
+
+  // 路由切换时, 设置当前选中的menu
+  const [currentMeunActive, setCurrentMeunActive] = useState('/home/chart')
+
+  useEffect(() => {
+    setCurrentMeunActive(location.pathname)
+  }, [location])
+
+  // 切换menu时, 跳转路由
+  const nav = useNavigate()
   menuClickHandler = (e) => {
     nav(e.key)
   }
@@ -24,7 +35,7 @@ export const HomeLayout = () => {
           className={style.menu}
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['/home/chart']}
+          selectedKeys={[currentMeunActive]}
           items={homeMenuConfig}
           onClick={(e) => {
             menuClickHandler(e)
@@ -34,30 +45,9 @@ export const HomeLayout = () => {
       <div className={style.layout_layout}>
         <div className={style.content}>
           <Outlet />
+          {currentMeunActive}
+          {JSON.stringify(currentMeunActive === '/home/dashboard')}
           <h2>1aaaa</h2>
-          <h2>2aaaa</h2>
-          <h2>3aaaa</h2>
-          <h2>4aaaa</h2>
-          <h2>5aaaa</h2>
-          <h2>6aaaa</h2>
-          <h2>7aaaa</h2>
-          <h2>8aaaa</h2>
-          <h2>9aaaa</h2>
-          <h2>10aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>aaaa</h2>
-          <h2>5aaaa</h2>
-          <h2>4aaaa</h2>
-          <h2>3aaaa</h2>
-          <h2>2aaaa</h2>
-          <h2>1aaaa</h2>
-          <h2>0aaaa</h2>
         </div>
         <div className={style.footer}>云竹大屏 @ 2023</div>
       </div>

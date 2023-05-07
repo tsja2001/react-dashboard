@@ -1,7 +1,8 @@
 import { memo } from 'react'
+import { Navigate } from 'react-router-dom'
 
 const DemoComponent = memo(() => {
-  return <div>DemoComponent</div>
+  return <Navigate to="/home" replace />
 })
 
 DemoComponent.displayName = 'DemoComponent'
