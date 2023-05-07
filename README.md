@@ -8,6 +8,11 @@
 
 - 打包项目 `pnpm build`
 
+### todo List
+
+- [] @/view/home/.../header 抽取公共组件
+- [] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
+
 ## 安装插件(建议)
 
 - eslint 插件 - 代码检查
@@ -45,8 +50,3 @@
 3. Prettier 代码格式化
 4. husky Git 提交前自动格式化
 5. pnpm 包管理工具
-
-### todo List
-
-- [x] @/view/home/.../header 抽取公共组件
-- [x] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
