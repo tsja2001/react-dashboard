@@ -10,8 +10,8 @@
 
 ### todo List
 
-- [] @/view/home/.../header 抽取公共组件
-- [] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
+- [ ] @/view/home/.../header 抽取公共组件
+- [ ] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
 
 ## 安装插件(建议)
 
