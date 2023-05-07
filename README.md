@@ -8,13 +8,13 @@
 
 - 打包项目 `pnpm build`
 
-## 前期工作(建议)
+## 安装插件(建议)
 
-- 代码检查 vscode 安装 eslint 插件
+- eslint 插件 - 代码检查
 
-- 代码格式化 vscode 安装 prettier 插件
+- Prettier 插件 - 代码格式化
 
-- css module 代码提示与跳转 vscode 安装 css modules 插件
+- CSS Modules 插件 - 代码提示与跳转
 
 ## 项目介绍
 
@@ -23,12 +23,19 @@
 
 ## 技术选型
 
-React18 + Redux + Vite + Sass + Antd/Antv 全家桶
+- React 18
+- React Router 6 路由
+- Sass + CSS Module 样式
+- ant-design/charts 组件库, 使用了其中的
+  - G2Plot 图表库
+  - And Design UI 组件库
 
 ### 工程化配置
 
 - 工程化技术选型
 
-1. Vite 打包
-2. ESlint 代码检查 (需要下载 eslint 插件)
-3. Prettier 代码格式化 (需要下载 prettier 和 Prettier ESLint 插件)
+1. Vite 预览/打包
+2. ESlint 代码检查
+3. Prettier 代码格式化
+4. husky Git 提交前自动格式化
+5. pnpm 包管理工具
