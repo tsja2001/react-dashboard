@@ -9,17 +9,27 @@
     top: 0;
     left: 0;
     height: 64px;
-    .logo {
-      width: 150px;
-      height: 35px;
-      background-color: #3c4a56;
-      margin-right: 20px;
-      color: rgb(200, 200, 200);
-      line-height: 35px;
-      text-align: center;
-    }
-    .menu {
+    .left {
+      display: flex;
       flex: 1;
+      align-items: center;
+      .logo {
+        width: 150px;
+        height: 35px;
+        background-color: #3c4a56;
+        margin-right: 20px;
+        color: rgb(200, 200, 200);
+        line-height: 35px;
+        text-align: center;
+      }
+      .menu {
+        flex: 1;
+      }
+    }
+    .right {
+      .avatar {
+        background-color: #3c4a56;
+      }
     }
   }
   .layout_layout {
@@ -27,15 +37,15 @@
     max-height: calc(100vh - 64px);
     overflow-x: auto;
     .content {
-      padding: 0 50px;
+      padding: 30px 50px;
       box-sizing: border-box;
       min-height: calc(100vh - 64px - 80px);
     }
     .footer {
       text-align: center;
       color: #3c4a56;
-      background-color: antiquewhite;
-      height: 50px;
+      border-top: 1px solid #d0d0d0;
+      height: 60px;
       width: 100%;
       line-height: 50px;
     }

@@ -1,12 +1,14 @@
 import NotFound from '@/view/notFound/NotFound'
 import { Navigate } from 'react-router-dom'
 import { createBrowserRouter } from 'react-router-dom'
-import HomeLayout from '@/layout/Home/HomeLayout'
+import HomeLayout from '@/view/home/HomeLayout'
 import { createRoutesFromElements } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import Chart from '@/view/chart/Chart'
 import Dashboard from '@/view/dashboard/Dashboard'
+import ChartLayout from '@/view/home/chart/ChartLayout'
+import DashboardLayout from '@/view/home/dashboard/DashboardLayout'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,8 +20,8 @@ const router = createBrowserRouter(
       ></Route>
       <Route path="/home" element={<HomeLayout />} errorElement={<NotFound />}>
         <Route index element={<Navigate to="/home/chart" />} />
-        <Route path="/home/chart" element={<h1>chart</h1>} />
-        <Route path="/home/dashboard" element={<h1>dashboard</h1>} />
+        <Route path="/home/chart" element={<ChartLayout />} />
+        <Route path="/home/dashboard" element={<DashboardLayout />} />
         <Route path="/home/*" element={<NotFound text="页面开发中..." />} />
       </Route>
       <Route path="/chart" element={<Chart />} />

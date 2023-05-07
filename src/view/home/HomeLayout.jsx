@@ -5,12 +5,12 @@ import { Outlet } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { Avatar } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 
 const { Header } = Layout
 
 export const HomeLayout = () => {
-  let menuClickHandler = null
-
   // 获取当前路由
   const location = useLocation()
 
@@ -23,24 +23,29 @@ export const HomeLayout = () => {
 
   // 切换menu时, 跳转路由
   const nav = useNavigate()
-  menuClickHandler = (e) => {
+  const menuClickHandler = (e) => {
     nav(e.key)
   }
 
   return (
     <Layout className={style.layout}>
       <Header className={style.header}>
-        <div className={style.logo}>logo</div>
-        <Menu
-          className={style.menu}
-          theme="dark"
-          mode="horizontal"
-          selectedKeys={[currentMeunActive]}
-          items={homeMenuConfig}
-          onClick={(e) => {
-            menuClickHandler(e)
-          }}
-        />
+        <div className={style.left}>
+          <div className={style.logo}>logo</div>
+          <Menu
+            className={style.menu}
+            theme="dark"
+            mode="horizontal"
+            selectedKeys={[currentMeunActive]}
+            items={homeMenuConfig}
+            onClick={(e) => {
+              menuClickHandler(e)
+            }}
+          />
+        </div>
+        <div className={style.right}>
+          <Avatar className={style.avatar} size={40} icon={<UserOutlined />} />
+        </div>
       </Header>
       <div className={style.layout_layout}>
         <div className={style.content}>

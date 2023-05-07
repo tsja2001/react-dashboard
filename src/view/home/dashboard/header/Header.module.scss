@@ -1,0 +1,18 @@
+.content {
+  width: 100%;
+  .header {
+    width: 100%;
+  }
+  .query {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    .left {
+      .search {
+        width: 300px;
+      }
+    }
+    .right {
+    }
+  }
+}
