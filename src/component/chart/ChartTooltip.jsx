@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Line } from '@ant-design/charts'
+import ChartWrap from './ChartWrap/ChartWrap'
 
 const ChartTooltip = () => {
   const chartRef = useRef()
@@ -129,4 +130,4 @@ const ChartTooltip = () => {
   )
 }
 
-export default ChartTooltip
+export default ChartWrap(ChartTooltip)

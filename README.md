@@ -37,6 +37,7 @@
 
 ### 工程化配置
 
+- 已配置.vscode/settings.json 保存时自动格式化
 - 工程化技术选型
 
 1. Vite 预览/打包
@@ -45,4 +46,7 @@
 4. husky Git 提交前自动格式化
 5. pnpm 包管理工具
 
-- 已配置.vscode/settings.json 保存时自动格式化
+### todo List
+
+- [x] @/view/home/.../header 抽取公共组件
+- [x] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理

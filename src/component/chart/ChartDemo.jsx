@@ -1,5 +1,7 @@
 // import React from 'react'
 import { Line } from '@ant-design/charts'
+import PropTypes from 'prop-types'
+import ChartWrap from './ChartWrap/ChartWrap'
 
 const ChartDemo = () => {
   const data = [
@@ -27,4 +29,9 @@ const ChartDemo = () => {
   return <Line {...config} />
 }
 
-export default ChartDemo
+ChartDemo.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string
+}
+
+export default ChartWrap(ChartDemo)
