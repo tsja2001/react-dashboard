@@ -39,3 +39,5 @@
 3. Prettier 代码格式化
 4. husky Git 提交前自动格式化
 5. pnpm 包管理工具
+
+— 已配置.vscode/settings.json 保存时自动格式化
