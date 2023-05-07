@@ -15,6 +15,9 @@
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "cssModules.camelCase": true
-  // "cssModules.extensions": [".module.scss"]
+  "cssModules.camelCase": true,
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  }
 }
