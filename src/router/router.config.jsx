@@ -1,14 +1,28 @@
-import NotFound from '@/view/notFound/NotFound'
-import { Navigate } from 'react-router-dom'
-import { createBrowserRouter } from 'react-router-dom'
+import React from 'react'
+import {
+  Navigate,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Outlet
+} from 'react-router-dom'
 import HomeLayout from '@/view/home/HomeLayout'
-import { createRoutesFromElements } from 'react-router-dom'
-import { Route } from 'react-router-dom'
-import { Outlet } from 'react-router-dom'
-import Chart from '@/view/chart/Chart'
-import Dashboard from '@/view/dashboard/Dashboard'
+
 import ChartLayout from '@/view/home/chart/ChartLayout'
 import DashboardLayout from '@/view/home/dashboard/DashboardLayout'
+// import Chart from '@/view/chart/Chart'
+// import Dashboard from '@/view/dashboard/Dashboard'
+// import NotFound from '@/view/notFound/NotFound'
+// const HomeLayout = React.lazy(() => import('@/view/home/HomeLayout'))
+// const ChartLayout = React.lazy(() => import('@/view/home/chart/ChartLayout'))
+// const DashboardLayout = React.lazy(() =>
+//   import('@/view/home/dashboard/DashboardLayout')
+// )
+const Chart = React.lazy(() => import('@/view/chart/Chart'))
+const Dashboard = React.lazy(() => import('@/view/dashboard/Dashboard'))
+const NotFound = React.lazy(() => import('@/view/notFound/NotFound'))
+
+// import HomeLayout from '@/view/home/HomeLayout'
 
 const router = createBrowserRouter(
   createRoutesFromElements(

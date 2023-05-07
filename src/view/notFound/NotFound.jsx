@@ -30,7 +30,7 @@ const NotFound = ({ text }) => {
   useEffect(() => {
     timeout.current = setTimeout(() => {
       navBack()
-    }, 2000)
+    }, 3000)
 
     // 监听esc键
     document.addEventListener('keydown', keydownHandler)
@@ -44,7 +44,7 @@ const NotFound = ({ text }) => {
   return (
     <div className={style.content}>
       <h1>{text ?? 'Page NotFound'}</h1>
-      {ifCancleNav ? <h2>已取消跳转</h2> : <h2>2秒后自动跳转到上一页</h2>}
+      {ifCancleNav ? <h2>已取消跳转</h2> : <h2>3秒后自动跳转到上一页</h2>}
 
       <div className={style.button_box}>
         <Button onClick={() => navBack()} type="primary">
