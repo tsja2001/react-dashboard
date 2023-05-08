@@ -10,6 +10,7 @@
 
 - [ ] @/view/home/.../header 抽取公共组件
 - [ ] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
+- [ ] 懒加载占位组件未开发
 
 ## 安装插件(建议)
 

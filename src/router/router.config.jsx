@@ -10,19 +10,10 @@ import HomeLayout from '@/view/home/HomeLayout'
 
 import ChartLayout from '@/view/home/chart/ChartLayout'
 import DashboardLayout from '@/view/home/dashboard/DashboardLayout'
-// import Chart from '@/view/chart/Chart'
-// import Dashboard from '@/view/dashboard/Dashboard'
-// import NotFound from '@/view/notFound/NotFound'
-// const HomeLayout = React.lazy(() => import('@/view/home/HomeLayout'))
-// const ChartLayout = React.lazy(() => import('@/view/home/chart/ChartLayout'))
-// const DashboardLayout = React.lazy(() =>
-//   import('@/view/home/dashboard/DashboardLayout')
-// )
+// 组件懒加载
 const Chart = React.lazy(() => import('@/view/chart/Chart'))
 const Dashboard = React.lazy(() => import('@/view/dashboard/Dashboard'))
 const NotFound = React.lazy(() => import('@/view/notFound/NotFound'))
-
-// import HomeLayout from '@/view/home/HomeLayout'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
