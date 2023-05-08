@@ -7,8 +7,11 @@ export default defineConfig({
   plugins: [react()],
 
   server: {
-    host: '0.0.0.0'
-    // hmr: false
+    host: '0.0.0.0',
+    open: {
+      // 默认打开Chrome
+      browser: 'chrome'
+    }
   },
 
   resolve: {
