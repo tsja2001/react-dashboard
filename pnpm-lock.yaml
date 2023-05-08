@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@ant-design/charts': ^1.4.2
   '@ant-design/icons': ^5.0.1
+  '@ant-design/plots': ^1.2.5
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
   '@vitejs/plugin-react': ^4.0.0
@@ -28,6 +29,7 @@ specifiers:
 dependencies:
   '@ant-design/charts': 1.4.2_pu5rr4pqgsx7i6iju43bx6htgi
   '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
+  '@ant-design/plots': 1.2.5_biqbaboplfbrettd7655fr4n2y
   antd: 5.4.6_biqbaboplfbrettd7655fr4n2y
   autoprefixer: 10.4.14_postcss@8.4.23
   cssnano: 6.0.0_postcss@8.4.23

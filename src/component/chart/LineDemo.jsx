@@ -1,9 +1,8 @@
 // import React from 'react'
 import { Line } from '@ant-design/charts'
-import PropTypes from 'prop-types'
-import ChartWrap from './ChartWrap/ChartWrap'
+// import PropTypes from 'prop-types'
 
-const ChartDemo = () => {
+const LineDemo = () => {
   const data = [
     { year: '1991', value: 3 },
     { year: '1992', value: 4 },
@@ -18,9 +17,9 @@ const ChartDemo = () => {
 
   const config = {
     data,
-    height: 400,
     xField: 'year',
     yField: 'value',
+    autoFit: true,
     point: {
       size: 5,
       shape: 'diamond'
@@ -29,9 +28,6 @@ const ChartDemo = () => {
   return <Line {...config} />
 }
 
-ChartDemo.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string
-}
+LineDemo.propTypes = {}
 
-export default ChartWrap(ChartDemo)
+export default LineDemo
