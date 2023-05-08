@@ -36,8 +36,4 @@ const router = createBrowserRouter(
   )
 )
 
-router.subscribe((location) => {
-  console.log(location)
-})
-
 export default router
