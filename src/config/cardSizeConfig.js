@@ -8,18 +8,18 @@
 export const cardSizeConfig = {
   mini: {
     colSpan: 6,
-    height: '300px'
+    height: '27vh'
   },
   small: {
     colSpan: 8,
-    height: '400px'
+    height: '35vh'
   },
   medium: {
     colSpan: 12,
-    height: '500px'
+    height: '57vh'
   },
   large: {
     colSpan: 24,
-    height: '600px'
+    height: '60vh'
   }
 }
