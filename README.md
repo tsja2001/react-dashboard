@@ -9,8 +9,9 @@
 ### Todo List
 
 - [ ] @/view/home/.../header 抽取公共组件
-- [ ] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
+- [1] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
 - [ ] 懒加载占位组件未开发
+- [ ] @/view/home/chart/ChartLayout.jsx 使用 Context 实现 Header 选择列数, Content 显示列数功能, 考虑是否使用状态管理器重构此功能
 
 ## 安装插件(建议)
 
