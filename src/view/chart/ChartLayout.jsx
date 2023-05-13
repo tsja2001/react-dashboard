@@ -1,24 +1,16 @@
-import { createContext, memo, useState } from 'react'
+import { createContext, memo } from 'react'
 import style from './ChartLayout.module.scss'
 import Header from './header/Header'
 import Content from './content/Content'
+import { Outlet } from 'react-router-dom'
 
 export const HomeChatContext = createContext()
 
 const ChartLayout = () => {
-  const [cardSize, setCardSize] = useState('small')
-
-  const contextState = {
-    cardSize,
-    setCardSize
-  }
-
   return (
     <div className={style.content}>
-      <HomeChatContext.Provider value={contextState}>
-        <Header />
-        <Content />
-      </HomeChatContext.Provider>
+      <Header />
+      <Content />
     </div>
   )
 }
