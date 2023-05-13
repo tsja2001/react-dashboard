@@ -18,11 +18,16 @@ const slice = createSlice({
         value: 'chart_id_3'
       }
     ],
+    currentSelectedId: null,
+    // 异步获取得到的, 当前选中的chart数据
     currentChartData: null
   },
   reducers: {
     setCurrentChartData(state, action) {
       state.currentChartData = action.payload
+    },
+    setCurrentSelectedId(state, action) {
+      state.currentSelectedId = action.payload
     }
   }
 })
@@ -36,5 +41,5 @@ export const fetchChartDataById = createAsyncThunk(
   }
 )
 
-export const { setCurrentChartData } = slice.actions
+export const { setCurrentChartData, setCurrentSelectedId } = slice.actions
 export default slice.reducer
