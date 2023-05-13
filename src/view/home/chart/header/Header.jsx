@@ -5,13 +5,19 @@ import { PlusCircleOutlined } from '@ant-design/icons'
 
 import style from './Header.module.scss'
 import { changeColumn } from '@/store/features/view/home/chart'
+import { cardSizeConfig } from '@/config/cardSizeConfig'
 
 const Header = (props) => {
-  const { changeColumn } = props
+  const { changeColumn, cardSize } = props
 
   const searchHandler = (value) => console.log(value)
   const radioChangeHandler = (e) => {
-    changeColumn(e.target.value)
+    for (let item of cardSizeConfig) {
+      if (item.value === e.target.value) {
+        changeColumn(item)
+        break
+      }
+    }
   }
 
   return (
@@ -29,11 +35,16 @@ const Header = (props) => {
         </div>
         <div className={style.right}>
           <Space>
-            <Radio.Group onChange={radioChangeHandler} defaultValue="small">
-              <Radio.Button value="large">单列</Radio.Button>
-              <Radio.Button value="medium">双列</Radio.Button>
-              <Radio.Button value="small">三列</Radio.Button>
-              <Radio.Button value="mini">四列</Radio.Button>
+            <Radio.Group
+              onChange={radioChangeHandler}
+              value={cardSize.value}
+              defaultValue="small"
+            >
+              {cardSizeConfig.map((item) => (
+                <Radio.Button key={item.value} value={item.value}>
+                  {item.label}
+                </Radio.Button>
+              ))}
             </Radio.Group>
             <Button icon={<PlusCircleOutlined />} type="primary">
               新建图表
@@ -45,8 +56,11 @@ const Header = (props) => {
   )
 }
 
+const mapStateToProps = (state) => ({
+  cardSize: state.viewHomeChart.cardSize
+})
 const mapDispatchToProps = (dispatch) => ({
   changeColumn: (value) => dispatch(changeColumn(value))
 })
 
-export default connect(null, mapDispatchToProps)(memo(Header))
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Header))

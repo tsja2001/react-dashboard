@@ -17,7 +17,11 @@ const CardWrap = (props) => {
       className={style.card}
       title="图表名称显示占位"
       extra={
-        <Button type="link" onClick={() => detailHandler('id=xxx')}>
+        <Button
+          className={style.button}
+          type="link"
+          onClick={() => detailHandler('id=xxx')}
+        >
           查看详细
         </Button>
       }

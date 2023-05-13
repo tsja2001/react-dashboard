@@ -5,21 +5,29 @@
  * colSpan: 网格布局, Antd.Col的span属性
  * height: 卡片的高度
  */
-export const cardSizeConfig = {
-  mini: {
-    colSpan: 6,
-    height: '27vh'
+export const cardSizeConfig = [
+  {
+    value: 'large',
+    label: '单列',
+    colSpan: 24,
+    height: '60vh'
   },
-  small: {
-    colSpan: 8,
-    height: '35vh'
-  },
-  medium: {
+  {
+    value: 'medium',
+    label: '双列',
     colSpan: 12,
     height: '57vh'
   },
-  large: {
-    colSpan: 24,
-    height: '60vh'
+  {
+    value: 'small',
+    label: '三列',
+    colSpan: 8,
+    height: '35vh'
+  },
+  {
+    value: 'mini',
+    label: '四列',
+    colSpan: 6,
+    height: '27vh'
   }
-}
+]
