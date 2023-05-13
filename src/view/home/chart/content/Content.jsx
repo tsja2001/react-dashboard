@@ -72,7 +72,7 @@ const Content = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  cardSize: state.chart.cardSize
+  cardSize: state.viewHomeChart.cardSize
 })
 
 export default connect(mapStateToProps)(memo(Content))

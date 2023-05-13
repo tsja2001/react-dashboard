@@ -3,7 +3,7 @@ import chartSlice from './features/view/home/chart'
 
 const store = configureStore({
   reducer: {
-    chart: chartSlice
+    viewHomeChart: chartSlice
   }
 })
 
