@@ -1,4 +1,5 @@
 export default {
+  label: '饼图mock数据',
   chartData: [
     {
       type: '分类一',

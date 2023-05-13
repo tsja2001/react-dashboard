@@ -1,4 +1,5 @@
 export default {
+  label: '柱状图mock数据',
   chartData: [
     {
       name: 'London',

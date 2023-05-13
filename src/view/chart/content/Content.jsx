@@ -5,7 +5,6 @@ const Content = () => {
   return (
     <div>
       <h2>Content</h2>
-      {/* <Outlet /> */}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 export default {
+  label: '折线图mock数据',
   chartData: [
     { year: '1991', value: 3 },
     { year: '1992', value: 4 },
