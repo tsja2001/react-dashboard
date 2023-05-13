@@ -1,18 +1,17 @@
-import { memo, useContext } from 'react'
-import style from './Header.module.scss'
-import { Button, Input } from 'antd'
+import { memo } from 'react'
+import { Radio, Space, Button, Input } from 'antd'
+import { connect } from 'react-redux'
 import { PlusCircleOutlined } from '@ant-design/icons'
-import { Radio } from 'antd'
-import { Space } from 'antd'
-import { HomeChatContext } from '../ChartLayout'
 
-const Header = () => {
-  const { setCardSize } = useContext(HomeChatContext)
+import style from './Header.module.scss'
+import { changeColumn } from '@/store/features/view/home/chart'
+
+const Header = (props) => {
+  const { changeColumn } = props
 
   const searchHandler = (value) => console.log(value)
-
   const radioChangeHandler = (e) => {
-    setCardSize(e.target.value)
+    changeColumn(e.target.value)
   }
 
   return (
@@ -46,4 +45,8 @@ const Header = () => {
   )
 }
 
-export default memo(Header)
+const mapDispatchToProps = (dispatch) => ({
+  changeColumn: (value) => dispatch(changeColumn(value))
+})
+
+export default connect(null, mapDispatchToProps)(memo(Header))

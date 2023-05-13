@@ -1,17 +1,16 @@
-import ChartDemo from '@/component/chart/LineDemo'
-import { memo, useContext, useState } from 'react'
-import style from './Content.module.scss'
+import { memo, useState } from 'react'
 import { Col, Row } from 'antd'
+import { connect } from 'react-redux'
+
+import style from './Content.module.scss'
+import ChartDemo from '@/component/chart/LineDemo'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import ColumnDemo from '@/component/chart/ColumnDemo'
 import PieDemo from '@/component/chart/PieDemo'
-import { HomeChatContext } from '../ChartLayout'
-import { cardSizeConfig } from '@/config/cardSizeConfig'
 import CardModal from '../cpns/cardModal/CardModal'
 
-const Content = () => {
-  const { cardSize } = useContext(HomeChatContext)
-  const cardStyle = cardSizeConfig[cardSize]
+const Content = (props) => {
+  const { cardSize } = props
 
   const [ifShowModal, setIfShowModal] = useState(false)
 
@@ -32,9 +31,9 @@ const Content = () => {
         <ChartDemo />
       </CardModal>
       <Row gutter={16} className={style.row}>
-        <Col span={cardStyle.colSpan}>
+        <Col span={cardSize.colSpan}>
           <ChartWrap
-            height={cardStyle.height}
+            height={cardSize.height}
             deleteHandler={deleteHandler}
             editHandler={editHandler}
             detailHandler={detailHandler}
@@ -42,28 +41,28 @@ const Content = () => {
             <ChartDemo />
           </ChartWrap>
         </Col>
-        <Col span={cardStyle.colSpan}>
-          <ChartWrap height={cardStyle.height}>
+        <Col span={cardSize.colSpan}>
+          <ChartWrap height={cardSize.height}>
             <ColumnDemo />
           </ChartWrap>
         </Col>
-        <Col span={cardStyle.colSpan}>
-          <ChartWrap height={cardStyle.height}>
+        <Col span={cardSize.colSpan}>
+          <ChartWrap height={cardSize.height}>
             <PieDemo />
           </ChartWrap>
         </Col>
-        <Col span={cardStyle.colSpan}>
-          <ChartWrap height={cardStyle.height}>
+        <Col span={cardSize.colSpan}>
+          <ChartWrap height={cardSize.height}>
             <ChartDemo />
           </ChartWrap>
         </Col>
-        <Col span={cardStyle.colSpan}>
-          <ChartWrap height={cardStyle.height}>
+        <Col span={cardSize.colSpan}>
+          <ChartWrap height={cardSize.height}>
             <ChartDemo />
           </ChartWrap>
         </Col>
-        <Col span={cardStyle.colSpan}>
-          <ChartWrap height={cardStyle.height}>
+        <Col span={cardSize.colSpan}>
+          <ChartWrap height={cardSize.height}>
             <ChartDemo />
           </ChartWrap>
         </Col>
@@ -72,4 +71,8 @@ const Content = () => {
   )
 }
 
-export default memo(Content)
+const mapStateToProps = (state) => ({
+  cardSize: state.chart.cardSize
+})
+
+export default connect(mapStateToProps)(memo(Content))

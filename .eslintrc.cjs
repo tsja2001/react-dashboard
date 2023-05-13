@@ -18,6 +18,8 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': 'warn'
+    'react-refresh/only-export-components': 'warn',
+    // 需要先定义props的类型, 否则会报错
+    'react/prop-types': 'off'
   }
 }
