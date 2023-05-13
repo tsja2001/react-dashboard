@@ -10,9 +10,9 @@ import HomeLayout from '@/view/home/HomeLayout'
 
 import ChartLayout from '@/view/home/chart/ChartLayout'
 import DashboardLayout from '@/view/home/dashboard/DashboardLayout'
-import SelectData from '@/view/chart/content/SelectData/SelectData'
-import SelectChart from '@/view/chart/content/SelectChart/SelectChart'
-import ConfigureChart from '@/view/chart/content/ConfigureChart/ConfigureChart'
+import SelectData from '@/view/chart/content/selectData/SelectData'
+import SelectChart from '@/view/chart/content/selectChart/SelectChart'
+import ConfigureChart from '@/view/chart/content/configureChart/ConfigureChart'
 // 组件懒加载
 const ChartEdit = React.lazy(() => import('@/view/chart/ChartLayout'))
 const Dashboard = React.lazy(() => import('@/view/dashboard/Dashboard'))
@@ -37,6 +37,7 @@ const router = createBrowserRouter(
         <Route path="/chart/select_data" element={<SelectData />} />
         <Route path="/chart/select_chart" element={<SelectChart />} />
         <Route path="/chart/configure_chart" element={<ConfigureChart />} />
+        <Route path="/chart/*" element={<NotFound text="页面不存在..." />} />
       </Route>
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/*" element={<NotFound text="页面不存在" />} />

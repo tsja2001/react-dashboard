@@ -1,25 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import lineData from '@/mock/chartData/lineData'
+import pieData from '@/mock/chartData/pieData'
+import columnData from '@/mock/chartData/columnData'
 
 const slice = createSlice({
-  name: 'view/chart',
+  name: 'view/chart/selectData',
   initialState: {
-    steps: {
-      current: 0,
-      componentConfig: [
-        {
-          title: '选择数据',
-          router: 'select_data'
-        },
-        {
-          title: '选择图表',
-          router: 'select_chart'
-        },
-        {
-          title: '配置图表',
-          router: 'configure_chart'
-        }
-      ]
-    }
+    selectableData: [lineData, pieData, columnData],
+    selectedData: null
   },
   reducers: {
     setStepsCurrent(state, action) {

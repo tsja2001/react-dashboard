@@ -1,38 +1,57 @@
 import { Steps } from 'antd'
-import { memo, useState } from 'react'
+import { memo, useEffect } from 'react'
 import style from './Header.module.scss'
+import { connect } from 'react-redux'
+import {
+  setStepsComponentConfig,
+  setStepsCurrent
+} from '@/store/features/view/chart'
+import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
-const Header = () => {
-  const [current, setCurrent] = useState(0)
+const Header = (props) => {
+  const { steps, setStepsCurrent } = props
+  const nav = useNavigate()
 
   const onChange = (value) => {
-    console.log('onChange:', value)
-    setCurrent(value)
+    setStepsCurrent(value)
+    const router = steps.componentConfig[value].router
+    nav(`/chart/${router}`)
   }
+
+  // 获取当前路由
+  const location = useLocation()
+  // 路由切换时, 设置当前选中的menu
+  useEffect(() => {
+    console.log('location', location)
+    setStepsCurrent(
+      steps.componentConfig.findIndex(
+        (item) => item.router === location.pathname.split('/')[2]
+      )
+    )
+  }, [location])
 
   return (
     <div className={style.content}>
       <Steps
         type="navigation"
-        current={current}
+        current={steps.current}
         onChange={onChange}
         className={style.steps}
-        items={[
-          {
-            status: 'finish',
-            title: '选择数据'
-          },
-          {
-            status: 'process',
-            title: '选择图表'
-          },
-          {
-            status: 'wait',
-            title: '配置图表'
-          }
-        ]}
+        items={steps.componentConfig}
       />
     </div>
   )
 }
-export default memo(Header)
+
+const mapStateToProps = (state) => ({
+  steps: state.viewChart.steps
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setStepsCurrent: (current) => dispatch(setStepsCurrent(current)),
+  setStepsComponentConfig: (componentConfig) =>
+    dispatch(setStepsComponentConfig(componentConfig))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Header))
