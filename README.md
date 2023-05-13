@@ -11,7 +11,7 @@
 - [ ] @/view/home/.../header 抽取公共组件
 - [x] @/component/chart/ChartWrap/ChartWrap.jsx 高阶组件功能设计不合理
 - [ ] 懒加载占位组件未开发
-- [ ] @/view/home/chart/ChartLayout.jsx 使用 Context 实现 Header 选择列数, Content 显示列数功能, 考虑是否使用状态管理器重构此功能
+- [x] @/view/home/chart/ChartLayout.jsx 使用 Context 实现 Header 选择列数, Content 显示列数功能, 考虑是否使用状态管理器重构此功能
 
 ## 安装插件(建议)
 
@@ -34,6 +34,7 @@
 - React 18
 - React Router 6 路由
 - Sass + CSS Module 样式(模块化 CSS)
+- redux + react-redux + redux/toolkit 状态管理
 - ant-design/charts 组件库, 使用了其中的
 
   - G2Plot 图表库
