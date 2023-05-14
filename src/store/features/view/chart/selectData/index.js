@@ -6,20 +6,24 @@ const slice = createSlice({
     // 此数据, 应当派发异步action, 从后端获取
     selectedDataOptions: [
       {
-        label: '多折线图mock数据',
-        value: 'chart_id_4'
-      },
-      {
         label: '折线图mock数据',
         value: 'chart_id_1'
       },
       {
-        label: '饼图mock数据',
+        label: '多折线图mock数据',
         value: 'chart_id_2'
       },
       {
         label: '柱状图mock数据',
         value: 'chart_id_3'
+      },
+      {
+        label: '多柱状图mock数据',
+        value: 'chart_id_4'
+      },
+      {
+        label: '饼图mock数据',
+        value: 'chart_id_5'
       }
     ],
     currentChartId: null,

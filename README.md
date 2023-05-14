@@ -15,6 +15,7 @@
 - [ ] @/view/chart/content 图表创建页面, 选择数据、选择图表、配置图三个表子组件有独立 store slice, 考虑是否将其三个 slice 融合为一个 slice
 - [ ] @/view/chart/content/selectData/SelectData.jsx 页面, 数据预览功能未开发, 期待功能: 左侧 json 高亮展示, 右侧表格展示
 - [ ] @/view/chart/content 图表编辑三个子页面数据预拉以及取缓存功能待开发
+- [ ] @/@/mock/chartData/getChartPresetMockConfig/barChartPreset.js 横向图表 xy 轴数据反转功能未实现, 导致 bar 组件显示有问题
 
 ## 安装插件(建议)
 

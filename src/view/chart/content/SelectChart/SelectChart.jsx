@@ -3,7 +3,7 @@ import style from './SelectChart.module.scss'
 import { Col, Row } from 'antd'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { connect } from 'react-redux'
-import { Line, Area } from '@ant-design/plots'
+import { Line, Area, Column, Bar } from '@ant-design/plots'
 import {
   fetchAllPresetChartConfig,
   setAvailablePresetChartConfig
@@ -58,6 +58,18 @@ const SelectChart = (props) => {
                   )}
                   {chartTypeItem.type === 'Area' && (
                     <Area
+                      {...currentChartData.chartConfig}
+                      {...chartConfig.presetConf}
+                    />
+                  )}
+                  {chartTypeItem.type === 'Column' && (
+                    <Column
+                      {...currentChartData.chartConfig}
+                      {...chartConfig.presetConf}
+                    />
+                  )}
+                  {chartTypeItem.type === 'Bar' && (
+                    <Bar
                       {...currentChartData.chartConfig}
                       {...chartConfig.presetConf}
                     />
