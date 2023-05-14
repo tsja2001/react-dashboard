@@ -1,5 +1,5 @@
-import lineData from '@/mock/chartData/getChartMookData/lineData'
-import pieData from '@/mock/chartData/getChartMookData/pieData'
+import lineData from '@/mock/chartData/lineData'
+import pieData from '@/mock/chartData/pieData'
 import columnData from '@/mock/chartData/getChartMookData/columnData'
 import { featNetwork } from '@/mock/feakNetwork'
 
