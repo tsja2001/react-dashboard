@@ -1,4 +1,4 @@
-import { getChartMockData } from '@/mock/chartData/getChartMookData'
+import { getChartMockData } from '@/mock/chartData/getChartMockData'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 const slice = createSlice({
   name: 'view/chart/selectData',
@@ -18,7 +18,7 @@ const slice = createSlice({
         value: 'chart_id_3'
       }
     ],
-    currentSelectedId: null,
+    currentChartId: null,
     // 异步获取得到的, 当前选中的chart数据
     currentChartData: null
   },
@@ -26,8 +26,8 @@ const slice = createSlice({
     setCurrentChartData(state, action) {
       state.currentChartData = action.payload
     },
-    setCurrentSelectedId(state, action) {
-      state.currentSelectedId = action.payload
+    setcurrentChartId(state, action) {
+      state.currentChartId = action.payload
     }
   }
 })
@@ -41,5 +41,5 @@ export const fetchChartDataById = createAsyncThunk(
   }
 )
 
-export const { setCurrentChartData, setCurrentSelectedId } = slice.actions
+export const { setCurrentChartData, setcurrentChartId } = slice.actions
 export default slice.reducer

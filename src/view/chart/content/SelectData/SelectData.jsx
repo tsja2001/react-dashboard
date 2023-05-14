@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import { Button, Form } from 'antd'
 import style from './SelectData.module.scss'
 import { Select } from 'antd'
 import {
   fetchChartDataById,
-  setCurrentSelectedId
+  setcurrentChartId
 } from '@/store/features/view/chart/selectData'
 import { CaretRightOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
@@ -15,8 +15,8 @@ const SelectData = (props) => {
     selectedDataOptions,
     fetchChartData,
     currentChartData,
-    currentSelectedId,
-    setCurrentSelectedId
+    currentChartId,
+    setcurrentChartId
   } = props
 
   const nav = useNavigate()
@@ -24,7 +24,7 @@ const SelectData = (props) => {
   const onChange = async (value) => {
     // 根据选择的option, 去获取对应table完整数据
     fetchChartData(value)
-    setCurrentSelectedId(value)
+    setcurrentChartId(value)
   }
 
   const onSearch = (value) => {
@@ -34,6 +34,13 @@ const SelectData = (props) => {
   const nextStepHandler = () => {
     nav('/chart/select_chart')
   }
+
+  // 设置Select默认选中第一个数据源
+  useEffect(() => {
+    if (selectedDataOptions.length > 0) {
+      onChange(selectedDataOptions[0].value)
+    }
+  }, [selectedDataOptions])
 
   return (
     <div className={style.content}>
@@ -52,7 +59,7 @@ const SelectData = (props) => {
             optionFilterProp="children"
             onChange={onChange}
             onSearch={onSearch}
-            value={currentSelectedId}
+            value={currentChartId}
             filterOption={(input, option) =>
               (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
             }
@@ -68,6 +75,7 @@ const SelectData = (props) => {
           <Button
             type="primary"
             onClick={nextStepHandler}
+            size="large"
             disabled={!currentChartData}
           >
             下一步
@@ -82,11 +90,11 @@ const SelectData = (props) => {
 const mapStateToProps = (state) => ({
   selectedDataOptions: state.viewChartSelectData.selectedDataOptions,
   currentChartData: state.viewChartSelectData.currentChartData,
-  currentSelectedId: state.viewChartSelectData.currentSelectedId
+  currentChartId: state.viewChartSelectData.currentChartId
 })
 const mapDispatchToProps = (dispatch) => ({
   fetchChartData: (value) => dispatch(fetchChartDataById(value)),
-  setCurrentSelectedId: (value) => dispatch(setCurrentSelectedId(value))
+  setcurrentChartId: (value) => dispatch(setcurrentChartId(value))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(SelectData))

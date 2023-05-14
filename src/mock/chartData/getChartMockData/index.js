@@ -1,6 +1,6 @@
-import lineData from '@/mock/chartData/lineData'
-import pieData from '@/mock/chartData/pieData'
-import columnData from '@/mock/chartData/getChartMookData/columnData'
+import lineData from '@/mock/chartData/getChartMockData/lineData'
+import pieData from '@/mock/chartData/getChartMockData/pieData'
+import columnData from '@/mock/chartData/getChartMockData/columnData'
 import { featNetwork } from '@/mock/feakNetwork'
 
 export const getChartMockData = async (chartId) => {
