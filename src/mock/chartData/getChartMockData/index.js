@@ -2,6 +2,7 @@ import lineData from '@/mock/chartData/getChartMockData/lineData'
 import pieData from '@/mock/chartData/getChartMockData/pieData'
 import columnData from '@/mock/chartData/getChartMockData/columnData'
 import { featNetwork } from '@/mock/feakNetwork'
+import seriesLineData from './seriesLineData'
 
 export const getChartMockData = async (chartId) => {
   if (chartId === 'chart_id_1') {
@@ -12,5 +13,8 @@ export const getChartMockData = async (chartId) => {
   }
   if (chartId === 'chart_id_3') {
     return await featNetwork(columnData)
+  }
+  if (chartId === 'chart_id_4') {
+    return await featNetwork(seriesLineData)
   }
 }

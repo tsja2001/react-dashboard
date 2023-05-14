@@ -8,7 +8,15 @@ export default {
     },
     {
       label: '基础曲线图',
-      presetConf: { smooth: true }
+      presetConf: {
+        smooth: true
+      }
+    },
+    {
+      label: '阶梯折线图',
+      presetConf: {
+        stepType: 'vh'
+      }
     },
     {
       label: '折线点带有数据',

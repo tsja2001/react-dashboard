@@ -10,7 +10,11 @@ const store = configureStore({
     viewChart,
     viewChartSelectData,
     viewChartSelectChart
-  }
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false
+    })
 })
 
 export default store

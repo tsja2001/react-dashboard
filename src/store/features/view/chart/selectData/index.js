@@ -6,6 +6,10 @@ const slice = createSlice({
     // 此数据, 应当派发异步action, 从后端获取
     selectedDataOptions: [
       {
+        label: '多折线图mock数据',
+        value: 'chart_id_4'
+      },
+      {
         label: '折线图mock数据',
         value: 'chart_id_1'
       },

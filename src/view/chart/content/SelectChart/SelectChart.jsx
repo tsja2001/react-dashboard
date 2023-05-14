@@ -3,11 +3,12 @@ import style from './SelectChart.module.scss'
 import { Col, Row } from 'antd'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { connect } from 'react-redux'
-import { Line } from '@ant-design/plots'
+import { Line, Area } from '@ant-design/plots'
 import {
   fetchAllPresetChartConfig,
   setAvailablePresetChartConfig
 } from '@/store/features/view/chart/selectChart'
+import { useNavigate } from 'react-router-dom'
 
 const SelectChart = (props) => {
   const {
@@ -17,9 +18,7 @@ const SelectChart = (props) => {
     availablePresetChartConfig
   } = props
 
-  console.log('availablePresetChartConfig', availablePresetChartConfig)
-
-  // 用户在第一步选择数据源变化时, 重新获取数据源下的所有可用预设chart配置
+  const nav = useNavigate()
 
   // 若不存在可用预设chart配置, 则获取所有预设chart配置
   useEffect(() => {
@@ -28,29 +27,41 @@ const SelectChart = (props) => {
     }
   }, [allPresetChartConfig])
 
-  // 选择的图表变化时, 设置当前可用的预设chart配置
+  // 择数据源变化时, 重新获取数据源下的所有可用预设chart配置
   useEffect(() => {
+    if (!currentChartData) {
+      return nav('/chart/select_data')
+    }
+
     const avilableChartType = currentChartData.chartType
     dispatchSetAvailablePresetChartConfig(avilableChartType)
-  }, [currentChartData])
+  }, [allPresetChartConfig, currentChartData])
 
   return (
     <div className={style.content}>
-      {availablePresetChartConfig.map((item) => (
-        <div key={item.type}>
-          <h2>{item.label}</h2>
+      {availablePresetChartConfig.map((chartTypeItem) => (
+        <div key={chartTypeItem.type}>
+          <h2>{chartTypeItem.label}</h2>
           <Row gutter={8} className={style.row}>
-            {item.presetList.map((chartConfig) => (
-              <Col span={8} key={chartConfig.label}>
+            {chartTypeItem.presetList.map((chartConfig) => (
+              <Col span={12} key={chartConfig.label}>
                 <ChartWrap
                   height={'300px'}
                   detailHandler={(id) => console.log('detailHandler', id)}
                   title={chartConfig.label}
                 >
-                  <Line
-                    {...currentChartData.chartConfig}
-                    {...chartConfig.presetConf}
-                  />
+                  {chartTypeItem.type === 'Line' && (
+                    <Line
+                      {...currentChartData.chartConfig}
+                      {...chartConfig.presetConf}
+                    />
+                  )}
+                  {chartTypeItem.type === 'Area' && (
+                    <Area
+                      {...currentChartData.chartConfig}
+                      {...chartConfig.presetConf}
+                    />
+                  )}
                 </ChartWrap>
               </Col>
             ))}
