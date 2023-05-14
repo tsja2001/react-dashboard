@@ -6,6 +6,7 @@ import { PlusCircleOutlined } from '@ant-design/icons'
 import style from './Header.module.scss'
 import { changeColumn } from '@/store/features/view/home/chart'
 import { cardSizeConfig } from '@/config/cardSizeConfig'
+import { NavLink } from 'react-router-dom'
 
 const Header = (props) => {
   const { changeColumn, cardSize } = props
@@ -46,9 +47,12 @@ const Header = (props) => {
                 </Radio.Button>
               ))}
             </Radio.Group>
-            <Button icon={<PlusCircleOutlined />} type="primary">
-              新建图表
-            </Button>
+            <NavLink to="/chart/select_data">
+              <Button type="primary">
+                <PlusCircleOutlined />
+                新建图表
+              </Button>
+            </NavLink>
           </Space>
         </div>
       </div>
