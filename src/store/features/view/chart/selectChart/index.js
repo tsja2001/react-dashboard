@@ -14,6 +14,10 @@ const slice = createSlice({
     setAvailablePresetChartConfig(state, { payload }) {
       const { allPresetChartConfig } = state
 
+      console.log(payload)
+      console.log(JSON.parse(JSON.stringify(allPresetChartConfig)))
+
+      // return
       const availablePresetChartConfig = allPresetChartConfig.filter((item) => {
         return payload.includes(item.type)
       })
@@ -28,7 +32,6 @@ export const fetchAllPresetChartConfig = createAsyncThunk(
   'view/chart/selectChart/fetchAllPresetChartConfig',
   async (props, { dispatch }) => {
     const res = await getChartPresetMockConfig()
-    console.log('res', res)
     dispatch(setAllPresetChartConfig(res))
   }
 )

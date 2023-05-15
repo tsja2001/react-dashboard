@@ -1,7 +1,7 @@
 export default {
   label: '多折线图mock数据',
   id: 'chart_id_2',
-  chartType: ['Line', 'Area'],
+  chartType: ['Line'],
   chartConfig: {
     xField: 'year',
     yField: 'value',

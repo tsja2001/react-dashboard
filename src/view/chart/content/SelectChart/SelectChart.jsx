@@ -9,6 +9,7 @@ import {
   setAvailablePresetChartConfig
 } from '@/store/features/view/chart/selectChart'
 import { useNavigate } from 'react-router-dom'
+import { Pie } from '@ant-design/plots'
 
 const SelectChart = (props) => {
   const {
@@ -70,6 +71,12 @@ const SelectChart = (props) => {
                   )}
                   {chartTypeItem.type === 'Bar' && (
                     <Bar
+                      {...currentChartData.chartConfig}
+                      {...chartConfig.presetConf}
+                    />
+                  )}
+                  {chartTypeItem.type === 'Pie' && (
+                    <Pie
                       {...currentChartData.chartConfig}
                       {...chartConfig.presetConf}
                     />
