@@ -1,36 +1,21 @@
-import { getChartMockData } from '@/mock/chartData/getChartMockData'
+import {
+  getChartMockData,
+  getChartMockIndex
+} from '@/mock/chartData/getChartMockData'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 const slice = createSlice({
   name: 'view/chart/selectData',
   initialState: {
     // 此数据, 应当派发异步action, 从后端获取
-    selectedDataOptions: [
-      {
-        label: '折线图mock数据',
-        value: 'chart_id_1'
-      },
-      {
-        label: '多折线图mock数据',
-        value: 'chart_id_2'
-      },
-      {
-        label: '柱状图mock数据',
-        value: 'chart_id_3'
-      },
-      {
-        label: '多柱状图mock数据',
-        value: 'chart_id_4'
-      },
-      {
-        label: '饼图mock数据',
-        value: 'chart_id_5'
-      }
-    ],
+    selectedDataOptions: [],
     currentChartId: null,
     // 异步获取得到的, 当前选中的chart数据
     currentChartData: null
   },
   reducers: {
+    setSelectedDataOptions(state, action) {
+      state.selectedDataOptions = action.payload
+    },
     setCurrentChartData(state, action) {
       state.currentChartData = action.payload
     },
@@ -39,6 +24,15 @@ const slice = createSlice({
     }
   }
 })
+// 获取chart数据的索引, 用于展示在select组件中
+export const fetchChartIndex = createAsyncThunk(
+  'view/chart/selectData/fetchChartIndex',
+  async (props, { dispatch }) => {
+    const res = await getChartMockIndex()
+    console.log('[ res ] >', res)
+    dispatch(setSelectedDataOptions(res))
+  }
+)
 
 // 根据chartId, 获取对应的mock数据
 export const fetchChartDataById = createAsyncThunk(
@@ -49,5 +43,9 @@ export const fetchChartDataById = createAsyncThunk(
   }
 )
 
-export const { setCurrentChartData, setcurrentChartId } = slice.actions
+export const {
+  setCurrentChartData,
+  setcurrentChartId,
+  setSelectedDataOptions
+} = slice.actions
 export default slice.reducer

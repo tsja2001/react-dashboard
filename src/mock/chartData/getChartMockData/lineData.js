@@ -1,20 +1,20 @@
 export default {
-  label: '折线图mock数据',
+  label: '单数据1(少量)',
   id: 'chart_id_1',
-  chartType: ['Line'],
+  chartType: ['Bar:Single', 'Line', 'Area:Single', 'Column:Single'],
   chartConfig: {
-    xField: 'year',
+    xField: 'key',
     yField: 'value',
     data: [
-      { year: '1991', value: 2 },
-      { year: '1992', value: 4 },
-      { year: '1993', value: 3.5 },
-      { year: '1994', value: 5 },
-      { year: '1995', value: 4.9 },
-      { year: '1996', value: 6 },
-      { year: '1997', value: 7 },
-      { year: '1998', value: 9 },
-      { year: '1999', value: 13 }
+      { key: '1991', value: 2 },
+      { key: '1992', value: 4 },
+      { key: '1993', value: 3.5 },
+      { key: '1994', value: 5 },
+      { key: '1995', value: 4.9 },
+      { key: '1996', value: 6 },
+      { key: '1997', value: 7 },
+      { key: '1998', value: 9 },
+      { key: '1999', value: 13 }
     ]
   }
 }

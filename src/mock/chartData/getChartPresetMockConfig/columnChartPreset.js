@@ -8,15 +8,8 @@ export default [
         presetConf: {}
       },
       {
-        label: '分组柱状图',
+        label: '基础柱状图, 显示数据',
         presetConf: {
-          isGroup: true
-        }
-      },
-      {
-        label: '分组柱状图, 显示数据',
-        presetConf: {
-          isGroup: true,
           label: {
             // 可手动配置 label 数据标签位置
             position: 'middle',
@@ -34,22 +27,6 @@ export default [
                 type: 'adjust-color'
               }
             ]
-          }
-        }
-      },
-      {
-        label: '百分比柱状图',
-        presetConf: {
-          isPercent: true,
-          isStack: true,
-          label: {
-            position: 'middle',
-            content: (item) => {
-              return item.value.toFixed(2)
-            },
-            style: {
-              fill: '#fff'
-            }
           }
         }
       }
@@ -107,6 +84,22 @@ export default [
               fill: '#fff'
             }
           }
+        }
+      },
+      {
+        label: '百分比柱状图, 不显示数据',
+        presetConf: {
+          isPercent: true,
+          isStack: true
+          // label: {
+          //   position: 'middle',
+          //   content: (item) => {
+          //     return item.value.toFixed(2)
+          //   },
+          //   style: {
+          //     fill: '#fff'
+          //   }
+          // }
         }
       }
     ]

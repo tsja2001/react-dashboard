@@ -1,42 +1,42 @@
 export default {
-  label: '基础柱状图mock数据',
+  label: '单数据2(少量)',
   id: 'chart_id_3',
-  chartType: ['Column:Single'],
+  chartType: ['Column:Single', 'Line', 'Bar:Single', 'Area:Single'],
   chartConfig: {
-    xField: 'type',
-    yField: 'sales',
+    xField: 'key',
+    yField: 'value',
     data: [
       {
-        type: '家具家电',
-        sales: 38
+        key: '家具家电',
+        value: 38
       },
       {
-        type: '粮油副食',
-        sales: 52
+        key: '粮油副食',
+        value: 52
       },
       {
-        type: '生鲜水果',
-        sales: 61
+        key: '生鲜水果',
+        value: 61
       },
       {
-        type: '美容洗护',
-        sales: 145
+        key: '美容洗护',
+        value: 145
       },
       {
-        type: '母婴用品',
-        sales: 48
+        key: '母婴用品',
+        value: 48
       },
       {
-        type: '进口食品',
-        sales: 38
+        key: '进口食品',
+        value: 38
       },
       {
-        type: '食品饮料',
-        sales: 38
+        key: '食品饮料',
+        value: 38
       },
       {
-        type: '家庭清洁',
-        sales: 38
+        key: '家庭清洁',
+        value: 38
       }
     ]
   }

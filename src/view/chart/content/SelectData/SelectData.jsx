@@ -5,6 +5,7 @@ import style from './SelectData.module.scss'
 import { Select } from 'antd'
 import {
   fetchChartDataById,
+  fetchChartIndex,
   setcurrentChartId
 } from '@/store/features/view/chart/selectData'
 import { CaretRightOutlined } from '@ant-design/icons'
@@ -16,7 +17,8 @@ const SelectData = (props) => {
     fetchChartData,
     currentChartData,
     currentChartId,
-    setcurrentChartId
+    setcurrentChartId,
+    fetchChartIndexDispatch
   } = props
 
   const nav = useNavigate()
@@ -39,6 +41,8 @@ const SelectData = (props) => {
   useEffect(() => {
     if (selectedDataOptions.length > 0) {
       onChange(selectedDataOptions[0].value)
+    } else {
+      fetchChartIndexDispatch()
     }
   }, [selectedDataOptions])
 
@@ -94,6 +98,7 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => ({
   fetchChartData: (value) => dispatch(fetchChartDataById(value)),
+  fetchChartIndexDispatch: () => dispatch(fetchChartIndex()),
   setcurrentChartId: (value) => dispatch(setcurrentChartId(value))
 })
 

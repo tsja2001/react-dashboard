@@ -1,7 +1,7 @@
 export default [
   {
-    type: 'Area',
-    label: '面积图',
+    type: 'Area:Single',
+    label: '面积图(单数据)',
     presetList: [
       {
         label: '基础面积图',
@@ -14,6 +14,16 @@ export default [
             fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff'
           }
         }
+      }
+    ]
+  },
+  {
+    type: 'Area:Group',
+    label: '面积图(多数据)',
+    presetList: [
+      {
+        label: '基础面积图',
+        presetConf: {}
       },
       {
         label: '百分比堆叠面积图',
