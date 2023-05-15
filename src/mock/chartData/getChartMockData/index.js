@@ -16,7 +16,5 @@ export const getChartMockData = async (chartId) => {
 
   const chartData = chartList.find((item) => item.id === chartId)
 
-  console.log('chartData', chartData)
-
   return await featNetwork(chartData)
 }

@@ -1,6 +1,6 @@
 export default [
   {
-    type: ['Line'],
+    type: 'Line',
     label: '折线图',
     presetList: [
       {

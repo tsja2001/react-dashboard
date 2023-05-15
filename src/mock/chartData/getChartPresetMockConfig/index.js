@@ -9,27 +9,27 @@ export const getChartPresetMockConfig = async () => {
   return await featNetwork([
     {
       groupLabel: '折线图',
-      groupType: ['line'],
+      groupType: 'Line',
       groupItem: lineChartPreset
     },
     {
       groupLabel: '柱状图',
-      groupType: ['column'],
+      groupType: 'Column',
       groupItem: columnChartPreset
     },
     {
       groupLabel: '条形图',
-      groupType: ['bar'],
+      groupType: 'Bar',
       groupItem: barChartPreset
     },
     {
       groupLabel: '面积图',
-      groupType: ['area'],
+      groupType: 'Area',
       groupItem: areaChartPreset
     },
     {
       groupLabel: '饼图',
-      groupType: ['pie'],
+      groupType: 'Pie',
       groupItem: pieChartPreset
     }
   ])

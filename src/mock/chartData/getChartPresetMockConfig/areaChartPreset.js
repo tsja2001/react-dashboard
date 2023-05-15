@@ -1,6 +1,6 @@
 export default [
   {
-    type: ['Area'],
+    type: 'Area',
     label: '面积图',
     presetList: [
       {

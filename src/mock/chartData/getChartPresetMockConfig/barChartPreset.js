@@ -1,6 +1,6 @@
 export default [
   {
-    type: ['Bar'],
+    type: 'Bar',
     label: '条形图',
     presetList: [
       {

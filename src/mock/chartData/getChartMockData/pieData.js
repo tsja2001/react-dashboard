@@ -1,7 +1,7 @@
 export default {
   label: '饼图mock数据',
   id: 'chart_id_5',
-  chartType: ['Pie', 'Bing'],
+  chartType: ['Pie:Bing', 'Pie:Huan'],
   chartConfig: {
     angleField: 'value',
     colorField: 'key',

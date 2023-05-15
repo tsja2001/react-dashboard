@@ -1,7 +1,7 @@
 export default {
   label: '分组柱状图mock数据',
   id: 'chart_id_4',
-  chartType: ['Column'],
+  chartType: ['Column:Group'],
   chartConfig: {
     xField: 'city',
     yField: 'value',

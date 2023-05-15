@@ -26,7 +26,7 @@ function renderStatistic(containerWidth, text, style) {
 
 export default [
   {
-    type: ['Pie', 'Bing'],
+    type: 'Pie:Bing',
     label: '饼图',
     presetList: [
       {
@@ -145,7 +145,7 @@ export default [
     ]
   },
   {
-    type: ['Pie', 'Huan'],
+    type: 'Pie:Huan',
     label: '环图',
     presetList: [
       {
