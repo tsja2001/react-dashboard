@@ -1,19 +1,17 @@
 import { useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
+import { useSearchParams, Navigate } from 'react-router-dom'
 
+// 用于解析URL中的参数, 然后跳转到/home页面
 export default function URLParameterFetcher() {
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    console.log('解析到路径参数:', Object.fromEntries(searchParams.entries()))
+    const params = Object.fromEntries(searchParams.entries())
 
-    // 执行token存储逻辑
+    console.log('解析到路径参数:', params)
+
+    // todo: 执行token存储逻辑...
   }, [searchParams])
 
-  return (
-    <div>
-      <Navigate to="/home" />
-    </div>
-  )
+  return <Navigate to="/home" />
 }
