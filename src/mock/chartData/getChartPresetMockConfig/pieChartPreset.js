@@ -36,7 +36,7 @@ export default [
           label: {
             type: 'inner',
             offset: '-30%',
-            content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+            // content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
             style: {
               fontSize: 14,
               textAlign: 'center'

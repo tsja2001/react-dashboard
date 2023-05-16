@@ -40,10 +40,14 @@ const SelectData = (props) => {
   // 设置Select默认选中第一个数据源
   useEffect(() => {
     if (selectedDataOptions.length > 0) {
-      onChange(selectedDataOptions[0].value)
+      if (!currentChartData || Object.keys(currentChartData).length === 0) {
+        onChange(selectedDataOptions[0].value)
+      }
     } else {
       fetchChartIndexDispatch()
     }
+
+    console.log('currentChartData', currentChartData)
   }, [selectedDataOptions])
 
   return (

@@ -23,7 +23,7 @@ const SelectChart = (props) => {
 
   // 若不存在可用预设chart配置, 则获取所有预设chart配置
   useEffect(() => {
-    if (props.allPresetChartConfig.length === 0) {
+    if (allPresetChartConfig.length === 0) {
       props.fetchAllPresetChartConfig()
     }
   }, [allPresetChartConfig])

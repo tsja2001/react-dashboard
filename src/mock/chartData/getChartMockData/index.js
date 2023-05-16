@@ -8,10 +8,10 @@ import { featNetwork } from '@/mock/feakNetwork'
 export const getChartMockIndex = async () => {
   const chartList = [
     lineData,
-    seriesLineData,
-    columnData,
     seriesColumnData,
-    pieData
+    pieData,
+    seriesLineData,
+    columnData
   ]
 
   const res = chartList.map((item) => {
