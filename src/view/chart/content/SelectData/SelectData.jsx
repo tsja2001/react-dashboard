@@ -23,8 +23,8 @@ const SelectData = (props) => {
 
   const nav = useNavigate()
 
+  // 根据select选择的option, 去获取对应table完整数据
   const onChange = async (value) => {
-    // 根据选择的option, 去获取对应table完整数据
     fetchChartData(value)
     setcurrentChartId(value)
   }

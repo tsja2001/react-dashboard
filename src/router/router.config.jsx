@@ -14,12 +14,13 @@ import SelectData from '@/view/chart/content/selectData/SelectData'
 import SelectChart from '@/view/chart/content/selectChart/SelectChart'
 import ConfigureChart from '@/view/chart/content/configureChart/ConfigureChart'
 import URLParameterFetcher from '@/view/login/URLParameterFetcher'
+import { createHashRouter } from 'react-router-dom'
 // 组件懒加载
 const ChartEdit = React.lazy(() => import('@/view/chart/ChartLayout'))
 const Dashboard = React.lazy(() => import('@/view/dashboard/Dashboard'))
 const NotFound = React.lazy(() => import('@/view/notFound/NotFound'))
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route element={<Outlet />} errorElement={<NotFound text="Oop!出错了" />}>
       {/* 对跟路径请求, 去解析url携带的参数 */}

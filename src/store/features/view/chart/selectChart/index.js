@@ -14,41 +14,6 @@ const slice = createSlice({
     setAvailablePresetChartConfig(state, action) {
       const requireChartType = action.payload
       const { allPresetChartConfig } = state
-
-      // Column下的Single, 和Pie下的全部类型
-      // const requireChartType = ['Pie', 'Column:Single']
-
-      // const allPresetChartConfig = [
-      //   {
-      //     groupType: 'Column',
-      //     data: {},
-      //     groupItem: [
-      //       {
-      //         type: 'Column:Single',
-      //         data: {}
-      //       },
-      //       {
-      //         type: 'Column:Group',
-      //         data: {}
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     groupType: 'Pie',
-      //     data: {},
-      //     groupItem: [
-      //       {
-      //         type: 'Pie:Bing',
-      //         data: {}
-      //       },
-      //       {
-      //         type: 'Pie:Huan',
-      //         data: {}
-      //       }
-      //     ]
-      //   }
-      // ]
-
       const availablePresetChartConfig = []
       allPresetChartConfig.forEach((configGroupItem) => {
         const currentGroupType = configGroupItem.groupType
@@ -99,6 +64,21 @@ export const fetchAllPresetChartConfig = createAsyncThunk(
   async (props, { dispatch }) => {
     const res = await getChartPresetMockConfig()
     dispatch(setAllPresetChartConfig(res))
+  }
+)
+
+// 懒加载全部的预设chart配置
+export const loadAllPresetChartConfig = createAsyncThunk(
+  'view/chart/selectChart/loadAllPresetChartConfig',
+  async (props, { dispatch, getState }) => {
+    // 若已经存在数据, 则不加载
+    const { allPresetChartConfig } = getState().viewChartSelectChart
+    if (allPresetChartConfig.length > 0) return
+
+    const { chartPresetConfig } = await import(
+      '@/config/chartPresetConfig/index.js'
+    )
+    dispatch(setAllPresetChartConfig(chartPresetConfig))
   }
 )
 

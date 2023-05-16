@@ -1,15 +1,13 @@
-import { memo, useEffect } from 'react'
+import { memo, useContext, useEffect } from 'react'
 import style from './SelectChart.module.scss'
 import { Col, Row } from 'antd'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { connect } from 'react-redux'
 import { Line, Area, Column, Bar } from '@ant-design/plots'
-import {
-  fetchAllPresetChartConfig,
-  setAvailablePresetChartConfig
-} from '@/store/features/view/chart/selectChart'
+import { setAvailablePresetChartConfig } from '@/store/features/view/chart/selectChart'
 import { useNavigate } from 'react-router-dom'
 import { Pie } from '@ant-design/plots'
+import { ChartContext } from '../../ChartLayout'
 
 const SelectChart = (props) => {
   const {
@@ -19,14 +17,18 @@ const SelectChart = (props) => {
     availablePresetChartConfig
   } = props
 
-  const nav = useNavigate()
+  const { allchartPresetConfig, setAvailablePresetChartConfig } =
+    useContext(ChartContext)
 
-  // 若不存在可用预设chart配置, 则获取所有预设chart配置
   useEffect(() => {
-    if (allPresetChartConfig.length === 0) {
-      props.fetchAllPresetChartConfig()
-    }
-  }, [allPresetChartConfig])
+    console.log('allchartPresetConfig---------------', allchartPresetConfig)
+    console.log(
+      'setAvailablePresetChartConfig---------------',
+      setAvailablePresetChartConfig.toString()
+    )
+  }, [allchartPresetConfig, setAvailablePresetChartConfig])
+
+  const nav = useNavigate()
 
   // 择数据源变化时, 重新获取数据源下的所有可用预设chart配置
   useEffect(() => {
@@ -48,11 +50,6 @@ const SelectChart = (props) => {
             {chartGroup.groupItem.map((chartType) => (
               <div key={chartType.label}>
                 <h2>图表类型: {chartType.label}</h2>
-                {/* {chartType.presetList.map((chartConfig) => (
-                  <div key={chartConfig.label}>
-                    <h3>{chartConfig.label}</h3>
-                  </div>
-                ))} */}
                 <Row gutter={8} className={style.row}>
                   {chartType.presetList.map((chartConfig) => (
                     <Col span={12} key={chartConfig.label}>
@@ -88,6 +85,8 @@ const SelectChart = (props) => {
                         {chartType.type.startsWith('Pie') && (
                           <Pie
                             {...currentChartData.chartConfig}
+                            angleField="value"
+                            colorField="key"
                             {...chartConfig.presetConf}
                           />
                         )}
@@ -100,53 +99,6 @@ const SelectChart = (props) => {
           </div>
         </div>
       ))}
-      {/* {allPresetChartConfig.map((chartTypeItem) => (
-        <div key={chartTypeItem.type}>
-          <h2>{chartTypeItem.label}</h2>
-          <Row gutter={8} className={style.row}>
-            {chartTypeItem.presetList.map((chartConfig) => (
-              <Col span={12} key={chartConfig.label}>
-                <ChartWrap
-                  height={'300px'}
-                  detailHandler={(id) => console.log('detailHandler', id)}
-                  title={chartConfig.label}
-                >
-                  {chartTypeItem.type === 'Line' && (
-                    <Line
-                      {...currentChartData.chartConfig}
-                      {...chartConfig.presetConf}
-                    />
-                  )}
-                  {chartTypeItem.type === 'Area' && (
-                    <Area
-                      {...currentChartData.chartConfig}
-                      {...chartConfig.presetConf}
-                    />
-                  )}
-                  {chartTypeItem.type === 'Column' && (
-                    <Column
-                      {...currentChartData.chartConfig}
-                      {...chartConfig.presetConf}
-                    />
-                  )}
-                  {chartTypeItem.type === 'Bar' && (
-                    <Bar
-                      {...currentChartData.chartConfig}
-                      {...chartConfig.presetConf}
-                    />
-                  )}
-                  {chartTypeItem.type === 'Pie' && (
-                    <Pie
-                      {...currentChartData.chartConfig}
-                      {...chartConfig.presetConf}
-                    />
-                  )}
-                </ChartWrap>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      ))} */}
     </div>
   )
 }
@@ -159,7 +111,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllPresetChartConfig: () => dispatch(fetchAllPresetChartConfig()),
   dispatchSetAvailablePresetChartConfig: (config) =>
     dispatch(setAvailablePresetChartConfig(config))
 })

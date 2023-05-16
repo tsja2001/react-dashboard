@@ -1,7 +1,7 @@
 export default {
   label: '单数据1(少量)',
   id: 'chart_id_1',
-  chartType: ['Bar:Single', 'Line', 'Area:Single', 'Column:Single'],
+  chartType: ['Bar:Single', 'Line', 'Area:Single', 'Column:Single', 'Pie:Bing'],
   chartConfig: {
     xField: 'key',
     yField: 'value',

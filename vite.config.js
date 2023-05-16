@@ -5,7 +5,7 @@ import cssnano from 'cssnano'
 
 export default defineConfig({
   plugins: [react()],
-
+  base: './',
   server: {
     host: '0.0.0.0',
     open: {
