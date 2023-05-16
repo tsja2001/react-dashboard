@@ -9,18 +9,22 @@ export const ChartContext = createContext()
 
 const ChartLayout = (props) => {
   // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过context传递
-  const [allchartPresetConfig, setAllchartPresetConfig] = useState({})
+  const [allchartPresetConfig, setAllchartPresetConfig] = useState([])
   const [availablePresetChartConfig, setAvailablePresetChartConfig] = useState(
-    {}
+    []
   )
 
   useEffect(() => {
     props.loadAllPresetChartConfigDispatch()
   }, [])
 
-  const getAvailablePresetChartConfig = useCallback(
+  const setAvailablePresetChartConfigByType = useCallback(
     (requireChartType) => {
-      const availablePresetChartConfig = []
+      console.log('requireChartType', requireChartType)
+
+      const res = []
+
+      if (allchartPresetConfig.length === 0) return
 
       allchartPresetConfig.forEach((configGroupItem) => {
         const currentGroupType = configGroupItem.groupType
@@ -28,7 +32,7 @@ const ChartLayout = (props) => {
         // 如果当前所需图表类型, 包含当前组类型, 则直接添加,
         // 比如requireChartType: [‘Pie’], groupType: ‘Pie’
         if (requireChartType.includes(currentGroupType)) {
-          availablePresetChartConfig.push(configGroupItem)
+          res.push(configGroupItem)
           return
         }
 
@@ -47,7 +51,7 @@ const ChartLayout = (props) => {
             return requireTypeInCurrentGroupType.includes(item.type)
           })
 
-          availablePresetChartConfig.push({
+          res.push({
             groupLabel: configGroupItem.groupLabel,
             groupType: currentGroupType,
             groupItem: requireGroupItemInCurrentGroup
@@ -55,12 +59,14 @@ const ChartLayout = (props) => {
         }
       })
 
+      console.log('res------', JSON.parse(JSON.stringify(res)))
+
+      setAvailablePresetChartConfig(res)
+
       console.log(
-        'availablePresetChartConfig',
+        'availablePresetChartConfig-----',
         JSON.parse(JSON.stringify(availablePresetChartConfig))
       )
-
-      setAvailablePresetChartConfig(availablePresetChartConfig)
     },
     [allchartPresetConfig]
   )
@@ -75,7 +81,10 @@ const ChartLayout = (props) => {
   return (
     <div className={style.content}>
       <ChartContext.Provider
-        value={{ allchartPresetConfig, getAvailablePresetChartConfig }}
+        value={{
+          setAvailablePresetChartConfigByType,
+          availablePresetChartConfig
+        }}
       >
         <Header />
         <Outlet />

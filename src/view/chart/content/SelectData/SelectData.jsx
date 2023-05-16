@@ -46,8 +46,6 @@ const SelectData = (props) => {
     } else {
       fetchChartIndexDispatch()
     }
-
-    console.log('currentChartData', currentChartData)
   }, [selectedDataOptions])
 
   return (
@@ -101,8 +99,8 @@ const mapStateToProps = (state) => ({
   currentChartId: state.viewChartSelectData.currentChartId
 })
 const mapDispatchToProps = (dispatch) => ({
-  fetchChartData: (value) => dispatch(fetchChartDataById(value)),
   fetchChartIndexDispatch: () => dispatch(fetchChartIndex()),
+  fetchChartData: (value) => dispatch(fetchChartDataById(value)),
   setcurrentChartId: (value) => dispatch(setcurrentChartId(value))
 })
 

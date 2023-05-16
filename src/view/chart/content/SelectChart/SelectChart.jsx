@@ -4,29 +4,23 @@ import { Col, Row } from 'antd'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { connect } from 'react-redux'
 import { Line, Area, Column, Bar } from '@ant-design/plots'
-import { setAvailablePresetChartConfig } from '@/store/features/view/chart/selectChart'
 import { useNavigate } from 'react-router-dom'
 import { Pie } from '@ant-design/plots'
 import { ChartContext } from '../../ChartLayout'
 
 const SelectChart = (props) => {
+  const { currentChartData } = props
+
   const {
-    currentChartData,
-    allPresetChartConfig,
-    dispatchSetAvailablePresetChartConfig,
+    allchartPresetConfig,
+    setAvailablePresetChartConfigByType,
     availablePresetChartConfig
-  } = props
+  } = useContext(ChartContext)
 
-  const { allchartPresetConfig, setAvailablePresetChartConfig } =
-    useContext(ChartContext)
-
-  useEffect(() => {
-    console.log('allchartPresetConfig---------------', allchartPresetConfig)
-    console.log(
-      'setAvailablePresetChartConfig---------------',
-      setAvailablePresetChartConfig.toString()
-    )
-  }, [allchartPresetConfig, setAvailablePresetChartConfig])
+  useEffect(() => {}, [
+    allchartPresetConfig,
+    setAvailablePresetChartConfigByType
+  ])
 
   const nav = useNavigate()
 
@@ -36,14 +30,12 @@ const SelectChart = (props) => {
       return nav('/chart/select_data')
     }
     const avilableChartType = currentChartData.chartType
-    dispatchSetAvailablePresetChartConfig(avilableChartType)
-  }, [allPresetChartConfig, currentChartData])
+    setAvailablePresetChartConfigByType(avilableChartType)
+  }, [])
 
   return (
     <div className={style.content}>
       {availablePresetChartConfig.map((chartGroup) => (
-        // {/* todo: 编译开发, 直接渲染所有预设chart配置, 后续应解除注释 */}
-        // {allPresetChartConfig.map((chartGroup) => (
         <div key={chartGroup.groupLabel}>
           <h1>分组类型: {chartGroup.groupLabel}</h1>
           <div>
@@ -104,15 +96,9 @@ const SelectChart = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  currentChartData: state.viewChartSelectData.currentChartData,
-  allPresetChartConfig: state.viewChartSelectChart.allPresetChartConfig,
-  availablePresetChartConfig:
-    state.viewChartSelectChart.availablePresetChartConfig
+  currentChartData: state.viewChartSelectData.currentChartData
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  dispatchSetAvailablePresetChartConfig: (config) =>
-    dispatch(setAvailablePresetChartConfig(config))
-})
+// const mapDispatchToProps = (dispatch) => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(SelectChart))
+export default connect(mapStateToProps)(memo(SelectChart))
