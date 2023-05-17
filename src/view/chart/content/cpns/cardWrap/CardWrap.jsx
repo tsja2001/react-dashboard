@@ -1,5 +1,6 @@
 import { Button, Card } from 'antd'
 import style from './CardWrap.module.scss'
+import { RightCircleOutlined } from '@ant-design/icons'
 
 const CardWrap = (props) => {
   const {
@@ -19,7 +20,8 @@ const CardWrap = (props) => {
           type="link"
           onClick={() => detailHandler('id=xxx')}
         >
-          点击选择此图表
+          选择此图表
+          <RightCircleOutlined />
         </Button>
       }
     >
