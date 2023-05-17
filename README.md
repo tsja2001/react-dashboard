@@ -16,7 +16,9 @@
 - [ ] @/view/chart/content/selectData/SelectData.jsx 页面, 数据预览功能未开发, 期待功能: 左侧 json 高亮展示, 右侧表格展示
 - [ ] @/view/chart/content 图表编辑三个子页面数据预拉以及取缓存功能待开发
 - [x] @/mock/chartData/getChartPresetMockConfig/barChartPreset.js 横向图表 xy 轴数据反转功能未实现, 导致 bar 组件显示有问题(已解决, 对 Bar 组件配置使 xy 轴数据默认反转)
-- [ ] @/view/chart/content/selectChart 抽取公共 Select 组件, 在 SelectData 和 SelectChart 中使用
+- [x] @/view/chart/content/selectChart 抽取公共 Select 组件, 在 SelectData 和 SelectChart 中使用(已完成)
+- [ ] @/view/chart/content/selectChart Header 未开发, 期待功能: 存放 Select, 视图列数选择功能
+- [ ] @/view/chart/content/selectChart 侧边栏 Menu 导航未开发, 期待功能: 一级导航: 图表大分类(柱状图, 饼图...), 二级导航: 图表小分类(基础柱状图, 堆叠柱状图...)
 
 ## 安装插件(建议)
 
