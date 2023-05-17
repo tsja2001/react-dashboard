@@ -1,52 +1,19 @@
 import { connect } from 'react-redux'
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 import { Button, Form } from 'antd'
 import style from './SelectData.module.scss'
-import { Select } from 'antd'
-import {
-  fetchChartDataById,
-  fetchChartIndex,
-  setcurrentChartId
-} from '@/store/features/view/chart/selectData'
+import Select from '../cpns/select/Select'
 import { CaretRightOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 
 const SelectData = (props) => {
-  const {
-    selectedDataOptions,
-    fetchChartData,
-    currentChartData,
-    currentChartId,
-    setcurrentChartId,
-    fetchChartIndexDispatch
-  } = props
+  const { currentChartData } = props
 
   const nav = useNavigate()
-
-  // 根据select选择的option, 去获取对应table完整数据
-  const onChange = async (value) => {
-    fetchChartData(value)
-    setcurrentChartId(value)
-  }
-
-  const onSearch = (value) => {
-    console.log('search:', value)
-  }
 
   const nextStepHandler = () => {
     nav('/chart/select_chart')
   }
-
-  // 设置Select默认选中第一个数据源
-  useEffect(() => {
-    if (selectedDataOptions.length > 0) {
-      if (!currentChartData || Object.keys(currentChartData).length === 0) {
-        onChange(selectedDataOptions[0].value)
-      }
-    } else {
-      fetchChartIndexDispatch()
-    }
-  }, [selectedDataOptions])
 
   return (
     <div className={style.content}>
@@ -59,18 +26,7 @@ const SelectData = (props) => {
         autoComplete="off"
       >
         <Form.Item label="数据源">
-          <Select
-            showSearch
-            placeholder="请选择一个数据源"
-            optionFilterProp="children"
-            onChange={onChange}
-            onSearch={onSearch}
-            value={currentChartId}
-            filterOption={(input, option) =>
-              (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-            }
-            options={selectedDataOptions}
-          />
+          <Select />
         </Form.Item>
         <Form.Item label="预览数据">
           <div className={style.preview}>
@@ -94,14 +50,7 @@ const SelectData = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  selectedDataOptions: state.viewChartSelectData.selectedDataOptions,
-  currentChartData: state.viewChartSelectData.currentChartData,
-  currentChartId: state.viewChartSelectData.currentChartId
-})
-const mapDispatchToProps = (dispatch) => ({
-  fetchChartIndexDispatch: () => dispatch(fetchChartIndex()),
-  fetchChartData: (value) => dispatch(fetchChartDataById(value)),
-  setcurrentChartId: (value) => dispatch(setcurrentChartId(value))
+  currentChartData: state.viewChartSelectData.currentChartData
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(SelectData))
+export default connect(mapStateToProps)(memo(SelectData))

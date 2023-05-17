@@ -20,8 +20,6 @@ const ChartLayout = (props) => {
 
   const setAvailablePresetChartConfigByType = useCallback(
     (requireChartType) => {
-      console.log('requireChartType', requireChartType)
-
       const res = []
 
       if (allchartPresetConfig.length === 0) return
@@ -59,14 +57,7 @@ const ChartLayout = (props) => {
         }
       })
 
-      console.log('res------', JSON.parse(JSON.stringify(res)))
-
       setAvailablePresetChartConfig(res)
-
-      console.log(
-        'availablePresetChartConfig-----',
-        JSON.parse(JSON.stringify(availablePresetChartConfig))
-      )
     },
     [allchartPresetConfig]
   )

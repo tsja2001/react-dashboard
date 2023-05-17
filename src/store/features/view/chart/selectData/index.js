@@ -25,8 +25,8 @@ const slice = createSlice({
   }
 })
 // 获取chart数据的索引, 用于展示在select组件中
-export const fetchChartIndex = createAsyncThunk(
-  'view/chart/selectData/fetchChartIndex',
+export const fetchSelectOptions = createAsyncThunk(
+  'view/chart/selectData/fetchSelectOptions',
   async (props, { dispatch }) => {
     const res = await getChartMockIndex()
     console.log('[ res ] >', res)
