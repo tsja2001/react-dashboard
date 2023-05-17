@@ -1,34 +1,17 @@
 <mxfile host="65bd71144e">
     <diagram id="_ERIA1zSipQTDJqZzZRD" name="第 1 页">
-        <mxGraphModel dx="2660" dy="1206" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1773" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="9" style="edgeStyle=none;html=1;" parent="1" source="6" target="12" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="240" y="120" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="6" value="01&lt;br&gt;数据选择" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;align=center;strokeColor=default;fillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="80" width="80" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="15" value="" style="edgeStyle=none;html=1;" parent="1" source="12" target="14" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="12" value="02&lt;br&gt;图表选择" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;align=center;strokeColor=default;fillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="199.99999999999977" y="80" width="80" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="14" value="03&lt;br&gt;图表编辑" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;align=center;strokeColor=default;fillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="319.9999999999998" y="80" width="80" height="80" as="geometry"/>
-                </mxCell>
                 <mxCell id="17" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="200" width="580" height="520" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="01 数据选择" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="200" width="90" height="40" as="geometry"/>
+                <mxCell id="16" value="第一步 数据选择" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="200" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="320" y="280" width="250" height="440" as="geometry"/>
+                    <mxGeometry x="320" y="280" width="250" height="410" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="Store:&amp;nbsp;&lt;br&gt;&lt;span style=&quot;color: rgb(163, 21, 21); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;view/chart/selectData&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="345" y="280" width="230" height="50" as="geometry"/>
@@ -40,13 +23,13 @@
                     <mxGeometry x="347.5" y="475" width="202.5" height="45" as="geometry"/>
                 </mxCell>
                 <mxCell id="39" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;color: rgb(59, 59, 59); line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;span style=&quot;color: #001080;&quot;&gt;currentChartId&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;当前选中数据源的id&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="610" width="205" height="50" as="geometry"/>
+                    <mxGeometry x="342.5" y="630" width="205" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="750" y="210" width="600" height="520" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="02 图表选择" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="750" y="210" width="90" height="40" as="geometry"/>
+                <mxCell id="41" value="第二步 图表选择" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="210" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="48" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1040" y="290" width="290" height="70" as="geometry"/>
@@ -55,28 +38,28 @@
                     <mxGeometry x="1090" y="290" width="230" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="70" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
-                    <mxGeometry x="760" y="359" width="240" height="300" as="geometry"/>
+                    <mxGeometry x="760" y="360" width="240" height="344.5" as="geometry"/>
                 </mxCell>
                 <mxCell id="57" value="折线图预设1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="770" y="394" width="100" height="60" as="geometry"/>
+                    <mxGeometry x="770" y="480" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="58" value="折线图预设2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="880" y="394" width="100" height="60" as="geometry"/>
+                    <mxGeometry x="880" y="480" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="62" value="面积图预设1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="770" y="474" width="100" height="60" as="geometry"/>
+                    <mxGeometry x="770" y="545.5" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="面积图预设2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="880" y="474" width="100" height="60" as="geometry"/>
+                    <mxGeometry x="880" y="545.5" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="65" value="......" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="770" y="554" width="100" height="60" as="geometry"/>
+                    <mxGeometry x="770" y="615.5" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="86" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1430" y="230" width="690" height="430" as="geometry"/>
                 </mxCell>
-                <mxCell id="87" value="03&amp;nbsp;图表配置" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1430" y="230" width="90" height="40" as="geometry"/>
+                <mxCell id="87" value="第三步 图表配置" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1430" y="230" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="88" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1810" y="250" width="290" height="360" as="geometry"/>
@@ -106,7 +89,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="106" value="点击预设, &lt;br&gt;跳到第三部图表配置" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
-                    <mxGeometry x="830" y="630" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="830" y="675.5" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="109" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;" parent="1" source="107" target="90" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -120,11 +103,13 @@
                 <mxCell id="141" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="18" target="139" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="100" y="290" width="140" height="190" as="geometry"/>
+                <mxCell id="160" value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="141">
+                    <mxGeometry x="0.1158" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="19" value="数据源1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="110" y="340" width="120" height="30" as="geometry"/>
+                <mxCell id="18" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="290" width="150" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="数据源2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="110" y="370" width="120" height="30" as="geometry"/>
@@ -135,11 +120,16 @@
                 <mxCell id="23" value="......" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="110" y="430" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="选择数据源" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="24" value="select组件: &lt;br&gt;下拉选择数据源" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="110" y="310" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" style="edgeStyle=none;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="28" target="18" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="159" value="2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="29">
+                    <mxGeometry x="-0.1148" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="36" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="90" y="510" width="190" height="150" as="geometry"/>
@@ -148,10 +138,10 @@
                     <mxGeometry x="100" y="530" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="114" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="420" y="20" width="1040" height="140" as="geometry"/>
+                    <mxGeometry x="590" y="20" width="870" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="116" value="ChartLayout&lt;br&gt;Context.provider" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="420" y="40" width="120" height="40" as="geometry"/>
+                    <mxGeometry x="590" y="20" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="117" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;span style=&quot;color: #001080;&quot;&gt;allPresetChartConfig&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;全部预设图表配置列表&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1160" y="30" width="160" height="45" as="geometry"/>
@@ -163,10 +153,15 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="162" value="6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="135">
+                    <mxGeometry x="-0.8837" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="118" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;color: rgb(0, 0, 0); line-height: 18px;&quot;&gt;availablePresetChartConfig&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;当前选择的数据源, 所支持的图表配置列表&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1160" y="97.5" width="260" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="121" target="118" edge="1">
+                <mxCell id="127" value="5" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="121" target="118" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="121" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;color: rgb(0, 0, 0); line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;setAvailablePresetChartConfigByType(chartType)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;传入需要的图表类型, 返回对应类型图表预设&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -178,20 +173,25 @@
                 <mxCell id="124" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;组件初始化时,&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;懒加载全部配置数据&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="760" y="30" width="160" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="131" style="edgeStyle=none;html=1;entryX=0.348;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="129" target="121" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="129" value="生命周期: 初始化&lt;br&gt;根据选择的完整chat数据, 中type字段&lt;br&gt;获取对应图表预设" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="760" y="290" width="240" height="60" as="geometry"/>
-                </mxCell>
                 <mxCell id="137" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;async action:&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;span style=&quot;&quot;&gt;fetchChartIndexDispatch&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;获取select组件可选的数据&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="350" y="375" width="200" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="139" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;async action:&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;fetchChartDataById&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;获取select组件可选的数据&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="347.5" y="520" width="200" height="70" as="geometry"/>
+                <mxCell id="156" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="139" target="121">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="440" y="620"/>
+                            <mxPoint x="700" y="620"/>
+                            <mxPoint x="700" y="120"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="142" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="30" target="129" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="161" value="4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="156">
+                    <mxGeometry x="-0.7703" y="-3" relative="1" as="geometry">
+                        <mxPoint y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="139" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;async action:&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;fetchChartDataById&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;根据选择数据源ID,&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;获取图表完整数据&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="347.5" y="520" width="200" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="144" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="143" target="137" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -201,8 +201,43 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="158" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="144">
+                    <mxGeometry x="-0.8525" y="-3" relative="1" as="geometry">
+                        <mxPoint x="6" y="-3" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="143" value="生命周期: 初始化, &lt;br&gt;获取select组件数据" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="320" y="230" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="370" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="select组件: &lt;br&gt;下拉选择数据源&lt;br&gt;(可重新选择数据)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="800" y="380" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="数据源1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="430" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="149" target="139">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="729.2893218813452" y="455" as="sourcePoint"/>
+                        <mxPoint x="729.2893218813452" y="405" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="155" value="数据源1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="340" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="163" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="750" width="270" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="164" value="展示的每个图表, 由两部分的数据组成:" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="773.75" y="750" width="212.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="&lt;span style=&quot;color: rgb(0, 16, 128); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; background-color: rgb(255, 255, 255);&quot;&gt;currentChartData&lt;/span&gt;&lt;br&gt;数据源: 通过select组件选择的数据" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="780" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" value="&lt;span style=&quot;font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; background-color: rgb(255, 255, 255);&quot;&gt;availablePresetChartConfig&lt;br&gt;&lt;/span&gt;图表预设: 根据数据源的&lt;span style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;chartType字段,&lt;br&gt;过滤出的图表预设&lt;br&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="830" width="240" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
