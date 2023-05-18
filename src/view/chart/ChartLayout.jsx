@@ -2,22 +2,24 @@ import { createContext, memo, useCallback, useEffect, useState } from 'react'
 import style from './ChartLayout.module.scss'
 import Header from './header/Header'
 import { Outlet } from 'react-router-dom'
-import { loadAllPresetChartConfig } from '@/store/features/view/chart/selectChart'
-import { connect } from 'react-redux'
 
 export const ChartContext = createContext()
 
-const ChartLayout = (props) => {
+const ChartLayout = () => {
   // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过context传递
   const [allchartPresetConfig, setAllchartPresetConfig] = useState([])
+  // 当前可以显示的预设配置
   const [availablePresetChartConfig, setAvailablePresetChartConfig] = useState(
     []
   )
+  // 当前选中的预设配置的深拷贝副本
+  const [duplicateChartData, setDuplicateChartData] = useState({})
 
   useEffect(() => {
-    props.loadAllPresetChartConfigDispatch()
-  }, [])
+    console.log('ChartLayout中监听到duplicateChartData', duplicateChartData)
+  }, [duplicateChartData])
 
+  // 根据所需图表类型, 设置可用的预设配置
   const setAvailablePresetChartConfigByType = useCallback(
     (requireChartType) => {
       const res = []
@@ -74,7 +76,9 @@ const ChartLayout = (props) => {
       <ChartContext.Provider
         value={{
           setAvailablePresetChartConfigByType,
-          availablePresetChartConfig
+          availablePresetChartConfig,
+          setDuplicateChartData,
+          duplicateChartData
         }}
       >
         <Header />
@@ -84,8 +88,4 @@ const ChartLayout = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  loadAllPresetChartConfigDispatch: () => dispatch(loadAllPresetChartConfig())
-})
-
-export default connect(null, mapDispatchToProps)(memo(ChartLayout))
+export default memo(ChartLayout)
