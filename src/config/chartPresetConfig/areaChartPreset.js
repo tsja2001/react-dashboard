@@ -5,10 +5,12 @@ export default [
     presetList: [
       {
         label: '基础面积图',
+        cpnName: 'Area',
         presetConf: {}
       },
       {
         label: '渐变色面积图',
+        cpnName: 'Area',
         presetConf: {
           areaStyle: {
             fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff'
@@ -23,10 +25,12 @@ export default [
     presetList: [
       {
         label: '基础面积图',
+        cpnName: 'Area',
         presetConf: {}
       },
       {
         label: '百分比堆叠面积图',
+        cpnName: 'Area',
         presetConf: {
           areaStyle: {
             fillOpacity: 0.7

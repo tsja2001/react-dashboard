@@ -31,6 +31,7 @@ export default [
     presetList: [
       {
         label: '基础饼图',
+        cpnName: 'Pie',
         presetConf: {
           radius: 0.9,
           label: {
@@ -51,6 +52,7 @@ export default [
       },
       {
         label: '基础饼图-外部标签',
+        cpnName: 'Pie',
         presetConf: {
           radius: 0.9,
           label: {
@@ -65,6 +67,7 @@ export default [
       },
       {
         label: '四分之一圆',
+        cpnName: 'Pie',
         presetConf: {
           radius: 1,
           // 设置圆弧起始角度
@@ -96,6 +99,7 @@ export default [
     presetList: [
       {
         label: '环图',
+        cpnName: 'Pie',
         presetConf: {
           radius: 1,
           innerRadius: 0.6,

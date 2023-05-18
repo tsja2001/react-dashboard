@@ -5,10 +5,12 @@ export default [
     presetList: [
       {
         label: '基础柱状图',
+        cpnName: 'Column',
         presetConf: {}
       },
       {
         label: '基础柱状图, 显示数据',
+        cpnName: 'Column',
         presetConf: {
           label: {
             // 可手动配置 label 数据标签位置
@@ -38,16 +40,19 @@ export default [
     presetList: [
       {
         label: '基础柱状图',
+        cpnName: 'Column',
         presetConf: {}
       },
       {
         label: '分组柱状图',
+        cpnName: 'Column',
         presetConf: {
           isGroup: true
         }
       },
       {
         label: '分组柱状图, 显示数据',
+        cpnName: 'Column',
         presetConf: {
           isGroup: true,
           label: {
@@ -72,6 +77,7 @@ export default [
       },
       {
         label: '百分比柱状图',
+        cpnName: 'Column',
         presetConf: {
           isPercent: true,
           isStack: true,
@@ -88,6 +94,7 @@ export default [
       },
       {
         label: '百分比柱状图, 不显示数据',
+        cpnName: 'Column',
         presetConf: {
           isPercent: true,
           isStack: true

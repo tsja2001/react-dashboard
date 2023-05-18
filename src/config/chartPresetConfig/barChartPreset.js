@@ -5,6 +5,7 @@ export default [
     presetList: [
       {
         label: '基础条形图',
+        cpnName: 'Bar',
         presetConf: {
           xField: 'value',
           yField: 'key'
@@ -12,6 +13,7 @@ export default [
       },
       {
         label: '基础条形图, 显示数据',
+        cpnName: 'Bar',
         presetConf: {
           xField: 'value',
           yField: 'key',
@@ -43,6 +45,7 @@ export default [
     presetList: [
       {
         label: '分组条形图',
+        cpnName: 'Bar',
         presetConf: {
           xField: 'value',
           yField: 'key',
@@ -51,6 +54,7 @@ export default [
       },
       {
         label: '分组条形图, 显示数据',
+        cpnName: 'Bar',
         presetConf: {
           xField: 'value',
           yField: 'key',
@@ -77,6 +81,7 @@ export default [
       },
       {
         label: '百分比条形图',
+        cpnName: 'Bar',
         presetConf: {
           xField: 'value',
           yField: 'key',
