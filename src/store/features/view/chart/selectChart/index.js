@@ -48,11 +48,6 @@ const slice = createSlice({
         }
       })
 
-      console.log(
-        'availablePresetChartConfig',
-        JSON.parse(JSON.stringify(availablePresetChartConfig))
-      )
-
       state.availablePresetChartConfig = availablePresetChartConfig
     }
   }

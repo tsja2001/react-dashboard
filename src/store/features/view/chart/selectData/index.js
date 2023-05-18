@@ -29,7 +29,6 @@ export const fetchSelectOptions = createAsyncThunk(
   'view/chart/selectData/fetchSelectOptions',
   async (props, { dispatch }) => {
     const res = await getChartMockIndex()
-    console.log('[ res ] >', res)
     dispatch(setSelectedDataOptions(res))
   }
 )
