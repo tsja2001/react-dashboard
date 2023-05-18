@@ -15,11 +15,7 @@ const CardWrap = (props) => {
       className={style.card}
       title={title}
       extra={
-        <Button
-          className={style.button}
-          type="link"
-          onClick={() => detailHandler('id=xxx')}
-        >
+        <Button className={style.button} type="link" onClick={detailHandler}>
           选择此图表
           <RightCircleOutlined />
         </Button>

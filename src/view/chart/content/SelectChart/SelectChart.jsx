@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect } from 'react'
+import { memo, useCallback, useContext, useEffect } from 'react'
 import style from './SelectChart.module.scss'
 import { Col, Row } from 'antd'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
@@ -23,6 +23,10 @@ const SelectChart = (props) => {
     }
   }, [])
 
+  const detailHandler = useCallback((chartConfig) => {
+    console.log('detailHandler', chartConfig)
+  })
+
   return (
     <div className={style.content}>
       <div className={style.form}>
@@ -41,9 +45,7 @@ const SelectChart = (props) => {
                       <Col span={12} key={chartConfig.label}>
                         <ChartWrap
                           height={'300px'}
-                          detailHandler={(id) =>
-                            console.log('detailHandler', id)
-                          }
+                          detailHandler={() => detailHandler(chartConfig)}
                           title={chartConfig.label}
                         >
                           {chartType.type.startsWith('Line') && (
