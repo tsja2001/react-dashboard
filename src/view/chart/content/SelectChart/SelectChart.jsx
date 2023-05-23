@@ -8,12 +8,11 @@ import { useNavigate } from 'react-router-dom'
 import { Pie } from '@ant-design/plots'
 import { ChartContext } from '../../ChartLayout'
 import Select from '../cpns/select/Select'
-import { cloneDeep } from 'lodash'
 
 const SelectChart = (props) => {
   const { currentChartData } = props
 
-  const { availablePresetChartConfig, setDuplicateChartData } =
+  const { availablePresetChartConfig, setCurrentChartConfigByPreset } =
     useContext(ChartContext)
 
   const nav = useNavigate()
@@ -27,7 +26,7 @@ const SelectChart = (props) => {
 
   // 点击图表, 跳转到图表配置页面
   const detailHandler = useCallback((chartConfig) => {
-    setDuplicateChartData(cloneDeep(chartConfig))
+    setCurrentChartConfigByPreset(chartConfig)
     nav('/chart/configure_chart')
   }, [])
 

@@ -1,0 +1,17 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .left {
+    padding-right: 10px;
+    width: 80px;
+  }
+  .right {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+.form_item {
+  all: unset;
+}

@@ -6,18 +6,20 @@ import { Outlet } from 'react-router-dom'
 export const ChartContext = createContext()
 
 const ChartLayout = () => {
-  // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过context传递
+  // 此组件主要用于给图表配置页面提供Context
+  // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过Context传递
   const [allchartPresetConfig, setAllchartPresetConfig] = useState([])
   // 当前可以显示的预设配置
   const [availablePresetChartConfig, setAvailablePresetChartConfig] = useState(
     []
   )
-  // 当前选中的预设配置的深拷贝副本
-  const [duplicateChartData, setDuplicateChartData] = useState({})
+  // 当前选中的预设配置
+  const [currentChartConfigByPreset, setCurrentChartConfigByPreset] = useState(
+    {}
+  )
 
-  useEffect(() => {
-    console.log('ChartLayout中监听到duplicateChartData', duplicateChartData)
-  }, [duplicateChartData])
+  // 通过表单配置, 生成的图表配置
+  const [currentChartConfigByForm, setCurrentChartConfigByForm] = useState({})
 
   // 根据所需图表类型, 设置可用的预设配置
   const setAvailablePresetChartConfigByType = useCallback(
@@ -77,8 +79,10 @@ const ChartLayout = () => {
         value={{
           setAvailablePresetChartConfigByType,
           availablePresetChartConfig,
-          setDuplicateChartData,
-          duplicateChartData
+          currentChartConfigByForm,
+          setCurrentChartConfigByForm,
+          currentChartConfigByPreset,
+          setCurrentChartConfigByPreset
         }}
       >
         <Header />

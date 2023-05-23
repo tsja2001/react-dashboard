@@ -5,41 +5,47 @@ import { connect } from 'react-redux'
 import { Line, Area, Column, Bar, Pie } from '@ant-design/plots'
 
 const ChartPreview = (props) => {
-  const { duplicateChartData } = useContext(ChartContext)
+  const { currentChartConfigByPreset, currentChartConfigByForm } =
+    useContext(ChartContext)
   const { currentChartData } = props
 
   return (
     <div className={style.context}>
-      {duplicateChartData.cpnName === 'Line' && (
+      {currentChartConfigByPreset.cpnName === 'Line' && (
         <Line
           {...currentChartData.chartConfig}
-          {...duplicateChartData.presetConf}
+          {...currentChartConfigByPreset.presetConf}
+          {...currentChartConfigByForm}
         />
       )}
-      {duplicateChartData.cpnName === 'Area' && (
+      {currentChartConfigByPreset.cpnName === 'Area' && (
         <Area
           {...currentChartData.chartConfig}
-          {...duplicateChartData.presetConf}
+          {...currentChartConfigByPreset.presetConf}
+          {...currentChartConfigByForm}
         />
       )}
-      {duplicateChartData.cpnName === 'Column' && (
+      {currentChartConfigByPreset.cpnName === 'Column' && (
         <Column
           {...currentChartData.chartConfig}
-          {...duplicateChartData.presetConf}
+          {...currentChartConfigByPreset.presetConf}
+          {...currentChartConfigByForm}
         />
       )}
-      {duplicateChartData.cpnName === 'Bar' && (
+      {currentChartConfigByPreset.cpnName === 'Bar' && (
         <Bar
           {...currentChartData.chartConfig}
-          {...duplicateChartData.presetConf}
+          {...currentChartConfigByPreset.presetConf}
+          {...currentChartConfigByForm}
         />
       )}
-      {duplicateChartData.cpnName === 'Pie' && (
+      {currentChartConfigByPreset.cpnName === 'Pie' && (
         <Pie
           {...currentChartData.chartConfig}
           angleField="value"
           colorField="key"
-          {...duplicateChartData.presetConf}
+          {...currentChartConfigByPreset.presetConf}
+          {...currentChartConfigByForm}
         />
       )}
     </div>

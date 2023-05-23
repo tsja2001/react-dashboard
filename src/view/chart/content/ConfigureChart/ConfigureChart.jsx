@@ -2,8 +2,8 @@ import { memo } from 'react'
 import style from './ConfigureChart.module.scss'
 import { Col, Row } from 'antd'
 import { Card } from 'antd'
-import ChartPreview from './chartPreview/chartPreview'
-import ChartConfig from './chartConfig/chartConfig'
+import ChartPreview from './chartPreview/ChartPreview'
+import ChartConfig from './chartConfig/ChartConfig'
 import ChartData from './chartData/ChartData'
 
 const ConfigureChart = () => {
