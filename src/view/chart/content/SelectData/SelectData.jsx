@@ -1,10 +1,11 @@
-import { connect } from 'react-redux'
 import { memo } from 'react'
 import { Button, Form } from 'antd'
+import { CaretRightOutlined } from '@ant-design/icons'
+import { connect } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 import style from './SelectData.module.scss'
 import Select from '../cpns/select/Select'
-import { CaretRightOutlined } from '@ant-design/icons'
-import { useNavigate } from 'react-router-dom'
 
 const SelectData = (props) => {
   const { currentChartData } = props

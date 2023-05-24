@@ -1,8 +1,9 @@
 import { memo, useContext } from 'react'
-import style from './ChartPreview.module.scss'
-import { ChartContext } from '@/view/chart/ChartLayout'
 import { connect } from 'react-redux'
 import { Line, Area, Column, Bar, Pie } from '@ant-design/plots'
+
+import { ChartContext } from '@/view/chart/ChartLayout'
+import style from './ChartPreview.module.scss'
 
 const ChartPreview = (props) => {
   const { currentChartConfigByPreset, currentChartConfigByForm } =

@@ -1,11 +1,11 @@
 import { memo, useCallback, useContext, useEffect } from 'react'
-import style from './SelectChart.module.scss'
-import { Col, Row } from 'antd'
-import ChartWrap from '../cpns/cardWrap/CardWrap'
+import { Pie, Line, Area, Column, Bar } from '@ant-design/plots'
 import { connect } from 'react-redux'
-import { Line, Area, Column, Bar } from '@ant-design/plots'
+import { Col, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { Pie } from '@ant-design/plots'
+
+import style from './SelectChart.module.scss'
+import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { ChartContext } from '../../ChartLayout'
 import Select from '../cpns/select/Select'
 

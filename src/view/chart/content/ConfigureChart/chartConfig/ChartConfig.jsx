@@ -1,21 +1,28 @@
-import { memo, useContext } from 'react'
+import { memo, useContext, useEffect } from 'react'
 import { Form, Tree } from 'antd'
 
 import style from './ChartConfig.module.scss'
-import areaTreeConfig from '@/config/chartAllConfig/areaTreeConfig'
+import chartFromConfig from '@/config/chartFromConfig'
 import { ChartContext } from '@/view/chart/ChartLayout'
 
 const ChartConfig = () => {
   const [form] = Form.useForm()
 
-  const { setCurrentChartConfigByForm } = useContext(ChartContext)
+  const { setCurrentChartConfigByForm, currentChartConfigByPreset } =
+    useContext(ChartContext)
 
   const fieldChangeHandler = (changedFields, allFields) => {
     console.log('allFields', allFields)
     setCurrentChartConfigByForm(allFields)
   }
 
-  // 如果用户
+  useEffect(() => {
+    form.setFieldsValue(currentChartConfigByPreset.presetConf)
+    console.log(
+      'currentChartConfigByPreset.presetConf',
+      currentChartConfigByPreset.presetConf
+    )
+  }, [currentChartConfigByPreset])
 
   return (
     <div className={style.content}>
@@ -23,7 +30,7 @@ const ChartConfig = () => {
         <Tree
           defaultExpandAll
           autoExpandParent
-          treeData={areaTreeConfig}
+          treeData={chartFromConfig.areaFromConfig}
           blockNode
         />
       </Form>

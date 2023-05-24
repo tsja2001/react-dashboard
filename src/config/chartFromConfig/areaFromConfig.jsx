@@ -120,6 +120,14 @@ const areaTreeConfig = [
         key: '3-3'
       }
     ]
+  },
+  {
+    title: (
+      <TreeNode label="平滑" name={['smooth']} valuePropName="checked">
+        <Switch />
+      </TreeNode>
+    ),
+    key: '4'
   }
 ]
 

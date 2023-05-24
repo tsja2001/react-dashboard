@@ -8,7 +8,7 @@ export const ChartContext = createContext()
 const ChartLayout = () => {
   // 此组件主要用于给图表配置页面提供Context
   // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过Context传递
-  const [allchartPresetConfig, setAllchartPresetConfig] = useState([])
+  const [allChartPresetConfig, setAllChartPresetConfig] = useState([])
   // 当前可以显示的预设配置
   const [availablePresetChartConfig, setAvailablePresetChartConfig] = useState(
     []
@@ -18,6 +18,7 @@ const ChartLayout = () => {
     {}
   )
 
+  const [allChartFromConfig, setAllChartFromConfig] = useState({})
   // 通过表单配置, 生成的图表配置
   const [currentChartConfigByForm, setCurrentChartConfigByForm] = useState({})
 
@@ -26,9 +27,9 @@ const ChartLayout = () => {
     (requireChartType) => {
       const res = []
 
-      if (allchartPresetConfig.length === 0) return
+      if (allChartPresetConfig.length === 0) return
 
-      allchartPresetConfig.forEach((configGroupItem) => {
+      allChartPresetConfig.forEach((configGroupItem) => {
         const currentGroupType = configGroupItem.groupType
 
         // 如果当前所需图表类型, 包含当前组类型, 则直接添加,
@@ -63,13 +64,16 @@ const ChartLayout = () => {
 
       setAvailablePresetChartConfig(res)
     },
-    [allchartPresetConfig]
+    [allChartPresetConfig]
   )
 
   // 懒加载预设配置
   useEffect(() => {
     import('@/config/chartPresetConfig/index.js').then((res) => {
-      setAllchartPresetConfig(res.chartPresetConfig)
+      setAllChartPresetConfig(res.chartPresetConfig)
+    })
+    import('@/config/chartFromConfig/index.js').then((res) => {
+      setAllChartFromConfig(res.default)
     })
   }, [])
 
@@ -82,7 +86,8 @@ const ChartLayout = () => {
           currentChartConfigByForm,
           setCurrentChartConfigByForm,
           currentChartConfigByPreset,
-          setCurrentChartConfigByPreset
+          setCurrentChartConfigByPreset,
+          allChartFromConfig
         }}
       >
         <Header />
