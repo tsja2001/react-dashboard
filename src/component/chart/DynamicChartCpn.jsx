@@ -1,6 +1,5 @@
 import { memo } from 'react'
-
-import { Input, Switch, Typography } from 'antd'
+import { Typography } from 'antd'
 import { Area, Line } from '@ant-design/charts'
 
 const DynamicChartCpn = (props) => {
