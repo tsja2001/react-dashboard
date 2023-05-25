@@ -24,7 +24,7 @@ const DynamicChartCpn = (props) => {
           </Typography.Title>
         )}
         {description && description.visible && (
-          <Typography.Text level={title.size ?? 5} style={{ margin: 0 }}>
+          <Typography.Text strong={description.strong} style={{ margin: 0 }}>
             {description.text}
           </Typography.Text>
         )}

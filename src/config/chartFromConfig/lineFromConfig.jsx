@@ -1,4 +1,5 @@
 import TreeNode from '@/component/treeNode/TreeNode'
+import { InputNumber } from 'antd'
 import { Input, Switch, Select } from 'antd'
 
 const areaTreeConfig = [
@@ -18,9 +19,20 @@ const areaTreeConfig = [
           <TreeNode label="标题内容" name={['title', 'text']}>
             <Input />
           </TreeNode>
-        ),
-        disabled: false,
-        key: '1-0'
+        )
+      },
+      {
+        title: (
+          <TreeNode label="标题大小" name={['title', 'size']} initialValue={3}>
+            <Select>
+              <Select.Option value={1}>较大</Select.Option>
+              <Select.Option value={2}>大</Select.Option>
+              <Select.Option value={3}>中</Select.Option>
+              <Select.Option value={4}>小</Select.Option>
+              <Select.Option value={5}>较小</Select.Option>
+            </Select>
+          </TreeNode>
+        )
       }
     ]
   },
@@ -39,6 +51,17 @@ const areaTreeConfig = [
         title: (
           <TreeNode label="描述内容" name={['description', 'text']}>
             <Input />
+          </TreeNode>
+        )
+      },
+      {
+        title: (
+          <TreeNode
+            label="加粗"
+            name={['description', 'strong']}
+            valuePropName="checked"
+          >
+            <Switch />
           </TreeNode>
         )
       }
