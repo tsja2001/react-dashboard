@@ -19,7 +19,7 @@ const ChartConfig = () => {
 
   // 组件加载时, 将第二步选择的预设数据, 设置到表单中. 并且将表单数据设置到context中
   useEffect(() => {
-    console.log('currentChartConfigByPreset', currentChartConfigByPreset)
+    // console.log('currentChartConfigByPreset', currentChartConfigByPreset)
     form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
     setCurrentChartConfigByForm(
       mergeObjects(
@@ -37,7 +37,7 @@ const ChartConfig = () => {
 
   // 表单数据变化时, 将表单数据设置到context中
   const fieldChangeHandler = (changedFields, allFields) => {
-    console.log('allFields', allFields)
+    // console.log('allFields', allFields)
     setCurrentChartConfigByForm(
       mergeObjects(
         cleanseObject(form.getFieldsValue()),
@@ -48,12 +48,12 @@ const ChartConfig = () => {
 
   // 用于开发, 后续删除
   useEffect(() => {
-    console.log(
-      'currentChartConfigByForm变化:',
-      currentChartConfigByForm,
-      'currentChartConfigByPreset',
-      currentChartConfigByPreset
-    )
+    // console.log(
+    //   'currentChartConfigByForm变化:',
+    //   currentChartConfigByForm,
+    //   'currentChartConfigByPreset',
+    //   currentChartConfigByPreset
+    // )
   }, [currentChartConfigByForm])
 
   return (
