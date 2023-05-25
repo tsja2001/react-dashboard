@@ -1,4 +1,4 @@
-import areaFromConfig from './areaFromConfig.jsx'
+// import areaFromConfig from './areaFromConfig.jsx'
 import lineFromConfig from './lineFromConfig.jsx'
 
 // 用于图表配置页面-使用表单配置图表样式页面, 此文件夹用于存放可以配置的表单项
@@ -7,13 +7,15 @@ const addKey = (tree, currentIndex = '') => {
   tree.forEach((item, index) => {
     item.key = currentIndex + index
     if (item.children) {
-      addKey(item.children, index + '-')
+      addKey(item.children, item.key + '-')
     }
   })
+
+  console.log('tree-----', tree)
   return tree
 }
 
 export default {
-  areaFromConfig: addKey(areaFromConfig),
-  lineFromConfig: addKey(lineFromConfig)
+  // Area: addKey(areaFromConfig),
+  Line: addKey(lineFromConfig)
 }

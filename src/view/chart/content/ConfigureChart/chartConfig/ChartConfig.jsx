@@ -1,28 +1,75 @@
 import { memo, useContext, useEffect } from 'react'
 import { Form, Tree } from 'antd'
+import lodash from 'lodash'
 
 import style from './ChartConfig.module.scss'
-import chartFromConfig from '@/config/chartFromConfig'
 import { ChartContext } from '@/view/chart/ChartLayout'
 
 const ChartConfig = () => {
   const [form] = Form.useForm()
 
-  const { setCurrentChartConfigByForm, currentChartConfigByPreset } =
-    useContext(ChartContext)
+  const {
+    setCurrentChartConfigByForm,
+    currentChartConfigByForm,
+    currentChartConfigByPreset,
+    allChartFromConfig
+  } = useContext(ChartContext)
 
   const fieldChangeHandler = (changedFields, allFields) => {
-    console.log('allFields', allFields)
-    setCurrentChartConfigByForm(allFields)
+    setCurrentChartConfigByForm(getValuesExcludeUndefined(allFields))
   }
 
+  // useEffect(() => {
+  //   console.log('form.getFieldsValue()', form.getFieldsValue())
+  //   setCurrentChartConfigByForm(form.getFieldsValue())
+  // }, [form.getFieldsValue()])
+
   useEffect(() => {
-    form.setFieldsValue(currentChartConfigByPreset.presetConf)
-    console.log(
-      'currentChartConfigByPreset.presetConf',
-      currentChartConfigByPreset.presetConf
+    console.log('currentChartConfigByPreset', currentChartConfigByPreset)
+    form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
+    setCurrentChartConfigByForm(
+      getValuesExcludeUndefined(form.getFieldsValue())
     )
+
+    return () => {
+      // 组件销毁时, 清空数据
+      setCurrentChartConfigByForm({})
+      form.resetFields()
+    }
   }, [currentChartConfigByPreset])
+
+  // 获取表单数据, 如果字段为underfund, 则删除字段
+  const getValuesExcludeUndefined = (fieldsValue) => {
+    const deepCloneFieldsValue = lodash.cloneDeep(fieldsValue)
+
+    const map = (fieldsValue) => {
+      Object.keys(fieldsValue).forEach((key) => {
+        if (fieldsValue[key] === undefined || fieldsValue[key] === null) {
+          delete fieldsValue[key]
+        } else if (typeof fieldsValue[key] === 'object') {
+          if (Object.keys(fieldsValue[key]).length === 0) {
+            delete fieldsValue[key]
+          } else {
+            map(fieldsValue[key])
+          }
+        }
+      })
+    }
+
+    map(deepCloneFieldsValue)
+
+    return deepCloneFieldsValue
+  }
+
+  // 用于开发, 后续删除
+  useEffect(() => {
+    console.log(
+      'currentChartConfigByForm变化:',
+      currentChartConfigByForm,
+      'currentChartConfigByPreset',
+      currentChartConfigByPreset
+    )
+  }, [currentChartConfigByForm])
 
   return (
     <div className={style.content}>
@@ -30,7 +77,7 @@ const ChartConfig = () => {
         <Tree
           defaultExpandAll
           autoExpandParent
-          treeData={chartFromConfig.areaFromConfig}
+          treeData={allChartFromConfig[currentChartConfigByPreset.cpnName]}
           blockNode
         />
       </Form>

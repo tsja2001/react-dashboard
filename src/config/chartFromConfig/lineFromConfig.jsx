@@ -121,10 +121,59 @@ const areaTreeConfig = [
   },
   {
     title: (
-      <TreeNode label="x轴" name={['xAxis', 'offsetY']} valuePropName="checked">
+      <TreeNode
+        label="x轴"
+        name={['xAxis', 'visible']}
+        valuePropName="checked"
+        initialValue={true}
+      >
         <Switch />
       </TreeNode>
-    )
+    ),
+    children: [
+      // {
+      //   title: (
+      //     <TreeNode label="标题" name={['xAxis', 'title', 'text']}>
+      //       <Input />
+      //     </TreeNode>
+      //   )
+      // },
+      {
+        title: (
+          <TreeNode
+            label="文本标签"
+            name={['xAxis', 'label']}
+            valuePropName="checked"
+          >
+            <Switch />
+          </TreeNode>
+        ),
+        children: [
+          {
+            title: (
+              <TreeNode
+                label="自动旋转"
+                name={['xAxis', 'label', 'autoRotate']}
+                valuePropName="checked"
+              >
+                <Switch />
+              </TreeNode>
+            )
+          },
+          {
+            title: (
+              <TreeNode
+                label="自动隐藏"
+                name={['xAxis', 'label', 'autoHide']}
+                valuePropName="checked"
+              >
+                <Switch />
+              </TreeNode>
+            )
+          }
+        ]
+      }
+    ]
   }
 ]
 

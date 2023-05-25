@@ -16,6 +16,16 @@ export default [
             fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff'
           }
         }
+      },
+      {
+        label: '渐变色面积图(平滑)',
+        cpnName: 'Area',
+        presetConf: {
+          smooth: true,
+          areaStyle: {
+            fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff'
+          }
+        }
       }
     ]
   },
