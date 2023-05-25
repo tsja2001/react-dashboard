@@ -1,10 +1,10 @@
 import { memo } from 'react'
-import { Tree, Form, Input, Switch } from 'antd'
+import { Form } from 'antd'
 
 import style from './TreeNode.module.scss'
 
 const TreeNode = (props) => {
-  const { label, children, name, valuePropName, disabled, initialValue } = props
+  const { label, children, name, valuePropName, initialValue } = props
 
   return (
     <div className={style.flex}>
