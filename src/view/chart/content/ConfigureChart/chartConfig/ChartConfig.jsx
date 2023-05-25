@@ -4,6 +4,8 @@ import lodash from 'lodash'
 
 import style from './ChartConfig.module.scss'
 import { ChartContext } from '@/view/chart/ChartLayout'
+import { mergeObjects } from '@/utils/mergeObjects'
+import { cleanseObject } from '@/utils/cleanseObject'
 
 const ChartConfig = () => {
   const [form] = Form.useForm()
@@ -19,10 +21,12 @@ const ChartConfig = () => {
   useEffect(() => {
     console.log('currentChartConfigByPreset', currentChartConfigByPreset)
     form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
-    setCurrentChartConfigByForm({
-      ...getValuesExcludeUndefined(form.getFieldsValue()),
-      chartType: 'Line'
-    })
+    setCurrentChartConfigByForm(
+      mergeObjects(
+        cleanseObject(form.getFieldsValue()),
+        currentChartConfigByPreset.presetConf
+      )
+    )
 
     return () => {
       // 组件销毁时, 清空数据
@@ -34,33 +38,12 @@ const ChartConfig = () => {
   // 表单数据变化时, 将表单数据设置到context中
   const fieldChangeHandler = (changedFields, allFields) => {
     console.log('allFields', allFields)
-    setCurrentChartConfigByForm({
-      ...getValuesExcludeUndefined(allFields),
-      chartType: 'Line'
-    })
-  }
-
-  // 获取表单数据, 如果字段为underfund, 则删除字段
-  const getValuesExcludeUndefined = (fieldsValue) => {
-    const deepCloneFieldsValue = lodash.cloneDeep(fieldsValue)
-
-    const map = (fieldsValue) => {
-      Object.keys(fieldsValue).forEach((key) => {
-        if (fieldsValue[key] === undefined || fieldsValue[key] === null) {
-          delete fieldsValue[key]
-        } else if (typeof fieldsValue[key] === 'object') {
-          if (Object.keys(fieldsValue[key]).length === 0) {
-            delete fieldsValue[key]
-          } else {
-            map(fieldsValue[key])
-          }
-        }
-      })
-    }
-
-    map(deepCloneFieldsValue)
-
-    return deepCloneFieldsValue
+    setCurrentChartConfigByForm(
+      mergeObjects(
+        cleanseObject(form.getFieldsValue()),
+        currentChartConfigByPreset.presetConf
+      )
+    )
   }
 
   // 用于开发, 后续删除
