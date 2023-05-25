@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="_ERIA1zSipQTDJqZzZRD" name="第 1 页">
-        <mxGraphModel dx="2182" dy="1809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2710" dy="2083" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -48,9 +48,6 @@
                 </mxCell>
                 <mxCell id="65" value="......" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="770" y="615.5" width="100" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="86" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1679.38" y="252.55" width="690" height="430" as="geometry"/>
                 </mxCell>
                 <mxCell id="87" value="第三步 图表配置" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1679.38" y="252.55" width="130" height="40" as="geometry"/>
@@ -220,14 +217,6 @@
                         <mxPoint x="138" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="183" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="173" target="101" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="193" value="8 渲染成表单" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="183" vertex="1" connectable="0">
-                    <mxGeometry x="-0.0704" y="3" relative="1" as="geometry">
-                        <mxPoint y="1" as="offset"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="173" value="chartFormConfig" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1900" y="34" width="130" height="40" as="geometry"/>
                 </mxCell>
@@ -268,24 +257,8 @@
                 <mxCell id="188" value="&lt;div style=&quot;text-align: start;&quot;&gt;xxxAllConfig&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: start;&quot;&gt;当前图表类型下, 所有可用配置项&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1679.38" y="106.5" width="191.25" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="196" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="194" target="99" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="194" value="currentChartConfigByFotm" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="2120" y="99" width="169" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="195" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="194" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="2210" y="440"/>
-                        </Array>
-                        <mxPoint x="2010" y="440" as="sourcePoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="197" value="9 根据所选表单, &lt;br&gt;生成图表配置项" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="195" vertex="1" connectable="0">
-                    <mxGeometry x="-0.4528" y="-2" relative="1" as="geometry">
-                        <mxPoint x="-17" y="-2" as="offset"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="201" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="198" target="171" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -578,11 +551,6 @@
                 <mxCell id="281" style="edgeStyle=none;html=1;entryX=0.834;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="221" target="278" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="282" value="9 根据所选表单, &lt;br&gt;生成图表配置项" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="2089.9982231612707" y="219.99799895820897" as="geometry">
-                        <mxPoint x="22" y="-13" as="offset"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="283" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="200" width="580" height="520" as="geometry"/>
                 </mxCell>
@@ -629,7 +597,7 @@
                     <mxGeometry x="770" y="615.5" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="298" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1480" y="232.55" width="880" height="430" as="geometry"/>
+                    <mxGeometry x="1480" y="232.55" width="880" height="667.45" as="geometry"/>
                 </mxCell>
                 <mxCell id="299" value="第三步 图表配置" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1480" y="232.55" width="130" height="40" as="geometry"/>
@@ -856,7 +824,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="360" value="9 根据所选表单, &lt;br&gt;生成图表配置项" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="2089.9982231612707" y="219.99799895820897" as="geometry">
+                    <mxGeometry x="2079.9982231612707" y="219.99799895820897" as="geometry">
                         <mxPoint x="22" y="-13" as="offset"/>
                     </mxGeometry>
                 </mxCell>
@@ -868,6 +836,16 @@
                 </mxCell>
                 <mxCell id="363" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;span style=&quot;color: #001080;&quot;&gt;allFromConfig&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Input Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;&lt;font color=&quot;#001080&quot;&gt;全部表单配置列表&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1160" width="160" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="364" style="edgeStyle=none;html=1;" edge="1" parent="1" source="288">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2160" y="950" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="660" y="520"/>
+                            <mxPoint x="660" y="1010"/>
+                            <mxPoint x="2090" y="990"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>

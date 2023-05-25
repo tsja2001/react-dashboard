@@ -4,7 +4,8 @@ module.exports = {
     {
       files: ['*.cjs'],
       env: {
-        commonjs: true
+        commonjs: true,
+        jest: true
       }
     }
   ],

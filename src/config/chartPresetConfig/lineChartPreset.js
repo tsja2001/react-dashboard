@@ -6,12 +6,15 @@ export default [
       {
         label: '基础折线图',
         cpnName: 'Line',
-        presetConf: {}
+        presetConf: {
+          chartType: 'Line'
+        }
       },
       {
         label: '基础曲线图',
         cpnName: 'Line',
         presetConf: {
+          chartType: 'Line',
           smooth: true
         }
       },
@@ -19,6 +22,7 @@ export default [
         label: '阶梯折线图',
         cpnName: 'Line',
         presetConf: {
+          chartType: 'Line',
           stepType: 'vh'
         }
       },
@@ -26,6 +30,7 @@ export default [
         label: '折线点带有数据',
         cpnName: 'Line',
         presetConf: {
+          chartType: 'Line',
           point: {
             size: 5,
             shape: 'diamond',

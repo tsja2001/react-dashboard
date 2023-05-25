@@ -16,6 +16,7 @@ const ChartConfig = () => {
   } = useContext(ChartContext)
 
   const fieldChangeHandler = (changedFields, allFields) => {
+    console.log('allFields', allFields)
     setCurrentChartConfigByForm(getValuesExcludeUndefined(allFields))
   }
 
