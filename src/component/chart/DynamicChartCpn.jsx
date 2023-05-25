@@ -1,17 +1,20 @@
 import { memo } from 'react'
 
 import { Input, Switch } from 'antd'
+import { Area, Line } from '@ant-design/charts'
 
 const DynamicChartCpn = (props) => {
-  const { is, children, title, ...rest } = props
+  const { chartType, ...rest } = props
 
-  return <h2>dyma</h2>
+  console.log('props', props)
 
-  // if (is === 'Input') {
-  //   return <Input {...rest}>{children}</Input>
-  // } else if (is === 'Switch') {
-  //   return <Switch {...rest}>{children}</Switch>
-  // }
+  if (chartType === 'Line') {
+    return <Line {...rest}></Line>
+  } else if (chartType === 'Area') {
+    return <Area {...rest}></Area>
+  } else {
+    return <h2>aaaaa</h2>
+  }
 }
 
 export default memo(DynamicChartCpn)

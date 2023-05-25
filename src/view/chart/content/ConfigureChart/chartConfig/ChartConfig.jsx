@@ -15,22 +15,14 @@ const ChartConfig = () => {
     allChartFromConfig
   } = useContext(ChartContext)
 
-  const fieldChangeHandler = (changedFields, allFields) => {
-    console.log('allFields', allFields)
-    setCurrentChartConfigByForm(getValuesExcludeUndefined(allFields))
-  }
-
-  // useEffect(() => {
-  //   console.log('form.getFieldsValue()', form.getFieldsValue())
-  //   setCurrentChartConfigByForm(form.getFieldsValue())
-  // }, [form.getFieldsValue()])
-
+  // 组件加载时, 将第二步选择的预设数据, 设置到表单中. 并且将表单数据设置到context中
   useEffect(() => {
     console.log('currentChartConfigByPreset', currentChartConfigByPreset)
     form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
-    setCurrentChartConfigByForm(
-      getValuesExcludeUndefined(form.getFieldsValue())
-    )
+    setCurrentChartConfigByForm({
+      ...getValuesExcludeUndefined(form.getFieldsValue()),
+      chartType: 'Line'
+    })
 
     return () => {
       // 组件销毁时, 清空数据
@@ -38,6 +30,15 @@ const ChartConfig = () => {
       form.resetFields()
     }
   }, [currentChartConfigByPreset])
+
+  // 表单数据变化时, 将表单数据设置到context中
+  const fieldChangeHandler = (changedFields, allFields) => {
+    console.log('allFields', allFields)
+    setCurrentChartConfigByForm({
+      ...getValuesExcludeUndefined(allFields),
+      chartType: 'Line'
+    })
+  }
 
   // 获取表单数据, 如果字段为underfund, 则删除字段
   const getValuesExcludeUndefined = (fieldsValue) => {

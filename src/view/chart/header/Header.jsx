@@ -23,7 +23,7 @@ const Header = (props) => {
   const location = useLocation()
   // 路由切换时, 设置当前选中的menu
   useEffect(() => {
-    console.log('监听到路由跳转location', location)
+    // console.log('监听到路由跳转location', location)
     setStepsCurrent(
       steps.componentConfig.findIndex(
         (item) => item.router === location.pathname.split('/')[2]

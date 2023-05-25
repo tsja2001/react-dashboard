@@ -1,6 +1,8 @@
 import { memo, useContext } from 'react'
 import { connect } from 'react-redux'
-import { Line, Area, Column, Bar, Pie } from '@ant-design/plots'
+// import { Line, Area, Column, Bar, Pie } from '@ant-design/plots'
+// import { Line, Area, Column, Bar, Pie } from '@ant-design/plots'
+import { Line, Area, Column, Bar, Pie } from '@ant-design/charts'
 
 import { ChartContext } from '@/view/chart/ChartLayout'
 import style from './ChartPreview.module.scss'
@@ -25,7 +27,10 @@ const ChartPreview = (props) => {
         //   // {...currentChartConfigByPreset.presetConf}
         //   {...currentChartConfigByForm}
         // />
-        <DynamicChartCpn {...currentChartData.chartConfig} />
+        <DynamicChartCpn
+          {...currentChartData.chartConfig}
+          {...currentChartConfigByForm}
+        />
       )}
       {currentChartConfigByPreset.cpnName === 'Area' && (
         <Area
