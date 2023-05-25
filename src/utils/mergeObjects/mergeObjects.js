@@ -1,8 +1,8 @@
 import { cloneDeep } from 'lodash'
 
-export const mergeObjects = (primary_obj, secondary_obj) => {
-  const res = cloneDeep(primary_obj)
-  const source = cloneDeep(secondary_obj)
+export const mergeObjects = (primaryObj, secondaryObj) => {
+  const res = cloneDeep(primaryObj)
+  const source = cloneDeep(secondaryObj)
 
   Object.keys(source).forEach((key) => {
     // 如果有相同的key
