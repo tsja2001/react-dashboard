@@ -25,6 +25,7 @@
 - eslint 插件 - 代码检查
 - Prettier 插件 - 代码格式化
 - CSS Modules 插件 - 代码提示与跳转
+- jest - 单元测试
 
 ## 项目介绍
 
@@ -58,3 +59,4 @@
   3. Prettier 代码格式化
   4. husky git 提交前自动格式化
   5. pnpm 包管理工具
+  6. jest 单元测试
