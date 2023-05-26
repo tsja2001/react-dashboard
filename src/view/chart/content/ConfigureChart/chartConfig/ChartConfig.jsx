@@ -24,7 +24,7 @@ const ChartConfig = () => {
   // 组件加载时, 将第二步选择的预设数据, 设置到表单中. 并且将表单数据设置到context中
   useEffect(() => {
     if (currentChartConfigByPreset.cpnName === undefined) {
-      message.info('请先选择图表类型')
+      message.warning('请先选择图表类型')
       nav('/chart/select_chart')
       return
     }
