@@ -33,6 +33,9 @@ export default [
         label: '基础饼图',
         cpnName: 'Pie',
         presetConf: {
+          angleField: 'value',
+          colorField: 'key',
+          chartType: 'Pie',
           radius: 0.9,
           label: {
             type: 'inner',
@@ -54,6 +57,9 @@ export default [
         label: '基础饼图-外部标签',
         cpnName: 'Pie',
         presetConf: {
+          angleField: 'value',
+          colorField: 'key',
+          chartType: 'Pie',
           radius: 0.9,
           label: {
             type: 'outer'
@@ -69,6 +75,9 @@ export default [
         label: '四分之一圆',
         cpnName: 'Pie',
         presetConf: {
+          angleField: 'value',
+          colorField: 'key',
+          chartType: 'Pie',
           radius: 1,
           // 设置圆弧起始角度
           startAngle: Math.PI,
@@ -101,6 +110,9 @@ export default [
         label: '环图',
         cpnName: 'Pie',
         presetConf: {
+          angleField: 'value',
+          colorField: 'key',
+          chartType: 'Pie',
           radius: 1,
           innerRadius: 0.6,
           label: {

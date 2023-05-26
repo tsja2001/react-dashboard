@@ -1,5 +1,4 @@
 import { memo, useCallback, useContext, useEffect } from 'react'
-import { Pie, Line, Area, Column, Bar } from '@ant-design/plots'
 import { connect } from 'react-redux'
 import { Col, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
@@ -8,6 +7,7 @@ import style from './SelectChart.module.scss'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { ChartContext } from '../../ChartLayout'
 import Select from '../cpns/select/Select'
+import DynamicChartCpn from '@/component/chart/DynamicChartCpn'
 
 const SelectChart = (props) => {
   const { currentChartData } = props
@@ -51,38 +51,10 @@ const SelectChart = (props) => {
                           detailHandler={() => detailHandler(chartConfig)}
                           title={chartConfig.label}
                         >
-                          {chartType.type.startsWith('Line') && (
-                            <Line
-                              {...currentChartData.chartConfig}
-                              {...chartConfig.presetConf}
-                            />
-                          )}
-                          {chartType.type.startsWith('Area') && (
-                            <Area
-                              {...currentChartData.chartConfig}
-                              {...chartConfig.presetConf}
-                            />
-                          )}
-                          {chartType.type.startsWith('Column') && (
-                            <Column
-                              {...currentChartData.chartConfig}
-                              {...chartConfig.presetConf}
-                            />
-                          )}
-                          {chartType.type.startsWith('Bar') && (
-                            <Bar
-                              {...currentChartData.chartConfig}
-                              {...chartConfig.presetConf}
-                            />
-                          )}
-                          {chartType.type.startsWith('Pie') && (
-                            <Pie
-                              {...currentChartData.chartConfig}
-                              angleField="value"
-                              colorField="key"
-                              {...chartConfig.presetConf}
-                            />
-                          )}
+                          <DynamicChartCpn
+                            {...currentChartData.chartConfig}
+                            {...chartConfig.presetConf}
+                          ></DynamicChartCpn>
                         </ChartWrap>
                       </Col>
                     ))}

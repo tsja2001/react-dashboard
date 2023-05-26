@@ -20,7 +20,7 @@
 - [ ] @/view/chart/content/selectChart Header 未开发, 期待功能: 存放 Select, 视图列数选择功能
 - [ ] @/view/chart/content/selectChart 侧边栏 Menu 导航未开发, 期待功能: 一级导航: 图表大分类(柱状图, 饼图...), 二级导航: 图表小分类(基础柱状图, 堆叠柱状图...)
 
-## 安装插件(建议)
+## 安装插件(可选)
 
 - eslint 插件 - 代码检查
 - Prettier 插件 - 代码格式化
@@ -59,4 +59,4 @@
   3. Prettier 代码格式化
   4. husky git 提交前自动格式化
   5. pnpm 包管理工具
-  6. jest 单元测试
+  6. jest 单元测试(仅用于工具函数的测试)

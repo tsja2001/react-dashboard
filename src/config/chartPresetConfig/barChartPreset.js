@@ -7,6 +7,7 @@ export default [
         label: '基础条形图',
         cpnName: 'Bar',
         presetConf: {
+          chartType: 'Bar',
           xField: 'value',
           yField: 'key'
         }
@@ -15,6 +16,7 @@ export default [
         label: '基础条形图, 显示数据',
         cpnName: 'Bar',
         presetConf: {
+          chartType: 'Bar',
           xField: 'value',
           yField: 'key',
           label: {
@@ -47,6 +49,7 @@ export default [
         label: '分组条形图',
         cpnName: 'Bar',
         presetConf: {
+          chartType: 'Bar',
           xField: 'value',
           yField: 'key',
           isGroup: true
@@ -56,6 +59,7 @@ export default [
         label: '分组条形图, 显示数据',
         cpnName: 'Bar',
         presetConf: {
+          chartType: 'Bar',
           xField: 'value',
           yField: 'key',
           isGroup: true,
@@ -83,6 +87,7 @@ export default [
         label: '百分比条形图',
         cpnName: 'Bar',
         presetConf: {
+          chartType: 'Bar',
           xField: 'value',
           yField: 'key',
           isPercent: true,
