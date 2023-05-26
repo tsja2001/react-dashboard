@@ -58,14 +58,18 @@ const ChartConfig = (props) => {
   }
 
   // 点击生成图表
-  const createBtnHandler = () => {
+  const createBtnHandler = async () => {
     const resData = {
       ...currentChartConfigByForm,
       dataId: props.currentChartId
     }
-
-    // 派发action, 保存图表预设数据
     console.log(resData)
+
+    // 执行创建图表的接口, 并且跳转到图表列表页
+    setTimeout(() => {
+      message.success('图表创建成功')
+      nav('/home/chart')
+    }, 100)
   }
 
   // 用于开发, 后续删除
