@@ -1,7 +1,7 @@
 // const { mergeObjects } = require('../index')
 import { mergeObjects } from '../mergeObjects.js'
 
-describe('mergeObjects function', () => {
+describe('mergeObjects', () => {
   test('key不同直接合并', () => {
     const obj1 = { a: 1, b: 2 }
     const obj2 = { c: 3, d: 4 }
