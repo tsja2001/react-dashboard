@@ -1,21 +1,31 @@
 import { Steps } from 'antd'
-import { memo, useEffect } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import style from './Header.module.scss'
-import { connect } from 'react-redux'
-import {
-  setStepsComponentConfig,
-  setStepsCurrent
-} from '@/store/features/view/chart'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const Header = (props) => {
-  const { steps, setStepsCurrent } = props
   const nav = useNavigate()
 
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const componentConfigRef = useRef([
+    {
+      title: '选择数据',
+      router: 'select_data'
+    },
+    {
+      title: '选择图表',
+      router: 'select_chart'
+    },
+    {
+      title: '配置图表',
+      router: 'configure_chart'
+    }
+  ])
+
   const onChange = (value) => {
-    setStepsCurrent(value)
-    const router = steps.componentConfig[value].router
+    setCurrentIndex(value)
+    const router = componentConfigRef.current[value].router
     nav(`/chart/${router}`)
   }
 
@@ -23,9 +33,8 @@ const Header = (props) => {
   const location = useLocation()
   // 路由切换时, 设置当前选中的menu
   useEffect(() => {
-    // console.log('监听到路由跳转location', location)
-    setStepsCurrent(
-      steps.componentConfig.findIndex(
+    setCurrentIndex(
+      componentConfigRef.current.findIndex(
         (item) => item.router === location.pathname.split('/')[2]
       )
     )
@@ -35,23 +44,13 @@ const Header = (props) => {
     <div className={style.content}>
       <Steps
         type="navigation"
-        current={steps.current}
+        current={currentIndex}
         onChange={onChange}
         className={style.steps}
-        items={steps.componentConfig}
+        items={componentConfigRef.current}
       />
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({
-  steps: state.viewChart.steps
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  setStepsCurrent: (current) => dispatch(setStepsCurrent(current)),
-  setStepsComponentConfig: (componentConfig) =>
-    dispatch(setStepsComponentConfig(componentConfig))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Header))
+export default memo(Header)

@@ -1,6 +1,6 @@
 export default {
   label: '分组数据1(少量)',
-  id: 'chart_id_4',
+  id: 'data_id_4',
   chartType: ['Column:Group', 'Line', 'Bar:Group', 'Area:Group'],
   chartConfig: {
     xField: 'key',

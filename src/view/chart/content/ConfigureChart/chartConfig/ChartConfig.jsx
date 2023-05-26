@@ -8,8 +8,9 @@ import style from './ChartConfig.module.scss'
 import { ChartContext } from '@/view/chart/ChartLayout'
 import { mergeObjects } from '@/utils/mergeObjects'
 import { cleanseObject } from '@/utils/cleanseObject'
+import { connect } from 'react-redux'
 
-const ChartConfig = () => {
+const ChartConfig = (props) => {
   const [form] = Form.useForm()
   const nav = useNavigate()
   const { message } = App.useApp()
@@ -31,12 +32,6 @@ const ChartConfig = () => {
 
     form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
 
-    console.log('form.getFieldsValue()', form.getFieldsValue())
-    console.log(
-      'cleanseObject(form.getFieldsValue()),',
-      cleanseObject(form.getFieldsValue())
-    )
-
     setCurrentChartConfigByForm(
       mergeObjects(
         cleanseObject(form.getFieldsValue()),
@@ -52,7 +47,7 @@ const ChartConfig = () => {
   }, [currentChartConfigByPreset])
 
   // 表单数据变化时, 将表单数据设置到context中
-  const fieldChangeHandler = (changedFields, allFields) => {
+  const fieldChangeHandler = () => {
     // console.log('allFields', allFields)
     setCurrentChartConfigByForm(
       mergeObjects(
@@ -63,7 +58,15 @@ const ChartConfig = () => {
   }
 
   // 点击生成图表
-  const createBtnHandler = () => {}
+  const createBtnHandler = () => {
+    const resData = {
+      ...currentChartConfigByForm,
+      dataId: props.currentChartId
+    }
+
+    // 派发action, 保存图表预设数据
+    console.log(resData)
+  }
 
   // 用于开发, 后续删除
   useEffect(() => {
@@ -98,4 +101,8 @@ const ChartConfig = () => {
   )
 }
 
-export default memo(ChartConfig)
+const mapStateToProp = (state) => ({
+  currentChartId: state.viewChartSelectData.currentChartId
+})
+
+export default connect(mapStateToProp)(memo(ChartConfig))

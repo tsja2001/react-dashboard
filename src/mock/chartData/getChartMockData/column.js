@@ -1,6 +1,6 @@
 export default {
   label: '单数据2(少量)',
-  id: 'chart_id_3',
+  id: 'data_id_3',
   chartType: [
     'Column:Single',
     'Line',
