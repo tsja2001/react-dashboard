@@ -1,5 +1,5 @@
 import { memo, useContext, useEffect } from 'react'
-import { Form, Tree, Button, message } from 'antd'
+import { App, Form, Tree, Button, message } from 'antd'
 import lodash from 'lodash'
 import { DoubleRightOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
@@ -12,7 +12,7 @@ import { cleanseObject } from '@/utils/cleanseObject'
 const ChartConfig = () => {
   const [form] = Form.useForm()
   const nav = useNavigate()
-  const [messageApi, contextHolder] = message.useMessage()
+  const { message } = App.useApp()
 
   const {
     setCurrentChartConfigByForm,
@@ -24,9 +24,9 @@ const ChartConfig = () => {
   // 组件加载时, 将第二步选择的预设数据, 设置到表单中. 并且将表单数据设置到context中
   useEffect(() => {
     if (currentChartConfigByPreset.cpnName === undefined) {
-      messageApi.info('请先选择图表类型')
-      // nav('/chart/select_chart')
-      // return
+      message.info('请先选择图表类型')
+      nav('/chart/select_chart')
+      return
     }
 
     form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
@@ -77,7 +77,6 @@ const ChartConfig = () => {
 
   return (
     <div className={style.content}>
-      {contextHolder}
       <Form form={form} onValuesChange={fieldChangeHandler}>
         <Tree
           defaultExpandAll
