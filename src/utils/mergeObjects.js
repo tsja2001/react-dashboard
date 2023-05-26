@@ -1,6 +1,10 @@
 import { cloneDeep } from 'lodash'
 
 export const mergeObjects = (primaryObj, secondaryObj) => {
+  if (typeof primaryObj !== 'object' || typeof secondaryObj !== 'object') {
+    return {}
+  }
+
   const res = cloneDeep(primaryObj)
   const source = cloneDeep(secondaryObj)
 
