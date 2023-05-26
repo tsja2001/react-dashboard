@@ -7,9 +7,7 @@ import viewChartSelectData from './features/view/chart/selectData'
 const store = configureStore({
   reducer: {
     viewHomeChart,
-    // viewChart,
     viewChartSelectData
-    // viewChartSelectChart
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

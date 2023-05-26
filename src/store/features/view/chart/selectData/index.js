@@ -1,7 +1,4 @@
-import {
-  getChartMockData,
-  getChartMockIndex
-} from '@/mock/chartData/getChartMockData'
+import { getChartMockData, getChartMockIndex } from '@/mock/getChartMockData'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 const slice = createSlice({
   name: 'view/chart/selectData',
