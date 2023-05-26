@@ -5,8 +5,6 @@ import { Area, Bar, Column, Line, Pie } from '@ant-design/charts'
 const DynamicChartCpn = (props) => {
   const { chartType, title, description, ...rest } = props
 
-  console.log('props', props)
-
   let Chart = <h2>暂无图表数据</h2>
 
   if (chartType === 'Line') {
