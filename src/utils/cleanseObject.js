@@ -1,25 +1,31 @@
-import { cloneDeep } from 'lodash'
-
 // 删除对象中值为 undefined / null / 空对象 的键
 // 目前用于@/view/chart/content/configureChart/chartConfig/ChartConfig.jsx
 // 表单生成后, 对于为选择的选项, 生成的表单中不会有对应的键
+
 export const cleanseObject = (obj) => {
-  const map = (obj) => {
-    Object.keys(obj).forEach((key) => {
-      if (obj[key] === undefined || obj[key] === null) {
-        delete obj[key]
-      } else if (typeof obj[key] === 'object') {
-        if (Object.keys(obj[key]).length === 0) {
-          delete obj[key]
-        } else {
-          map(obj[key])
-        }
-      }
-    })
+  if (obj === null || obj === undefined) {
+    return null
   }
 
-  const deepCloneobj = cloneDeep(obj)
-  map(deepCloneobj)
+  if (typeof obj !== 'object' || Array.isArray(obj)) {
+    return obj
+  }
 
-  return deepCloneobj
+  let keys = Object.keys(obj)
+  for (let key of keys) {
+    if (obj[key] === null || obj[key] === undefined) {
+      delete obj[key]
+    } else {
+      obj[key] = cleanseObject(obj[key])
+      if (typeof obj[key] === 'object' && Object.keys(obj[key]).length === 0) {
+        delete obj[key]
+      }
+    }
+  }
+
+  if (obj?.legend?.visible === false) {
+    obj.legend = false
+  }
+
+  return obj
 }

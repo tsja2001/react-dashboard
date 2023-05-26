@@ -1,62 +1,77 @@
 import { cleanseObject } from '../cleanseObject'
 
 describe('cleanseObject', () => {
-  it('should exclude fields with undefined values', () => {
+  it('传入对象为空', () => {
+    expect(cleanseObject({})).toEqual({})
+  })
+
+  it('删除undedined null和空对象', () => {
     const obj = {
-      name: 'Tom',
-      age: undefined,
-      job: 'engineer'
+      title: '2',
+      legend: {},
+      smooth: undefined,
+      xAxis: null
     }
     const expectedObj = {
-      name: 'Tom',
-      job: 'engineer'
+      title: '2'
     }
     expect(cleanseObject(JSON.parse(JSON.stringify(obj)))).toEqual(expectedObj)
   })
 
-  it('should exclude fields with null values', () => {
+  it('深层递归删除', () => {
     const obj = {
-      name: 'Tom',
-      age: null,
-      job: 'engineer'
-    }
-    const expectedObj = {
-      name: 'Tom',
-      job: 'engineer'
-    }
-    expect(cleanseObject(JSON.parse(JSON.stringify(obj)))).toEqual(expectedObj)
-  })
-
-  it('should exclude empty objects', () => {
-    const obj = {
-      name: 'Tom',
-      details: {},
-      job: 'engineer'
-    }
-    const expectedObj = {
-      name: 'Tom',
-      job: 'engineer'
-    }
-    expect(cleanseObject(JSON.parse(JSON.stringify(obj)))).toEqual(expectedObj)
-  })
-
-  it('should exclude fields with undefined or null values in nested objects', () => {
-    const obj = {
-      name: 'Tom',
-      details: {
-        age: undefined
+      title: {
+        size: 3
       },
-      job: 'engineer'
+      legend: {
+        visible: null,
+        value: 'aaaa'
+      },
+      xAxis: {
+        visible: undefined,
+        label: {
+          value: undefined,
+          position: 'aaa'
+        }
+      }
     }
     const expectedObj = {
-      name: 'Tom',
-      job: 'engineer'
+      title: {
+        size: 3
+      },
+      legend: {
+        value: 'aaaa'
+      },
+      xAxis: {
+        label: {
+          position: 'aaa'
+        }
+      }
     }
     expect(cleanseObject(JSON.parse(JSON.stringify(obj)))).toEqual(expectedObj)
   })
 
-  it('should work correctly with empty input object', () => {
-    const obj = {}
-    expect(cleanseObject(JSON.parse(JSON.stringify(obj)))).toEqual({})
+  it('当子属性都删完了, 父属也要被删除', () => {
+    const obj = {
+      title: {
+        size: 3
+      },
+      legend: {},
+      smooth: true,
+      xAxis: {
+        visible: {
+          value: null
+        },
+        label: {}
+      }
+    }
+
+    const expectedObj = {
+      title: {
+        size: 3
+      },
+      smooth: true
+    }
+    expect(cleanseObject(JSON.parse(JSON.stringify(obj)))).toEqual(expectedObj)
   })
 })

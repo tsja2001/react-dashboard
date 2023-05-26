@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Typography } from 'antd'
-import { Area, Line } from '@ant-design/charts'
+import { Area, Column, Line } from '@ant-design/charts'
 
 const DynamicChartCpn = (props) => {
   const { chartType, title, description, ...rest } = props
@@ -9,10 +9,14 @@ const DynamicChartCpn = (props) => {
 
   let Chart = <h2>暂无图表数据</h2>
 
+  console.log('----------------------------')
+
   if (chartType === 'Line') {
     Chart = <Line {...rest}></Line>
   } else if (chartType === 'Area') {
     Chart = <Area {...rest}></Area>
+  } else if (chartType === 'Column') {
+    Chart = <Column {...rest}></Column>
   }
 
   return (

@@ -21,6 +21,13 @@ const ChartConfig = () => {
   useEffect(() => {
     // console.log('currentChartConfigByPreset', currentChartConfigByPreset)
     form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
+
+    console.log('form.getFieldsValue()', form.getFieldsValue())
+    console.log(
+      'cleanseObject(form.getFieldsValue()),',
+      cleanseObject(form.getFieldsValue())
+    )
+
     setCurrentChartConfigByForm(
       mergeObjects(
         cleanseObject(form.getFieldsValue()),
@@ -48,12 +55,12 @@ const ChartConfig = () => {
 
   // 用于开发, 后续删除
   useEffect(() => {
-    // console.log(
-    //   'currentChartConfigByForm变化:',
-    //   currentChartConfigByForm,
-    //   'currentChartConfigByPreset',
-    //   currentChartConfigByPreset
-    // )
+    console.log(
+      'currentChartConfigByForm变化:',
+      currentChartConfigByForm,
+      'currentChartConfigByPreset',
+      currentChartConfigByPreset
+    )
   }, [currentChartConfigByForm])
 
   return (

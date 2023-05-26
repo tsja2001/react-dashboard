@@ -1,5 +1,4 @@
 import TreeNode from '@/component/treeNode/TreeNode'
-import { InputNumber } from 'antd'
 import { Input, Switch, Select } from 'antd'
 
 const areaTreeConfig = [
@@ -154,28 +153,33 @@ const areaTreeConfig = [
       </TreeNode>
     ),
     children: [
-      // {
-      //   title: (
-      //     <TreeNode label="标题" name={['xAxis', 'title', 'text']}>
-      //       <Input />
-      //     </TreeNode>
-      //   )
-      // },
+      {
+        title: (
+          <TreeNode
+            label="标题"
+            name={['xAxis', 'title', 'text']}
+            // name={['xAxis']}
+            // initialValue={'null'}
+          >
+            <Input />
+          </TreeNode>
+        )
+      },
       {
         title: (
           <TreeNode
             label="文本标签"
-            name={['xAxis', 'label']}
-            valuePropName="checked"
+            // name={['xAxis', 'label', 'visible']}
+            // valuePropName="checked"
           >
-            <Switch />
+            {/* <Switch /> */}
           </TreeNode>
         ),
         children: [
           {
             title: (
               <TreeNode
-                label="自动旋转"
+                label="过密时旋转"
                 name={['xAxis', 'label', 'autoRotate']}
                 valuePropName="checked"
               >
@@ -186,7 +190,7 @@ const areaTreeConfig = [
           {
             title: (
               <TreeNode
-                label="自动隐藏"
+                label="过密时隐藏"
                 name={['xAxis', 'label', 'autoHide']}
                 valuePropName="checked"
               >

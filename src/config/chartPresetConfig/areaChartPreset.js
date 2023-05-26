@@ -6,12 +6,15 @@ export default [
       {
         label: '基础面积图',
         cpnName: 'Area',
-        presetConf: {}
+        presetConf: {
+          chartType: 'Area'
+        }
       },
       {
         label: '渐变色面积图',
         cpnName: 'Area',
         presetConf: {
+          chartType: 'Area',
           areaStyle: {
             fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff'
           }
@@ -21,6 +24,7 @@ export default [
         label: '渐变色面积图(平滑)',
         cpnName: 'Area',
         presetConf: {
+          chartType: 'Area',
           smooth: true,
           areaStyle: {
             fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff'
@@ -36,12 +40,15 @@ export default [
       {
         label: '基础面积图',
         cpnName: 'Area',
-        presetConf: {}
+        presetConf: {
+          chartType: 'Area'
+        }
       },
       {
         label: '百分比堆叠面积图',
         cpnName: 'Area',
         presetConf: {
+          chartType: 'Area',
           areaStyle: {
             fillOpacity: 0.7
           },

@@ -13,11 +13,13 @@ const ChartPreview = (props) => {
     useContext(ChartContext)
   const { currentChartData } = props
 
-  // console.log('---------------------')
+  // console.log('--------------------1-')
   // console.log('currentChartData', currentChartData)
-  // // console.log('currentChartConfigByPreset', currentChartConfigByPreset)
+  // console.log('currentChartConfigByPreset', currentChartConfigByPreset)
   // console.log('currentChartConfigByForm', currentChartConfigByForm)
-  // console.log('---------------------')
+  // console.log('currentChartConfigByForm', currentChartConfigByForm)
+  // console.log({ ...currentChartData.chartConfig, ...currentChartConfigByForm })
+  // console.log('--------------------1-')
 
   return (
     <div className={style.context}>
@@ -33,16 +35,24 @@ const ChartPreview = (props) => {
         />
       )}
       {currentChartConfigByPreset.cpnName === 'Area' && (
-        <Area
+        // <Area
+        //   {...currentChartData.chartConfig}
+        //   // {...currentChartConfigByPreset.presetConf}
+        //   {...currentChartConfigByForm}
+        // />
+        <DynamicChartCpn
           {...currentChartData.chartConfig}
-          // {...currentChartConfigByPreset.presetConf}
           {...currentChartConfigByForm}
         />
       )}
       {currentChartConfigByPreset.cpnName === 'Column' && (
-        <Column
+        // <Column
+        //   {...currentChartData.chartConfig}
+        //   // {...currentChartConfigByPreset.presetConf}
+        //   {...currentChartConfigByForm}
+        // />
+        <DynamicChartCpn
           {...currentChartData.chartConfig}
-          // {...currentChartConfigByPreset.presetConf}
           {...currentChartConfigByForm}
         />
       )}

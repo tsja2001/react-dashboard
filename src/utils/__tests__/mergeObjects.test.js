@@ -29,4 +29,42 @@ describe('mergeObjects function', () => {
     const result = mergeObjects(obj1, obj2)
     expect(result).toEqual({ a: 1, b: { c: 2, d: 3, e: 5 } })
   })
+
+  test('更深层', () => {
+    const obj1 = {
+      a: 1,
+      b: {
+        c: 2,
+        d: 3,
+        e: {
+          f: 1,
+          g: 2
+        }
+      }
+    }
+    const obj2 = {
+      a: 4,
+      b: {
+        e: 5,
+        d: 4,
+        e: {
+          f: 3,
+          h: 4
+        }
+      }
+    }
+    const result = mergeObjects(obj1, obj2)
+    expect(result).toEqual({
+      a: 1,
+      b: {
+        c: 2,
+        d: 3,
+        e: {
+          f: 1,
+          g: 2,
+          h: 4
+        }
+      }
+    })
+  })
 })

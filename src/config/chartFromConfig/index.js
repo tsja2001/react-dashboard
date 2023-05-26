@@ -1,5 +1,6 @@
-// import areaFromConfig from './areaFromConfig.jsx'
+import areaFromConfig from './areaFromConfig.jsx'
 import lineFromConfig from './lineFromConfig.jsx'
+import columnFromConfig from './columnFromConfig.jsx'
 
 // 用于图表配置页面-使用表单配置图表样式页面, 此文件夹用于存放可以配置的表单项
 // 此文件用于给每个treeItem加上key, 来满足Tree组件的需要
@@ -11,11 +12,11 @@ const addKey = (tree, currentIndex = '') => {
     }
   })
 
-  console.log('tree-----', tree)
   return tree
 }
 
 export default {
-  // Area: addKey(areaFromConfig),
-  Line: addKey(lineFromConfig)
+  Area: addKey(areaFromConfig),
+  Line: addKey(lineFromConfig),
+  Column: addKey(columnFromConfig)
 }
