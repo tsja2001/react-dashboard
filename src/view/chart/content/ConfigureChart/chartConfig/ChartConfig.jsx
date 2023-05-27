@@ -140,7 +140,7 @@ const ChartConfig = (props) => {
 }
 
 const mapStateToProp = (state) => ({
-  currentChartId: state.viewChartSelectData.currentChartId
+  currentChartId: state.viewChart.currentChartId
 })
 
 export default connect(mapStateToProp)(memo(ChartConfig))

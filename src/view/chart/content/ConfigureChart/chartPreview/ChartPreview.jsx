@@ -20,7 +20,7 @@ const ChartPreview = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  currentChartData: state.viewChartSelectData.currentChartData
+  currentChartData: state.viewChart.currentChartData
 })
 
 export default connect(mapStateToProps)(memo(ChartPreview))

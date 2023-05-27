@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import viewHomeChart from './features/view/home/chart'
-import viewChartSelectData from './features/view/chart'
+import viewChart from './features/view/chart'
 
 const store = configureStore({
   reducer: {
     viewHomeChart,
-    viewChartSelectData
+    viewChart
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

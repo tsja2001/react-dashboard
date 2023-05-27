@@ -64,9 +64,9 @@ const Select = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  currentChartId: state.viewChartSelectData.currentChartId,
-  currentChartData: state.viewChartSelectData.currentChartData,
-  selectedDataOptions: state.viewChartSelectData.selectedDataOptions
+  currentChartId: state.viewChart.currentChartId,
+  currentChartData: state.viewChart.currentChartData,
+  selectedDataOptions: state.viewChart.selectedDataOptions
 })
 
 const mapDispatchToProps = (dispatch) => ({
