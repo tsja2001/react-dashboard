@@ -20,19 +20,23 @@ const ConfigureChart = () => {
 
   return (
     <div className={style.content}>
-      <Row className={style.row} gutter={6}>
+      <Row className={[style.row, style.row1]} gutter={6}>
         <Col className={style.col} xs={24} sm={24} md={16} lg={17} xl={18}>
           <Card className={style.card} title="图表预览">
-            <ChartPreview />
+            <div className={style.cardContent}>
+              <ChartPreview />
+            </div>
           </Card>
         </Col>
         <Col className={style.col} xs={24} sm={24} md={8} lg={7} xl={6}>
           <Card className={style.card} tabList={tabConfig}>
-            <ChartConfig />
+            <div className={style.cardContent}>
+              <ChartConfig />
+            </div>
           </Card>
         </Col>
       </Row>
-      <Row className={[style.row, style.row1]} gutter={4}>
+      <Row className={[style.row, style.row2]} gutter={4}>
         <Col className={style.col} span={24}>
           <Card className={style.card} title="图表数据">
             <ChartData />

@@ -53,7 +53,7 @@ const DynamicChartCpn = (props) => {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [props])
 
   return (
     <div className={style.context} ref={wrapRef}>

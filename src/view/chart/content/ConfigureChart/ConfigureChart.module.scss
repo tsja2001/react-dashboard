@@ -7,4 +7,20 @@
       }
     }
   }
+  .row1 {
+    // 屏幕高度 - 全屏幕padding-top - 顶部导航栏高度 - 图表数据card的margin-top - 图表数据card的title高度
+    // height: calc(100vh - 20px - 56px - 6px - 60px);
+    .col {
+      // height: 100%;
+      // .card {
+      //   height: 100%;
+      //   height: calc(100vh - 20px - 56px - 60px);
+      // }
+      .cardContent {
+        height: calc(100vh - 260px);
+      }
+    }
+  }
+  .row2 {
+  }
 }

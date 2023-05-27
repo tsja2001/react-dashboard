@@ -5,7 +5,7 @@ const areaTreeConfig = [
   {
     title: (
       <TreeNode
-        label="显示标题"
+        label="顶部文字"
         name={['title', 'visible']}
         valuePropName="checked"
       >
@@ -15,14 +15,14 @@ const areaTreeConfig = [
     children: [
       {
         title: (
-          <TreeNode label="标题内容" name={['title', 'text']}>
+          <TreeNode label="文字内容" name={['title', 'text']}>
             <Input />
           </TreeNode>
         )
       },
       {
         title: (
-          <TreeNode label="标题大小" name={['title', 'size']} initialValue={3}>
+          <TreeNode label="文字大小" name={['title', 'size']} initialValue={3}>
             <Select>
               <Select.Option value={1}>较大</Select.Option>
               <Select.Option value={2}>大</Select.Option>
