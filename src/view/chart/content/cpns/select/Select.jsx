@@ -5,7 +5,7 @@ import {
   fetchChartDataById,
   fetchSelectOptions,
   setcurrentChartId
-} from '@/store/features/view/chart/selectData'
+} from '@/store/features/view/chart'
 import { ChartContext } from '@/view/chart/ChartLayout'
 
 const Select = (props) => {

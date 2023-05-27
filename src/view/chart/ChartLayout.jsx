@@ -2,6 +2,8 @@ import { createContext, memo, useCallback, useEffect, useState } from 'react'
 import style from './ChartLayout.module.scss'
 import Header from './header/Header'
 import { Outlet } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const ChartContext = createContext()
 
@@ -76,6 +78,22 @@ const ChartLayout = () => {
     import('@/config/chartFromConfig/index.js').then((res) => {
       setAllChartFromConfig(res.default)
     })
+  }, [])
+
+  // 点击编辑图表后, 跳转到图表配置页面时, 根据路由参数, 设置当前选中的预设配置
+  const nav = useNavigate()
+  const location = useLocation()
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search)
+    const chartId = queryParams.get('chartId')
+
+    console.log('chartId', chartId)
+
+    // 如果路径的参数没有chartId, 说明是新建图表, 跳转到选择数据页面
+    if (chartId === null) {
+      return nav('/chart/select_data')
+    }
+    // 如果路径的参数有chartId, 说明是编辑图表, 获取图表配置, 设置当前选中的预设配置
   }, [])
 
   return (

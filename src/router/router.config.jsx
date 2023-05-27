@@ -40,7 +40,7 @@ const router = createHashRouter(
       </Route>
       {/* 图表编辑页面 */}
       <Route path="/chart" element={<ChartEdit />}>
-        <Route index element={<Navigate to="/chart/select_data" />} />
+        {/* <Route index element={<Navigate to="/chart/select_data" />} /> */}
         <Route path="/chart/select_data" element={<SelectData />} />
         <Route path="/chart/select_chart" element={<SelectChart />} />
         <Route path="/chart/configure_chart" element={<ConfigureChart />} />
