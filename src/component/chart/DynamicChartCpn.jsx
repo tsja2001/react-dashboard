@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { Typography } from 'antd'
 import { Area, Bar, Column, Line, Pie } from '@ant-design/charts'
 import style from './DynamicChartCpn.module.scss'
@@ -28,7 +28,32 @@ const DynamicChartCpn = (props) => {
 
   const wrapRef = useRef(null)
   const headerRef = useRef(null)
-  const [ChartHeight, setChartHeight] = useState(0)
+  const [chartHeight, setChartHeight] = useState(0)
+
+  const setHeight = () => {
+    const wrapHeight = wrapRef?.current?.offsetHeight
+    const headerHeight = headerRef?.current?.offsetHeight
+    if (wrapHeight && headerHeight) {
+      setChartHeight(wrapHeight - headerHeight)
+    }
+  }
+
+  useEffect(() => {
+    // 最外层容器高度变化时, 重新设置图表高度
+    const observer = new ResizeObserver((entries) => {
+      setHeight()
+    })
+
+    if (wrapRef.current) {
+      observer.observe(wrapRef.current)
+    }
+    // 初次渲染时, 设置图表高度
+    setHeight()
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   return (
     <div className={style.context} ref={wrapRef}>
@@ -49,7 +74,9 @@ const DynamicChartCpn = (props) => {
           </Typography.Text>
         )}
       </div>
-      <div className={style.context}>{Chart}</div>
+      <div className={style.chart} style={{ height: chartHeight + 'px' }}>
+        {Chart}
+      </div>
     </div>
   )
 }
