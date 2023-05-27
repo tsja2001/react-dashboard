@@ -7,6 +7,7 @@ const CardWrap = (props) => {
   const {
     height = '300px',
     children,
+    title = '未命名图表',
     deleteHandler = () => {},
     editHandler = () => {},
     detailHandler = () => {}
@@ -15,7 +16,7 @@ const CardWrap = (props) => {
   return (
     <Card
       className={style.card}
-      title="图表名称显示占位"
+      title={title}
       extra={
         <Button
           className={style.button}

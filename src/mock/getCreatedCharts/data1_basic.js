@@ -1,5 +1,6 @@
 export default [
   {
+    chartName: '自定义标题-折线图',
     title: {
       size: 3
     },
@@ -11,6 +12,7 @@ export default [
     dataId: 'data_id_1'
   },
   {
+    chartName: '图表标题-柱状图',
     title: {
       size: 3
     },

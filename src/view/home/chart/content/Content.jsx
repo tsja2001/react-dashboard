@@ -43,7 +43,7 @@ const Content = (props) => {
         {createdCharts?.map((chartConfig, index) => {
           return (
             <Col span={cardSize.colSpan} key={index}>
-              <ChartWrap height={cardSize.height}>
+              <ChartWrap height={cardSize.height} title={chartConfig.chartName}>
                 <DynamicChartCpnWithDataFetch {...chartConfig} />
               </ChartWrap>
             </Col>
