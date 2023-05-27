@@ -1,5 +1,65 @@
 export default [
   {
+    title: {
+      visible: true,
+      text: 'asada',
+      size: 3
+    },
+    smooth: true,
+    xAxis: {
+      visible: true
+    },
+    chartName: '芜湖芜湖芜湖芜湖',
+    chartType: 'Line',
+    dataId: 'data_id_1'
+  },
+  {
+    title: {
+      visible: true,
+      text: '文字大标题',
+      size: 3
+    },
+    description: {
+      visible: true,
+      text: '描述内容显示, 描述内容显示描述内容显示, 描述内容显示描述内',
+      strong: false
+    },
+    xAxis: {
+      visible: true
+    },
+    chartName: '测试标题显示',
+    chartType: 'Line',
+    point: {
+      size: 5,
+      shape: 'diamond',
+      style: {
+        fill: 'white',
+        stroke: '#5B8FF9',
+        lineWidth: 2
+      }
+    },
+    label: {},
+    type: 'Line',
+    tooltip: {
+      showMarkers: false
+    },
+    state: {
+      active: {
+        style: {
+          shadowBlur: 4,
+          stroke: '#000',
+          fill: 'red'
+        }
+      }
+    },
+    interactions: [
+      {
+        type: 'marker-active'
+      }
+    ],
+    dataId: 'data_id_4'
+  },
+  {
     chartName: '自定义标题-折线图',
     title: {
       size: 3

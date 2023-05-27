@@ -19,6 +19,7 @@
 - [x] @/view/chart/content/selectChart 抽取公共 Select 组件, 在 SelectData 和 SelectChart 中使用(已完成)
 - [ ] @/view/chart/content/selectChart Header 未开发, 期待功能: 存放 Select, 视图列数选择功能
 - [ ] @/view/chart/content/selectChart 侧边栏 Menu 导航未开发, 期待功能: 一级导航: 图表大分类(柱状图, 饼图...), 二级导航: 图表小分类(基础柱状图, 堆叠柱状图...)
+- [ ] @/view/chart/ChartLayout.jsx 图表预览卡片, 图表标题显示未开发, 期待功能: 能够显示图表标题, 并且能够编辑标题
 
 ## 安装插件(可选)
 
