@@ -5,16 +5,14 @@ import { connect } from 'react-redux'
 import style from './Content.module.scss'
 import ChartDemo from '@/component/chart/LineDemo'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
-import ColumnDemo from '@/component/chart/ColumnDemo'
-import PieDemo from '@/component/chart/PieDemo'
 import CardModal from '../cpns/cardModal/CardModal'
 import DynamicChartCpnWithDataFetch from '@/component/chart/DynamicChartCpnWithDataFetch'
 import { fetchCreatedCharts } from '@/store/features/view/home/chart'
+import { useNavigate } from 'react-router-dom'
 
 const Content = (props) => {
   const { cardSize, createdCharts = [], fetchCreatedChartsDispatch } = props
-
-  // console.log('createdCharts--', createdCharts)
+  const nav = useNavigate()
 
   useEffect(() => {
     // 发送请求获取已创建的图表
@@ -27,7 +25,8 @@ const Content = (props) => {
     console.log('deleteHandler', chartId)
   }
   const editHandler = (chartId) => {
-    console.log('editHandler', chartId)
+    // console.log('editHandler', chartId)
+    nav(`/chart?chartId=${chartId}`)
   }
   const detailHandler = (chartId) => {
     console.log('detailHandler', chartId)
@@ -40,11 +39,17 @@ const Content = (props) => {
         <ChartDemo />
       </CardModal>
       <Row gutter={16} className={style.row}>
-        {createdCharts?.map((chartConfig, index) => {
+        {createdCharts?.map((createdChartConfig, index) => {
           return (
             <Col span={cardSize.colSpan} key={index}>
-              <ChartWrap height={cardSize.height} title={chartConfig.chartName}>
-                <DynamicChartCpnWithDataFetch {...chartConfig} />
+              <ChartWrap
+                height={cardSize.height}
+                title={createdChartConfig.chartName}
+                deleteHandler={() => deleteHandler(createdChartConfig)}
+                editHandler={() => editHandler(createdChartConfig._id)}
+                detailHandler={() => detailHandler(createdChartConfig)}
+              >
+                <DynamicChartCpnWithDataFetch {...createdChartConfig} />
               </ChartWrap>
             </Col>
           )

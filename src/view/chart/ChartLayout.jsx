@@ -7,7 +7,7 @@ export const ChartContext = createContext()
 
 const ChartLayout = () => {
   // 此组件主要用于给图表配置页面提供Context
-  // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过Context传递
+  // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过Context传递(初始化时获取)
   const [allChartPresetConfig, setAllChartPresetConfig] = useState([])
   // 当前可以显示的预设配置
   const [availablePresetChartConfig, setAvailablePresetChartConfig] = useState(
@@ -18,6 +18,7 @@ const ChartLayout = () => {
     {}
   )
 
+  // 全部图表配置(初始化时获取)
   const [allChartFromConfig, setAllChartFromConfig] = useState({})
   // 通过表单配置, 生成的图表配置
   const [currentChartConfigByForm, setCurrentChartConfigByForm] = useState({})

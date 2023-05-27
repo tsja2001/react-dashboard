@@ -11,7 +11,8 @@ export default [
     },
     chartName: '芜湖芜湖芜湖芜湖',
     chartType: 'Line',
-    dataId: 'data_id_1'
+    dataId: 'data_id_1',
+    _id: 'chart_id_1'
   },
   {
     title: {
@@ -57,7 +58,8 @@ export default [
         type: 'marker-active'
       }
     ],
-    dataId: 'data_id_4'
+    dataId: 'data_id_4',
+    _id: 'chart_id_2'
   },
   {
     chartName: '自定义标题-折线图',
@@ -69,7 +71,8 @@ export default [
       visible: true
     },
     chartType: 'Line',
-    dataId: 'data_id_1'
+    dataId: 'data_id_1',
+    _id: 'chart_id_3'
   },
   {
     chartName: '图表标题-柱状图',
@@ -81,7 +84,8 @@ export default [
       visible: true
     },
     chartType: 'Line',
-    dataId: 'data_id_4'
+    dataId: 'data_id_4',
+    _id: 'chart_id_4'
   },
   {
     title: {
@@ -91,7 +95,8 @@ export default [
       visible: true
     },
     chartType: 'Line',
-    dataId: 'data_id_2'
+    dataId: 'data_id_2',
+    _id: 'chart_id_5'
   },
   {
     angleField: 'value',
@@ -111,7 +116,8 @@ export default [
         type: 'element-active'
       }
     ],
-    dataId: 'data_id_1'
+    dataId: 'data_id_1',
+    _id: 'chart_id_6'
   },
   {
     title: {
@@ -129,7 +135,8 @@ export default [
         fill: '#fff'
       }
     },
-    dataId: 'data_id_4'
+    dataId: 'data_id_4',
+    _id: 'chart_id_7'
   },
   {
     title: {
@@ -152,6 +159,7 @@ export default [
       }
     },
     chartType: 'Area',
-    dataId: 'data_id_4'
+    dataId: 'data_id_4',
+    _id: 'chart_id_8'
   }
 ]
