@@ -1,14 +1,14 @@
-import { memo, useContext, useEffect } from 'react'
-import { App, Form, Tree, Button, message } from 'antd'
-import lodash from 'lodash'
+import { memo, useContext, useEffect, useState } from 'react'
+import { App, Form, Tree, Button, Input, Modal } from 'antd'
+import { cloneDeep } from 'lodash'
 import { DoubleRightOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import style from './ChartConfig.module.scss'
 import { ChartContext } from '@/view/chart/ChartLayout'
 import { mergeObjects } from '@/utils/mergeObjects'
 import { cleanseObject } from '@/utils/cleanseObject'
-import { connect } from 'react-redux'
 
 const ChartConfig = (props) => {
   const [form] = Form.useForm()
@@ -30,7 +30,7 @@ const ChartConfig = (props) => {
       return
     }
 
-    form.setFieldsValue(lodash.cloneDeep(currentChartConfigByPreset.presetConf))
+    form.setFieldsValue(cloneDeep(currentChartConfigByPreset.presetConf))
 
     setCurrentChartConfigByForm(
       mergeObjects(
@@ -48,7 +48,6 @@ const ChartConfig = (props) => {
 
   // 表单数据变化时, 将表单数据设置到context中
   const fieldChangeHandler = () => {
-    // console.log('allFields', allFields)
     setCurrentChartConfigByForm(
       mergeObjects(
         cleanseObject(form.getFieldsValue()),
@@ -57,40 +56,75 @@ const ChartConfig = (props) => {
     )
   }
 
-  // 点击生成图表
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalShowLoading, setIsModalShowLoading] = useState(false)
+
+  // 点击生成图表, 弹出modal
   const createBtnHandler = async () => {
+    setIsModalOpen(true)
+  }
+
+  // 点击modal的确认按钮, 关闭modal, 并且执行创建图表的接口, 并且跳转到图表列表页
+  const handleModalOk = () => {
     const resData = {
       ...currentChartConfigByForm,
       dataId: props.currentChartId
     }
+
+    if (resData.chartName === undefined) {
+      return
+    }
+
     console.log(resData)
 
     // 执行创建图表的接口, 并且跳转到图表列表页
+    setIsModalShowLoading(true)
+
     setTimeout(() => {
       message.success('图表创建成功')
       nav('/home/chart')
-    }, 100)
+    }, 200)
   }
 
   // 用于开发, 后续删除
-  useEffect(() => {
-    console.log(
-      'currentChartConfigByForm变化:',
-      currentChartConfigByForm,
-      'currentChartConfigByPreset',
-      currentChartConfigByPreset
-    )
-  }, [currentChartConfigByForm])
+  // useEffect(() => {
+  //   console.log(
+  //     'currentChartConfigByForm变化:',
+  //     currentChartConfigByForm,
+  //     'currentChartConfigByPreset',
+  //     currentChartConfigByPreset
+  //   )
+  // }, [currentChartConfigByForm])
 
   return (
     <div className={style.content}>
       <Form form={form} onValuesChange={fieldChangeHandler}>
-        <Tree
-          defaultExpandAll
-          autoExpandParent
-          treeData={allChartFromConfig[currentChartConfigByPreset.cpnName]}
-          blockNode
-        />
+        <>
+          <Tree
+            defaultExpandAll
+            autoExpandParent
+            treeData={allChartFromConfig[currentChartConfigByPreset.cpnName]}
+            blockNode
+          />
+          <Modal
+            title="创建图表"
+            open={isModalOpen}
+            onOk={handleModalOk}
+            onCancel={setIsModalOpen.bind(null, false)}
+            okText="确认创建"
+            cancelText="取消"
+            className={style.modal}
+            confirmLoading={isModalShowLoading}
+          >
+            <Form.Item
+              name="chartName"
+              label="图表名称"
+              className={style.form_item_input}
+            >
+              <Input type="text" />
+            </Form.Item>
+          </Modal>
+        </>
       </Form>
       <Button
         type="primary"
