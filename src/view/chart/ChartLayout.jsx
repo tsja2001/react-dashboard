@@ -4,25 +4,29 @@ import Header from './header/Header'
 import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+// import { fetchChartDataByCreateChartConfigId } from '@/store/features/view/chart'
+import { connect } from 'react-redux'
+import { findCreateChartConfigById } from '@/mock/getCreatedCharts'
+import { fetchChartDataById } from '@/store/features/view/chart'
 
 export const ChartContext = createContext()
 
-const ChartLayout = () => {
+const ChartLayout = (props) => {
   // 此组件主要用于给图表配置页面提供Context
   // 获取全部图表预设配置, 由于预设中存在函数, 不适合存在redux中, 因此通过Context传递(初始化时获取)
   const [allChartPresetConfig, setAllChartPresetConfig] = useState([])
-  // 当前可以显示的预设配置
+  // 当前可以显示的预设配置(创建图表时由页面调用, 编辑图表时由此组件调用)
   const [availablePresetChartConfig, setAvailablePresetChartConfig] = useState(
     []
   )
-  // 当前选中的预设配置
+  // 当前选中的预设配置(创建图表时由页面调用, 编辑图表时由此组件调用)
   const [currentChartConfigByPreset, setCurrentChartConfigByPreset] = useState(
     {}
   )
 
   // 全部图表配置(初始化时获取)
   const [allChartFromConfig, setAllChartFromConfig] = useState({})
-  // 通过表单配置, 生成的图表配置
+  // 通过表单配置, 生成的图表配置(创建图表时由页面调用, 编辑图表时由此组件调用)
   const [currentChartConfigByForm, setCurrentChartConfigByForm] = useState({})
 
   // 根据所需图表类型, 设置可用的预设配置
@@ -94,6 +98,32 @@ const ChartLayout = () => {
       return nav('/chart/select_data')
     }
     // 如果路径的参数有chartId, 说明是编辑图表, 获取图表配置, 设置当前选中的预设配置
+    // 获取图表配置数据
+    // props.fetchChartDataByCreateChartConfigIdDispatch(chartId).then((res) => {
+    //   nav('/chart/select_data')
+    // })
+    const asyncFn = async () => {
+      // 获取需要编辑的图表的配置
+      const createdChartConfig = await findCreateChartConfigById(chartId)
+      console.log('createdChartConfig', createdChartConfig)
+
+      // 获取图表需要展示的数据源
+      const chartData = await props.fetchChartDataByIdDispatch(
+        createdChartConfig.dataId
+      )
+      console.log('chartData', chartData.payload)
+      setAvailablePresetChartConfigByType(chartData.chartType)
+
+      // 设置当前选中的预设配置
+      setCurrentChartConfigByPreset(createdChartConfig)
+      //  设置当前选中的表单配置
+      setCurrentChartConfigByForm(createdChartConfig)
+
+      setTimeout(() => {
+        nav('/chart/configure_chart')
+      })
+    }
+    asyncFn()
   }, [])
 
   return (
@@ -116,4 +146,12 @@ const ChartLayout = () => {
   )
 }
 
-export default memo(ChartLayout)
+const mapStateToProps = (state) => ({
+  currentChartData: state.viewChart.currentChartData
+})
+
+const mapDispatchToProps = (disptch) => ({
+  fetchChartDataByIdDispatch: (id) => disptch(fetchChartDataById(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(ChartLayout))

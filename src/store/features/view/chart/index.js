@@ -1,4 +1,5 @@
 import { getChartMockData, getChartMockIndex } from '@/mock/getChartMockData'
+import { findCreateChartConfigById } from '@/mock/getCreatedCharts'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 const slice = createSlice({
   name: 'view/chart/selectData',
@@ -8,6 +9,9 @@ const slice = createSlice({
     currentChartId: null,
     // 异步获取得到的, 当前选中的chart数据
     currentChartData: null
+    // 图表配置数据(数据源id+图表类型id+自定义配置)
+    // 只有点击编辑某个图表时, 才会获取并存储此数据, 新建图表时, 此数据始终为空
+    // createdChartConfig: null
   },
   reducers: {
     setSelectedDataOptions(state, action) {
@@ -19,6 +23,9 @@ const slice = createSlice({
     setcurrentChartId(state, action) {
       state.currentChartId = action.payload
     }
+    // setCreatedChartConfig(state, action) {
+    //   state.createdChartConfig = action.payload
+    // }
   }
 })
 // 获取chart数据的索引, 用于展示在select组件中
@@ -36,12 +43,24 @@ export const fetchChartDataById = createAsyncThunk(
   async (chartId, { dispatch }) => {
     const res = await getChartMockData(chartId)
     dispatch(setCurrentChartData(res))
+
+    return res
   }
 )
+
+// 根据createChartConfigId, 获取对应的mock数据
+// export const fetchChartDataByCreateChartConfigId = createAsyncThunk(
+//   'view/chart/selectData/fetchCreateChartConfigId',
+//   async (createChartConfigId, { dispatch }) => {
+//     const res = await findCreateChartConfigById(createChartConfigId)
+//     dispatch(setCreatedChartConfig(res))
+//   }
+// )
 
 export const {
   setCurrentChartData,
   setcurrentChartId,
   setSelectedDataOptions
+  // setCreatedChartConfig
 } = slice.actions
 export default slice.reducer
