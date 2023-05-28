@@ -34,19 +34,8 @@ const Header = () => {
   useEffect(() => {
     console.log('componentConfigRef.current', componentConfigRef.current)
     setCurrentIndex(
-      componentConfigRef.current.findIndex(
-        // (item) => item.router === location.pathname
-        (item) => {
-          console.log('item.router', item.router)
-          console.log('location.pathname', location.href)
-
-          console.log('-----------------')
-          // console.log(
-          //   'item.router === location.pathname',
-          //   item.router === location.pathname
-          // )
-          return location.href.includes(item.router)
-        }
+      componentConfigRef.current.findIndex((item) =>
+        location.href.includes(item.router)
       )
     )
   }, [location.href])
