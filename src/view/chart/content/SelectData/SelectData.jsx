@@ -2,18 +2,18 @@ import { memo } from 'react'
 import { Button, Form } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 
 import style from './SelectData.module.scss'
 import Select from '../cpns/select/Select'
+import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
 
 const SelectData = (props) => {
   const { currentChartData } = props
 
-  const nav = useNavigate()
+  const navWithParams = useNavigateWithParams()
 
   const nextStepHandler = () => {
-    nav('/chart/select_chart')
+    navWithParams('/chart/select_chart')
   }
 
   return (

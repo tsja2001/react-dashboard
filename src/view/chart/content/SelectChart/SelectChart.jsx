@@ -1,13 +1,13 @@
 import { memo, useCallback, useContext, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Col, Row } from 'antd'
-import { useNavigate } from 'react-router-dom'
 
 import style from './SelectChart.module.scss'
 import ChartWrap from '../cpns/cardWrap/CardWrap'
 import { ChartContext } from '../../ChartLayout'
 import Select from '../cpns/select/Select'
 import DynamicChartCpn from '@/component/chart/DynamicChartCpn'
+import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
 
 const SelectChart = (props) => {
   const { currentChartData } = props
@@ -15,19 +15,20 @@ const SelectChart = (props) => {
   const { availablePresetChartConfig, setCurrentChartConfigByPreset } =
     useContext(ChartContext)
 
-  const nav = useNavigate()
+  const navWithParams = useNavigateWithParams()
 
   // 如果没有选中数据源, 则跳转到选中数据源页面
   useEffect(() => {
     if (!currentChartData) {
-      return nav('/chart/select_data')
+      navWithParams('/chart/select_data')
+      return
     }
   }, [])
 
   // 点击图表, 跳转到图表配置页面
   const detailHandler = useCallback((chartConfig) => {
     setCurrentChartConfigByPreset(chartConfig)
-    nav('/chart/configure_chart')
+    navWithParams('/chart/configure_chart')
   }, [])
 
   return (

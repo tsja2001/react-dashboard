@@ -12,7 +12,7 @@ const ChartPreview = (props) => {
   return (
     <div className={style.context}>
       <DynamicChartCpn
-        {...currentChartData.chartConfig}
+        {...currentChartData?.chartConfig}
         {...currentChartConfigByForm}
       />
     </div>

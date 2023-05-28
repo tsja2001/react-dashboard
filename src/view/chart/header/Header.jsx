@@ -1,11 +1,11 @@
 import { Steps } from 'antd'
 import { memo, useEffect, useRef, useState } from 'react'
-import style from './Header.module.scss'
-import { useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
 
-const Header = (props) => {
-  const nav = useNavigate()
+import style from './Header.module.scss'
+import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
+
+const Header = () => {
+  const navWithParams = useNavigateWithParams()
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const componentConfigRef = useRef([
@@ -26,11 +26,10 @@ const Header = (props) => {
   const onChange = (value) => {
     setCurrentIndex(value)
     const router = componentConfigRef.current[value].router
-    nav(`/chart/${router}`)
+
+    navWithParams(`/chart/${router}`)
   }
 
-  // 获取当前路由
-  const location = useLocation()
   // 路由切换时, 设置当前选中的menu
   useEffect(() => {
     setCurrentIndex(

@@ -1,11 +1,9 @@
 import { createContext, memo, useCallback, useEffect, useState } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 import style from './ChartLayout.module.scss'
 import Header from './header/Header'
-import { Outlet } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-// import { fetchChartDataByCreateChartConfigId } from '@/store/features/view/chart'
-import { connect } from 'react-redux'
 import { findCreateChartConfigById } from '@/mock/getCreatedCharts'
 import {
   fetchChartDataById,
@@ -126,7 +124,7 @@ const ChartLayout = (props) => {
       setCurrentChartConfigByForm(createdChartConfig)
 
       setTimeout(() => {
-        nav('/chart/configure_chart')
+        nav('/chart/configure_chart?chartId=' + chartId)
       })
     }
     asyncFn()
