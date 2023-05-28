@@ -161,5 +161,53 @@ export default [
     chartType: 'Area',
     dataId: 'data_id_4',
     _id: 'chart_id_8'
+  },
+  {
+    title: {
+      visible: false,
+      text: '文字大标题',
+      size: 3
+    },
+    description: {
+      visible: false,
+      text: '描述内容显示, 描述内容显示描述内容显示, 描述内容显示描述内',
+      strong: false
+    },
+    legend: false,
+    xAxis: {
+      visible: true
+    },
+    chartName: '测试标题显示啊啊啊',
+    chartType: 'Line',
+    point: {
+      size: 5,
+      shape: 'diamond',
+      style: {
+        fill: 'white',
+        stroke: '#5B8FF9',
+        lineWidth: 2
+      }
+    },
+    label: {},
+    type: 'Line',
+    tooltip: {
+      showMarkers: false
+    },
+    state: {
+      active: {
+        style: {
+          shadowBlur: 4,
+          stroke: '#000',
+          fill: 'red'
+        }
+      }
+    },
+    interactions: [
+      {
+        type: 'marker-active'
+      }
+    ],
+    dataId: 'data_id_4',
+    _id: 'chart_id_2'
   }
 ]

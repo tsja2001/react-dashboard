@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom'
 // import { fetchChartDataByCreateChartConfigId } from '@/store/features/view/chart'
 import { connect } from 'react-redux'
 import { findCreateChartConfigById } from '@/mock/getCreatedCharts'
-import { fetchChartDataById } from '@/store/features/view/chart'
+import {
+  fetchChartDataById,
+  setcurrentChartId
+} from '@/store/features/view/chart'
 
 export const ChartContext = createContext()
 
@@ -99,13 +102,13 @@ const ChartLayout = (props) => {
     }
     // 如果路径的参数有chartId, 说明是编辑图表, 获取图表配置, 设置当前选中的预设配置
     // 获取图表配置数据
-    // props.fetchChartDataByCreateChartConfigIdDispatch(chartId).then((res) => {
-    //   nav('/chart/select_data')
-    // })
     const asyncFn = async () => {
       // 获取需要编辑的图表的配置
       const createdChartConfig = await findCreateChartConfigById(chartId)
       console.log('createdChartConfig', createdChartConfig)
+
+      // 设置当前选中的数据源id
+      props.setcurrentChartIdDispatch(createdChartConfig.dataId)
 
       // 获取图表需要展示的数据源
       const chartData = await props.fetchChartDataByIdDispatch(
@@ -115,7 +118,10 @@ const ChartLayout = (props) => {
       setAvailablePresetChartConfigByType(chartData.chartType)
 
       // 设置当前选中的预设配置
-      setCurrentChartConfigByPreset(createdChartConfig)
+      setCurrentChartConfigByPreset({
+        cpnName: createdChartConfig.chartType,
+        presetConf: createdChartConfig
+      })
       //  设置当前选中的表单配置
       setCurrentChartConfigByForm(createdChartConfig)
 
@@ -151,7 +157,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (disptch) => ({
-  fetchChartDataByIdDispatch: (id) => disptch(fetchChartDataById(id))
+  fetchChartDataByIdDispatch: (id) => disptch(fetchChartDataById(id)),
+  setcurrentChartIdDispatch: (id) => disptch(setcurrentChartId(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(ChartLayout))

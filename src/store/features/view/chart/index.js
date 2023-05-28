@@ -49,14 +49,6 @@ export const fetchChartDataById = createAsyncThunk(
 )
 
 // 根据createChartConfigId, 获取对应的mock数据
-// export const fetchChartDataByCreateChartConfigId = createAsyncThunk(
-//   'view/chart/selectData/fetchCreateChartConfigId',
-//   async (createChartConfigId, { dispatch }) => {
-//     const res = await findCreateChartConfigById(createChartConfigId)
-//     dispatch(setCreatedChartConfig(res))
-//   }
-// )
-
 export const {
   setCurrentChartData,
   setcurrentChartId,
