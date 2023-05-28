@@ -6,9 +6,6 @@ export const useNavigateWithParams = () => {
   let navigate = useNavigate()
   let [searchParams] = useSearchParams()
 
-  console.log('searchParams', searchParams)
-  console.log('searchParamstoString()', searchParams.toString())
-
   return function (to) {
     let newSearchParams = new URLSearchParams(searchParams)
     let search = newSearchParams.toString()

@@ -32,12 +32,24 @@ const Header = () => {
 
   // 路由切换时, 设置当前选中的menu
   useEffect(() => {
+    console.log('componentConfigRef.current', componentConfigRef.current)
     setCurrentIndex(
       componentConfigRef.current.findIndex(
-        (item) => item.router === location.pathname.split('/')[2]
+        // (item) => item.router === location.pathname
+        (item) => {
+          console.log('item.router', item.router)
+          console.log('location.pathname', location.href)
+
+          console.log('-----------------')
+          // console.log(
+          //   'item.router === location.pathname',
+          //   item.router === location.pathname
+          // )
+          return location.href.includes(item.router)
+        }
       )
     )
-  }, [location])
+  }, [location.href])
 
   return (
     <div className={style.content}>
