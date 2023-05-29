@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react'
-import { Col, Row } from 'antd'
+import { Col, Row, App } from 'antd'
 import { connect } from 'react-redux'
 
 import style from './Content.module.scss'
@@ -9,10 +9,12 @@ import CardModal from '../cpns/cardModal/CardModal'
 import DynamicChartCpnWithDataFetch from '@/component/chart/DynamicChartCpnWithDataFetch'
 import { fetchCreatedCharts } from '@/store/features/view/home/chart'
 import { useNavigate } from 'react-router-dom'
+import ChartDetailModal from '@/view/home/chart/cpns/chartDetailModal/ChartDetailModal'
 
 const Content = (props) => {
   const { cardSize, createdCharts = [], fetchCreatedChartsDispatch } = props
   const nav = useNavigate()
+  const { modal } = App.useApp()
 
   useEffect(() => {
     // 发送请求获取已创建的图表
@@ -23,20 +25,38 @@ const Content = (props) => {
 
   const deleteHandler = (chartId) => {
     console.log('deleteHandler', chartId)
+    modal.confirm({
+      title: '删除图表',
+      content: '确定删除该图表吗?',
+      onOk: () => {
+        console.log('执行删除逻辑')
+      }
+    })
   }
   const editHandler = (chartId) => {
     // console.log('editHandler', chartId)
     nav(`/chart?chartId=${chartId}`)
   }
-  const detailHandler = (chartId) => {
-    console.log('detailHandler', chartId)
-    setIfShowModal(true)
+  const detailHandler = (chartDetail) => {
+    console.log('detailHandler', chartDetail)
+    modal.confirm({
+      title: chartDetail.chartName,
+      width: '80vw',
+      icon: null,
+      closable: true,
+      maskClosable: true,
+      centered: true,
+      cancelText: '关闭',
+      okText: null,
+      okCancel: false,
+      content: <ChartDetailModal chartConfig={chartDetail} />
+    })
   }
 
   return (
     <div className={style.content}>
       <CardModal ifShowModal={ifShowModal} setIfShowModal={setIfShowModal}>
-        <ChartDemo />
+        {/* <DynamicChartCpnWithDataFetch {...createdChartConfig} /> */}
       </CardModal>
       <Row gutter={16} className={style.row}>
         {createdCharts?.map((createdChartConfig, index) => {
