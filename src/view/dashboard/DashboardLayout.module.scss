@@ -1,0 +1,34 @@
+.content {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  .left {
+    height: 100%;
+    background-color: beige;
+    width: 250px;
+  }
+  .middle {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    flex: 1;
+    position: relative;
+    .middel_content {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 100/16*9 = 56.25% 保持宽高比为16:9 */
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      background-color: lightblue; /* 可以换成你需要的颜色 */
+    }
+  }
+  .right {
+    height: 100%;
+    background-color: beige;
+    width: 200px;
+  }
+}

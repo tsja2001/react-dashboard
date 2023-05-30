@@ -2,6 +2,7 @@ import { memo } from 'react'
 import style from './Header.module.scss'
 import { Button, Input } from 'antd'
 import { PlusCircleOutlined } from '@ant-design/icons'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   const onSearch = (value) => console.log(value)
@@ -19,9 +20,11 @@ const Header = () => {
           />
         </div>
         <div className={style.right}>
-          <Button icon={<PlusCircleOutlined />} type="primary">
-            新建大屏
-          </Button>
+          <NavLink to="/dashboard">
+            <Button icon={<PlusCircleOutlined />} type="primary">
+              新建大屏
+            </Button>
+          </NavLink>
         </div>
       </div>
     </div>

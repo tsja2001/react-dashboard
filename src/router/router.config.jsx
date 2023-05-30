@@ -16,7 +16,7 @@ import URLParameterFetcher from '@/view/login/URLParameterFetcher'
 import { createHashRouter } from 'react-router-dom'
 // 组件懒加载
 const ChartEdit = React.lazy(() => import('@/view/chart/ChartLayout'))
-const Dashboard = React.lazy(() => import('@/view/dashboard/Dashboard'))
+const Dashboard = React.lazy(() => import('@/view/dashboard/DashboardLayout'))
 const NotFound = React.lazy(() => import('@/view/notFound/NotFound'))
 
 const router = createHashRouter(
