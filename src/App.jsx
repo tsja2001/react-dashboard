@@ -1,16 +1,15 @@
 import { RouterProvider } from 'react-router-dom'
 import { App as AntdAppContext, ConfigProvider } from 'antd'
-import { Provider } from 'react-redux'
-import { Suspense, useState } from 'react'
+import { connect } from 'react-redux'
+import { Suspense } from 'react'
 import zhCN from 'antd/locale/zh_CN'
 
 import style from './App.module.scss'
 import router from './router/router.config'
-import store from './store'
 import { theme } from 'antd'
 
-function App() {
-  const [themeMode, setThemeMode] = useState('light')
+function App(props) {
+  const { themeMode } = props
 
   return (
     <div className={style.content}>
@@ -19,21 +18,26 @@ function App() {
         locale={zhCN}
         theme={{
           algorithm:
-            themeMode === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm
+            (themeMode === props.themeMode) === 'light'
+              ? theme.defaultAlgorithm
+              : theme.darkAlgorithm
         }}
       >
         <AntdAppContext>
-          {/* react-redux的Provider */}
-          <Provider store={store}>
-            {/* 懒加载占位 */}
-            <Suspense fallback="loading...">
-              <RouterProvider router={router} />
-            </Suspense>
-          </Provider>
+          {/* 懒加载占位 */}
+          <Suspense fallback="loading...">
+            <RouterProvider router={router} />
+          </Suspense>
         </AntdAppContext>
       </ConfigProvider>
     </div>
   )
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    themeMode: state.global.theme
+  }
+}
+
+export default connect(mapStateToProps)(App)
