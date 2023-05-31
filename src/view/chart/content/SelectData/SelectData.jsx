@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import style from './SelectData.module.scss'
 import Select from '../cpns/select/Select'
 import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
+import { Card } from 'antd'
 
 const SelectData = (props) => {
   const { currentChartData } = props
@@ -30,9 +31,10 @@ const SelectData = (props) => {
           <Select />
         </Form.Item>
         <Form.Item label="预览数据">
-          <div className={style.preview}>
+          <Card className={style.preview}>
             <pre>{JSON.stringify(currentChartData, null, 2)}</pre>
-          </div>
+          </Card>
+          {/* </div> */}
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button
