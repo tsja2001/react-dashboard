@@ -5,8 +5,11 @@ import style from './Header.module.scss'
 import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
 import { HomeOutlined } from '@ant-design/icons'
 import { App } from 'antd'
+import { Switch } from 'antd'
+import { connect } from 'react-redux'
+import { changeTheme } from '@/store/features/global'
 
-const Header = () => {
+const Header = (props) => {
   const navWithParams = useNavigateWithParams()
   const { modal } = App.useApp()
 
@@ -65,9 +68,27 @@ const Header = () => {
         className={style.steps}
         items={componentConfigRef.current}
       />
-      <div></div>
+      <div>
+        <Switch
+          checkedChildren="浅色"
+          unCheckedChildren="暗色"
+          defaultChecked
+          checked={props.theme === 'light'}
+          onChange={(checked) => {
+            props.setTheme(checked ? 'light' : 'dark')
+          }}
+          size="default"
+        />
+      </div>
     </div>
   )
 }
 
-export default memo(Header)
+const mapStateToProps = (state) => ({
+  theme: state.global.theme
+})
+const mapDispatchToProps = (dispatch) => ({
+  setTheme: (theme) => dispatch(changeTheme(theme))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Header))
