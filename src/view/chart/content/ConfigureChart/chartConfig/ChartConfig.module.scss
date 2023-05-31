@@ -4,6 +4,12 @@
     width: 100%;
   }
 }
+.scroll {
+  // height: auto;
+  overflow-y: scroll;
+  height: calc(100vh - 260px - 60px);
+  overflow: auto;
+}
 .form_item_input {
   padding-top: 20px;
 }

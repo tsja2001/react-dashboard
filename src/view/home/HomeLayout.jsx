@@ -50,7 +50,7 @@ export const HomeLayout = (props) => {
         <div className={style.right}>
           <Space>
             <Switch
-              checkedChildren="亮色"
+              checkedChildren="浅色"
               unCheckedChildren="暗色"
               defaultChecked
               checked={props.theme === 'light'}

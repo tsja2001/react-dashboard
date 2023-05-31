@@ -100,12 +100,15 @@ const ChartConfig = (props) => {
     <div className={style.content}>
       <Form form={form} onValuesChange={fieldChangeHandler}>
         <>
-          <Tree
-            defaultExpandAll
-            autoExpandParent
-            treeData={allChartFromConfig[currentChartConfigByPreset.cpnName]}
-            blockNode
-          />
+          <div className={style.scroll}>
+            <Tree
+              virtual={false}
+              defaultExpandAll
+              autoExpandParent
+              treeData={allChartFromConfig[currentChartConfigByPreset.cpnName]}
+              blockNode
+            />
+          </div>
           <Modal
             title="创建图表"
             open={isModalOpen}
