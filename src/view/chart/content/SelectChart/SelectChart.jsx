@@ -8,6 +8,7 @@ import { ChartContext } from '../../ChartLayout'
 import Select from '../cpns/select/Select'
 import DynamicChartCpn from '@/component/chart/DynamicChartCpn'
 import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
+import Header from './header/Header'
 
 const SelectChart = (props) => {
   const { currentChartData } = props
@@ -33,9 +34,7 @@ const SelectChart = (props) => {
 
   return (
     <div className={style.content}>
-      <div className={style.form}>
-        <Select />
-      </div>
+      <Header></Header>
       <div className={style.list}>
         {availablePresetChartConfig.map((chartGroup) => (
           <div key={chartGroup.groupLabel}>
