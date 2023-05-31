@@ -11,7 +11,7 @@ import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
 import Header from './header/Header'
 
 const SelectChart = (props) => {
-  const { currentChartData } = props
+  const { currentChartData, cardSize } = props
 
   const { availablePresetChartConfig, setCurrentChartConfigByPreset } =
     useContext(ChartContext)
@@ -45,9 +45,9 @@ const SelectChart = (props) => {
                   <h2>图表类型: {chartType.label}</h2>
                   <Row gutter={8} className={style.row}>
                     {chartType.presetList.map((chartConfig) => (
-                      <Col span={12} key={chartConfig.label}>
+                      <Col span={cardSize.colSpan} key={chartConfig.label}>
                         <ChartWrap
-                          height={'300px'}
+                          height={cardSize.height}
                           detailHandler={() => detailHandler(chartConfig)}
                           title={chartConfig.label}
                         >
@@ -70,7 +70,8 @@ const SelectChart = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  currentChartData: state.viewChart.currentChartData
+  currentChartData: state.viewChart.currentChartData,
+  cardSize: state.viewChart.cardSize
 })
 
 export default connect(mapStateToProps)(memo(SelectChart))

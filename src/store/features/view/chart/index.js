@@ -8,10 +8,14 @@ const slice = createSlice({
     selectedDataOptions: [],
     currentChartId: null,
     // 异步获取得到的, 当前选中的chart数据
-    currentChartData: null
-    // 图表配置数据(数据源id+图表类型id+自定义配置)
-    // 只有点击编辑某个图表时, 才会获取并存储此数据, 新建图表时, 此数据始终为空
-    // createdChartConfig: null
+    currentChartData: null,
+    // 图表选择页面header 卡片大小的配置
+    cardSize: {
+      value: 'small',
+      label: '三列',
+      colSpan: 8,
+      height: '35vh'
+    }
   },
   reducers: {
     setSelectedDataOptions(state, action) {
@@ -22,10 +26,11 @@ const slice = createSlice({
     },
     setcurrentChartId(state, action) {
       state.currentChartId = action.payload
+    },
+    // 修改列数
+    changeColumn(state, action) {
+      state.cardSize = action.payload
     }
-    // setCreatedChartConfig(state, action) {
-    //   state.createdChartConfig = action.payload
-    // }
   }
 })
 // 获取chart数据的索引, 用于展示在select组件中
@@ -52,7 +57,7 @@ export const fetchChartDataById = createAsyncThunk(
 export const {
   setCurrentChartData,
   setcurrentChartId,
-  setSelectedDataOptions
-  // setCreatedChartConfig
+  setSelectedDataOptions,
+  changeColumn
 } = slice.actions
 export default slice.reducer

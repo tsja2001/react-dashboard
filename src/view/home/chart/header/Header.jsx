@@ -7,7 +7,7 @@ import style from './Header.module.scss'
 import { changeColumn } from '@/store/features/view/home/chart'
 import { cardSizeConfig } from '@/config/cardSizeConfig'
 import { NavLink } from 'react-router-dom'
-import CardSizeRadio from '@/component/form/cardSizeRadio/CardSizeRadio'
+import CardSizeRadio from '@/component/cardSizeRadio/CardSizeRadio'
 
 const Header = (props) => {
   const { changeColumn, cardSize } = props
