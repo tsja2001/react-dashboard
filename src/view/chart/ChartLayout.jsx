@@ -9,6 +9,7 @@ import {
   fetchChartDataById,
   setcurrentChartId
 } from '@/store/features/view/chart'
+import { Layout } from 'antd'
 
 export const ChartContext = createContext()
 
@@ -131,7 +132,10 @@ const ChartLayout = (props) => {
   }, [])
 
   return (
-    <div className={style.content}>
+    // <Layout>
+
+    // </Layout>
+    <Layout className={style.content}>
       <ChartContext.Provider
         value={{
           setAvailablePresetChartConfigByType,
@@ -146,7 +150,7 @@ const ChartLayout = (props) => {
         <Header />
         <Outlet />
       </ChartContext.Provider>
-    </div>
+    </Layout>
   )
 }
 

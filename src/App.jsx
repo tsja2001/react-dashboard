@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router-dom'
 import { App as AntdAppContext, ConfigProvider } from 'antd'
-import { connect } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import { Suspense } from 'react'
 import zhCN from 'antd/locale/zh_CN'
 
@@ -18,7 +18,7 @@ function App(props) {
         locale={zhCN}
         theme={{
           algorithm:
-            (themeMode === props.themeMode) === 'light'
+            props.themeMode === 'light'
               ? theme.defaultAlgorithm
               : theme.darkAlgorithm
         }}
