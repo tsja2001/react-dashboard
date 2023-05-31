@@ -2,6 +2,7 @@ import { memo, useEffect, useRef, useState } from 'react'
 import { Typography } from 'antd'
 import { Area, Bar, Column, Line, Pie } from '@ant-design/charts'
 import style from './DynamicChartCpn.module.scss'
+import { connect } from 'react-redux'
 
 const DynamicChartCpn = (props) => {
   const { chartType, title, description, ...rest } = props
@@ -12,12 +13,12 @@ const DynamicChartCpn = (props) => {
 
   let Chart = <h2>暂无图表数据</h2>
 
+  rest.theme = props.theme === 'dark' ? 'dark' : 'default'
+
   if (chartType === 'Line') {
     Chart = <Line {...rest}></Line>
-    console.log('Line')
   } else if (chartType === 'Area') {
     Chart = <Area {...rest}></Area>
-    console.log('Area')
   } else if (chartType === 'Column') {
     Chart = <Column {...rest}></Column>
   } else if (chartType === 'Bar') {
@@ -57,7 +58,6 @@ const DynamicChartCpn = (props) => {
 
   return (
     <div className={style.context} ref={wrapRef}>
-      {/* <h1>bbbbbb</h1> */}
       <div
         className={style.header}
         style={{ paddingBottom: '5px' }}
@@ -81,4 +81,8 @@ const DynamicChartCpn = (props) => {
   )
 }
 
-export default memo(DynamicChartCpn)
+const mapStateToProp = (state) => ({
+  theme: state.global.theme
+})
+
+export default connect(mapStateToProp)(memo(DynamicChartCpn))
