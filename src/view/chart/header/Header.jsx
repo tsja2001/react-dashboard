@@ -38,7 +38,6 @@ const Header = (props) => {
 
   // 路由切换时, 设置当前选中的menu
   useEffect(() => {
-    console.log('componentConfigRef.current', componentConfigRef.current)
     setCurrentIndex(
       componentConfigRef.current.findIndex((item) =>
         location.href.includes(item.router)
@@ -58,7 +57,7 @@ const Header = (props) => {
 
   return (
     <div className={style.content}>
-      <Button onClick={goHomeHandler} icon={<HomeOutlined />}>
+      <Button onClick={goHomeHandler} icon={<HomeOutlined />} type="primary">
         回到首页
       </Button>
       <Steps
