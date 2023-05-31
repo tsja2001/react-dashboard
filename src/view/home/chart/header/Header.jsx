@@ -7,6 +7,7 @@ import style from './Header.module.scss'
 import { changeColumn } from '@/store/features/view/home/chart'
 import { cardSizeConfig } from '@/config/cardSizeConfig'
 import { NavLink } from 'react-router-dom'
+import CardSizeRadio from '@/component/form/cardSizeRadio/CardSizeRadio'
 
 const Header = (props) => {
   const { changeColumn, cardSize } = props
@@ -36,17 +37,10 @@ const Header = (props) => {
         </div>
         <div className={style.right}>
           <Space>
-            <Radio.Group
-              onChange={radioChangeHandler}
+            <CardSizeRadio
+              changeHandler={radioChangeHandler}
               value={cardSize.value}
-              defaultValue="small"
-            >
-              {cardSizeConfig.map((item) => (
-                <Radio.Button key={item.value} value={item.value}>
-                  {item.label}
-                </Radio.Button>
-              ))}
-            </Radio.Group>
+            />
             <NavLink to="/chart/select_data">
               <Button type="primary">
                 <PlusCircleOutlined />
