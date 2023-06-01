@@ -6,6 +6,17 @@ export default {
     xField: 'key',
     yField: 'value',
     seriesField: 'type',
+    meta: {
+      key: {
+        alias: '年份'
+      },
+      type: {
+        alias: '产品'
+      },
+      value: {
+        alias: '销售额(万元)'
+      }
+    },
     data: [
       {
         key: '1850',

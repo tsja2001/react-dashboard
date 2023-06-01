@@ -5,6 +5,14 @@ export default {
   chartConfig: {
     angleField: 'value',
     colorField: 'key',
+    meta: {
+      key: {
+        alias: '分类'
+      },
+      value: {
+        alias: '销售额(万元)'
+      }
+    },
     data: [
       {
         key: '分类一',

@@ -2,10 +2,38 @@ export default {
   label: '分组数据1(少量)',
   id: 'data_id_4',
   chartType: ['Column:Group', 'Line', 'Bar:Group', 'Area:Group'],
+  tableConfig: {
+    // 分组数据需要此属性
+    options: {
+      hierarchyType: 'grid'
+    },
+    dataCfg: {
+      fields: {
+        rows: ['key', 'type'],
+        values: ['value']
+      },
+      meta: [
+        { field: 'key', name: '城市' },
+        { field: 'value', name: '销售额(万元)' },
+        { field: 'type', name: '产品' }
+      ]
+    }
+  },
   chartConfig: {
     xField: 'key',
     yField: 'value',
     seriesField: 'type',
+    meta: {
+      key: {
+        alias: '城市'
+      },
+      type: {
+        alias: '产品'
+      },
+      value: {
+        alias: '销售额(万元)'
+      }
+    },
     data: [
       {
         key: '石家庄',
