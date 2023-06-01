@@ -7,7 +7,7 @@
     width: calc(80vw - 24px - 24px);
     .chart {
       // 这里默认当前组件父容器宽度是 80vw, 从而使chart宽高比16:9
-      height: 80vw / 1.6 * 0.8;
+      height: 80vw / 2;
       width: 100%;
       // width: 80vw;
     }
