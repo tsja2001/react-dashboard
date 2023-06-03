@@ -1,14 +1,30 @@
 import { memo } from 'react'
 import { SheetComponent } from '@antv/s2-react'
+import { connect } from 'react-redux'
 
 const TableShowChartData = (props) => {
-  const { width, chartConfig } = props
+  const { width, chartConfig, maxHeight = 600 } = props
 
   let dataCfg = {}
   let options = {
-    showSeriesNumber: true
+    showSeriesNumber: true,
+    style: {
+      layoutWidthType: 'colAdaptive'
+    }
+  }
+  const themeCfg = {
+    name: 'gray',
+    theme: {
+      dataCell: {
+        text: {
+          textAlign: 'center'
+        }
+      }
+    }
   }
   let restCfg = {}
+
+  const darkStyle = props.theme === 'dark' ? { filter: 'invert(0.85)' } : {}
 
   if (chartConfig?.seriesField && chartConfig?.seriesField?.length) {
     // 当前是分组数据
@@ -75,8 +91,14 @@ const TableShowChartData = (props) => {
     }
   }
 
+  // 计算高度
+  let height = 30 * (chartConfig?.data?.length + 1) + 10
+  height = height > maxHeight ? maxHeight : height
+
+  console.log('height', height)
+
   return (
-    <div>
+    <div style={darkStyle}>
       <SheetComponent
         dataCfg={{
           data: chartConfig?.data,
@@ -84,12 +106,18 @@ const TableShowChartData = (props) => {
         }}
         options={{
           width,
+          height,
           ...options
         }}
+        themeCfg={themeCfg}
         {...restCfg}
       />
     </div>
   )
 }
 
-export default memo(TableShowChartData)
+const mapStateToProps = (state) => ({
+  theme: state.global.theme
+})
+
+export default connect(mapStateToProps)(memo(TableShowChartData))

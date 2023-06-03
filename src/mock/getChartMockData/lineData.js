@@ -2,21 +2,6 @@ export default {
   label: '单数据1(少量)',
   id: 'data_id_1',
   chartType: ['Bar:Single', 'Line', 'Area:Single', 'Column:Single', 'Pie:Bing'],
-  tableConfig: {
-    // 分组数据需要此属性
-    options: {
-      showSeriesNumber: true
-    },
-    dataCfg: {
-      fields: {
-        columns: ['key', 'value']
-      },
-      meta: [
-        { field: 'key', name: '年份' },
-        { field: 'value', name: '销售额(万元)' }
-      ]
-    }
-  },
   chartConfig: {
     xField: 'key',
     yField: 'value',
