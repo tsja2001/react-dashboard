@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useState } from 'react'
+import { memo, useContext, useDeferredValue, useEffect, useState } from 'react'
 import { App, Form, Tree, Button, Input, Modal } from 'antd'
 import { cloneDeep } from 'lodash'
 import { DoubleRightOutlined } from '@ant-design/icons'
@@ -14,6 +14,8 @@ const ChartConfig = (props) => {
   const [form] = Form.useForm()
   const nav = useNavigate()
   const { message } = App.useApp()
+  // 延迟获取表单数据, 用于优化性能
+  const deferredValue = useDeferredValue(form.getFieldsValue())
 
   const {
     setCurrentChartConfigByForm,
@@ -50,7 +52,7 @@ const ChartConfig = (props) => {
   const fieldChangeHandler = () => {
     setCurrentChartConfigByForm(
       mergeObjects(
-        cleanseObject(form.getFieldsValue()),
+        cleanseObject(deferredValue),
         currentChartConfigByPreset.presetConf
       )
     )
