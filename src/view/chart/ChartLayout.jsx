@@ -93,8 +93,6 @@ const ChartLayout = (props) => {
     const queryParams = new URLSearchParams(location.search)
     const chartId = queryParams.get('chartId')
 
-    console.log('chartId', chartId)
-
     // 如果路径的参数没有chartId, 说明是新建图表, 跳转到选择数据页面
     if (chartId === null) {
       return nav('/chart/select_data')

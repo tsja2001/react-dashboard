@@ -1,15 +1,12 @@
-import { Steps, Button } from 'antd'
+import { Steps, Button, App } from 'antd'
 import { memo, useEffect, useRef, useState } from 'react'
+import { HomeOutlined } from '@ant-design/icons'
 
 import style from './Header.module.scss'
 import { useNavigateWithParams } from '@/hooks/useNavigateWithParams'
-import { HomeOutlined } from '@ant-design/icons'
-import { App } from 'antd'
-import { Switch } from 'antd'
-import { connect } from 'react-redux'
-import { changeTheme } from '@/store/features/global'
+import DarkModeToggle from '@/component/darkModeToggle/DarkModeToggle'
 
-const Header = (props) => {
+const Header = () => {
   const navWithParams = useNavigateWithParams()
   const { modal } = App.useApp()
 
@@ -68,26 +65,10 @@ const Header = (props) => {
         items={componentConfigRef.current}
       />
       <div>
-        <Switch
-          checkedChildren="浅色"
-          unCheckedChildren="暗色"
-          defaultChecked
-          checked={props.theme === 'light'}
-          onChange={(checked) => {
-            props.setTheme(checked ? 'light' : 'dark')
-          }}
-          size="default"
-        />
+        <DarkModeToggle />
       </div>
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({
-  theme: state.global.theme
-})
-const mapDispatchToProps = (dispatch) => ({
-  setTheme: (theme) => dispatch(changeTheme(theme))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Header))
+export default memo(Header)

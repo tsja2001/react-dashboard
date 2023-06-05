@@ -2,14 +2,12 @@ import { memo, useEffect, useState } from 'react'
 import { useNavigate, useLocation, Outlet } from 'react-router-dom'
 import { Layout, Menu, Avatar, theme, Space } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
-import { connect } from 'react-redux'
 
-import { changeTheme } from '@/store/features/global'
 import DarkModeToggle from '@/component/darkModeToggle/DarkModeToggle'
 import homeMenuConfig from './homeMenu.config'
 import style from './HomeLayout.module.scss'
 
-export const HomeLayout = (props) => {
+export const HomeLayout = () => {
   const { token } = theme.useToken()
 
   // 路由切换时, 设置当前选中的menu
@@ -44,7 +42,6 @@ export const HomeLayout = (props) => {
           </div>
           <Menu
             className={style.menu}
-            theme={props.themeMode}
             mode="horizontal"
             selectedKeys={[currentMeunActive]}
             items={homeMenuConfig}
@@ -68,11 +65,4 @@ export const HomeLayout = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  theme: state.global.theme
-})
-const mapDispatchToProps = (dispatch) => ({
-  setTheme: (theme) => dispatch(changeTheme(theme))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(memo(HomeLayout))
+export default memo(HomeLayout)
