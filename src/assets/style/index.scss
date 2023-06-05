@@ -1,3 +1,6 @@
 /* 样式导出文件出口 */
+@tailwind components;
+@tailwind utilities;
+
 @import './normalize.scss';
 @import './global.scss';

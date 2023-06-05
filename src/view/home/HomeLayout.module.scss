@@ -16,9 +16,9 @@
       .logo {
         width: 150px;
         height: 35px;
-        background-color: #3c4a56;
+        // background-color: #3c4a56;
         margin-right: 20px;
-        color: rgb(200, 200, 200);
+        // color: rgb(200, 200, 200);
         line-height: 35px;
         text-align: center;
       }
@@ -27,8 +27,14 @@
       }
     }
     .right {
+      // background-color: #3c4a56;
+      // height: 64px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
       .avatar {
-        background-color: #3c4a56;
+        margin-left: 20px;
+        // background-color: #3c4a56;
       }
     }
   }

@@ -1,0 +1,72 @@
+.toggle {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+
+  .stars,
+  .clouds {
+    position: absolute;
+  }
+
+  .stars {
+    left: 8px;
+    top: 7px;
+  }
+
+  .clouds {
+    right: 10px;
+    top: 10px;
+  }
+
+  .planet {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    z-index: 10;
+
+    .crater {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 6px;
+        left: 4px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: rgba(112, 144, 158, 0.5);
+        box-shadow: inset 0px 0px 0px 1px rgba(112, 144, 158, 0.5);
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 8px;
+        left: 11px;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        background-color: rgba(112, 144, 158, 0.5);
+        box-shadow: inset 0px 0px 0px 1px rgba(112, 144, 158, 0.5);
+      }
+
+      .extraCrater {
+        position: absolute;
+        top: 11px;
+        left: 9px;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background-color: rgba(112, 144, 158, 0.5);
+        box-shadow: inset 0px 0px 0px 1px rgba(112, 144, 158, 0.5);
+      }
+    }
+  }
+}

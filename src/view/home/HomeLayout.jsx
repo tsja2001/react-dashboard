@@ -1,24 +1,19 @@
-import { Layout, Menu } from 'antd'
-import homeMenuConfig from './homeMenu.config'
-import style from './HomeLayout.module.scss'
-import { Outlet } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
-import { Avatar } from 'antd'
+import { useNavigate, useLocation, Outlet } from 'react-router-dom'
+import { Layout, Menu, Avatar, theme, Space } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
-import { Switch } from 'antd'
-import { Space } from 'antd'
-import { changeTheme } from '@/store/features/global'
 import { connect } from 'react-redux'
 
-const { Header } = Layout
+import { changeTheme } from '@/store/features/global'
+import DarkModeToggle from '@/component/darkModeToggle/DarkModeToggle'
+import homeMenuConfig from './homeMenu.config'
+import style from './HomeLayout.module.scss'
 
 export const HomeLayout = (props) => {
-  // 获取当前路由
-  const location = useLocation()
+  const { token } = theme.useToken()
 
   // 路由切换时, 设置当前选中的menu
+  const location = useLocation()
   const [currentMeunActive, setCurrentMeunActive] = useState('/home/chart')
 
   useEffect(() => {
@@ -33,12 +28,23 @@ export const HomeLayout = (props) => {
 
   return (
     <Layout className={style.layout}>
-      <Header className={style.header}>
+      <Layout.Header
+        className={style.header}
+        style={{ backgroundColor: token.colorBgContainer }}
+      >
         <div className={style.left}>
-          <div className={style.logo}>logo</div>
+          <div
+            className={style.logo}
+            style={{
+              backgroundColor: token.colorTextPlaceholder,
+              color: token.colorTextLightSolid
+            }}
+          >
+            logo
+          </div>
           <Menu
             className={style.menu}
-            theme="dark"
+            theme={props.themeMode}
             mode="horizontal"
             selectedKeys={[currentMeunActive]}
             items={homeMenuConfig}
@@ -48,25 +54,10 @@ export const HomeLayout = (props) => {
           />
         </div>
         <div className={style.right}>
-          <Space>
-            <Switch
-              checkedChildren="浅色"
-              unCheckedChildren="暗色"
-              defaultChecked
-              checked={props.theme === 'light'}
-              onChange={(checked) => {
-                props.setTheme(checked ? 'light' : 'dark')
-              }}
-              size="default"
-            />
-            <Avatar
-              className={style.avatar}
-              size={40}
-              icon={<UserOutlined />}
-            />
-          </Space>
+          <DarkModeToggle />
+          <Avatar className={style.avatar} size={40} icon={<UserOutlined />} />
         </div>
-      </Header>
+      </Layout.Header>
       <div className={style.layout_layout}>
         <div className={style.content}>
           <Outlet />
