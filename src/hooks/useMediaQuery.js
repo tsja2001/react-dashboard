@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 // 判断是否为暗色模式, true-暗色模式, false-亮色模式
 export const useMediaQuery = (query) => {
