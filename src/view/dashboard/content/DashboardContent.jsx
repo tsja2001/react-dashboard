@@ -1,20 +1,18 @@
 /* eslint-disable no-unused-vars */
-import { memo, useRef } from 'react'
+import { forwardRef, memo, useImperativeHandle, useRef } from 'react'
 
 import useDimensions from '@/hooks/useDimensions'
-import style from './DashboardContent.module.scss'
 import { DASHBOARD_SIZE, DRAG_TYPE } from '@/utils/chartUtils/constant'
+import { ChartList } from '@/utils/chartUtils/ChartList'
+import style from './DashboardContent.module.scss'
 import useForceUpdate from '@/hooks/useForceUpdate'
 import DragBar from '../cpns/dragBar/DragBar'
-// import { ChartList } from './chartUtils/ChartList'
-import Delete from '../cpns/delete/Delete'
-import DashboardLeftSider from '../leftSider/DashboardLeftSider'
-import { ChartList } from '@/utils/chartUtils/ChartList'
 
-const DashboardContent = () => {
+const DashboardContent = forwardRef((props, ref) => {
   // 渲染的数据列表
   const chartlist = useRef(new ChartList(DASHBOARD_SIZE[0], DASHBOARD_SIZE[1]))
   // 整个图表的ref
+  // const dashboardRef = useRef(null)
   const dashboardRef = useRef(null)
   // 整个dashboard图表的宽高
   const dashboardSize = useDimensions(dashboardRef)
@@ -37,6 +35,14 @@ const DashboardContent = () => {
     direction: null
   })
   const forceUpdate = useForceUpdate()
+
+  // 父组件调用子组件的方法
+  useImperativeHandle(ref, () => ({
+    // 从列表中拖动图表到dashboard
+    dragChartStartFromList,
+    // 删除图表
+    onDrogDelete
+  }))
 
   // 从list中选择图表拖动
   const dragChartStartFromList = (event, data) => {
@@ -179,6 +185,7 @@ const DashboardContent = () => {
   // 拖拽元素到删除区域
   const onDrogDelete = () => {
     const { type } = dragData.current
+
     dragData.current.isDroped = true
 
     if (type === DRAG_TYPE.FROM_DASHBOARD) {
@@ -194,10 +201,10 @@ const DashboardContent = () => {
 
   return (
     <div className={style.content}>
-      <DashboardLeftSider
+      {/* <DashboardLeftSider
         onDragStart={(event, item) => dragChartStartFromList(event, item)}
-      />
-      <button
+      /> */}
+      {/* <button
         onClick={() => {
           chartlist.current.undo()
           forceUpdate()
@@ -213,7 +220,7 @@ const DashboardContent = () => {
       >
         重做
       </button>
-      <Delete onDrogDelete={onDrogDelete}></Delete>
+      <Delete onDrogDelete={onDrogDelete}></Delete> */}
       <div
         className={style.dashboardWrap}
         ref={dashboardRef}
@@ -277,6 +284,6 @@ const DashboardContent = () => {
       </div>
     </div>
   )
-}
+})
 
 export default memo(DashboardContent)

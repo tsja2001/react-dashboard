@@ -1,8 +1,8 @@
-// $width: 100vw;
-// $hidth: 100vh;
-$width: 800px;
-$hidth: 600px;
+$width: 100%;
+$height: 100%;
 .content {
+  width: $width;
+  height: $height;
   .chartList {
     display: flex;
     .item {
@@ -13,7 +13,7 @@ $hidth: 600px;
   }
   .dashboardWrap {
     width: $width;
-    height: $hidth;
+    height: $height;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -23,7 +23,7 @@ $hidth: 600px;
       .chartItem {
         background-color: #ccc;
         width: calc($width / 4);
-        height: calc($hidth / 3);
+        height: calc($height / 3);
         // position: relative;
         position: absolute;
         .dragBar {

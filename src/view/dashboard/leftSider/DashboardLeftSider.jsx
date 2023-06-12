@@ -1,9 +1,10 @@
 import { memo } from 'react'
 import { chartDataList } from './chartDataList'
 import style from './DashboardLeftSider.module.scss'
+import Delete from '../cpns/delete/Delete'
 
 const DashboardLeftSider = (prop) => {
-  const { onDragStart = () => {} } = prop
+  const { onDragStart = () => {}, onDrogDelete = () => {} } = prop
 
   return (
     <div className={style.chartList}>
@@ -18,6 +19,7 @@ const DashboardLeftSider = (prop) => {
           <span>{item.name}</span>
         </div>
       ))}
+      <Delete onDrogDelete={onDrogDelete} />
     </div>
   )
 }
