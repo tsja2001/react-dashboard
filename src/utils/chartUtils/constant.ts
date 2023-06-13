@@ -6,7 +6,7 @@ export const DIRECTIONS = {
 }
 
 // 行数, 列数
-export const DASHBOARD_SIZE = [8, 6]
+export const DASHBOARD_SIZE = [3, 2]
 
 // 拖拽类型
 export const DRAG_TYPE = {

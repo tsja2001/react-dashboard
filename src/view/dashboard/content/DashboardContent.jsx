@@ -7,6 +7,7 @@ import { ChartList } from '@/utils/chartUtils/ChartList'
 import style from './DashboardContent.module.scss'
 import useForceUpdate from '@/hooks/useForceUpdate'
 import DragBar from '../cpns/dragBar/DragBar'
+import DynamicChartCpnWithDataFetch from '@/component/chart/DynamicChartCpnWithDataFetch'
 
 const DashboardContent = forwardRef((props, ref) => {
   // 渲染的数据列表
@@ -46,6 +47,8 @@ const DashboardContent = forwardRef((props, ref) => {
 
   // 从list中选择图表拖动
   const dragChartStartFromList = (event, data) => {
+    console.log('dragChartStartFromList', data)
+
     event.stopPropagation()
     dragData.current = { chartData: data, type: DRAG_TYPE.FROM_LIST }
   }
@@ -271,7 +274,7 @@ const DashboardContent = forwardRef((props, ref) => {
                               dragResizeStartFromDragBar(domEvent, direction)
                             }}
                           />
-                          {chartItem.chart.chart}
+                          <DynamicChartCpnWithDataFetch {...chartItem.chart} />
                         </div>
                       )
                     }

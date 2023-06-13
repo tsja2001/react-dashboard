@@ -1,8 +1,11 @@
 .chartList {
   // display: flex;
+  height: 100%;
+  overflow-y: auto;
   .item {
-    padding: 20px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    color: black;
+    height: 300px;
   }
 }

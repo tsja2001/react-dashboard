@@ -18,6 +18,7 @@ const DashboardLayout = () => {
       <div className={style.left}>
         <DashboardLeftSider
           onDragStart={(event, item) => {
+            console.log('onDragStart', item)
             dashboardCpnRef.current.dragChartStartFromList(event, item)
           }}
           onDrogDelete={() => {
