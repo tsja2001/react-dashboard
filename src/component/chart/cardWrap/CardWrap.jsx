@@ -10,26 +10,42 @@ const CardWrap = (props) => {
     title = '未命名图表',
     deleteHandler = () => {},
     editHandler = () => {},
-    detailHandler = () => {}
+    detailHandler = () => {},
+    showBtn = true
   } = props
 
   return (
     <Card
       className={style.card}
       title={title}
+      size="small"
       extra={
-        <Button
-          className={style.button}
-          type="link"
-          onClick={() => detailHandler('id=xxx')}
-        >
-          查看详细
-        </Button>
+        showBtn && (
+          <Button
+            className={style.button}
+            type="link"
+            onClick={() => detailHandler('id=xxx')}
+          >
+            查看详细
+          </Button>
+        )
       }
-      actions={[
-        <EditOutlined key="edit" onClick={() => editHandler('id=xxx')} />,
-        <DeleteOutlined key="delete" onClick={() => deleteHandler('id=xxx')} />
-      ]}
+      actions={
+        showBtn
+          ? [
+              <EditOutlined
+                size="mini"
+                key="edit"
+                onClick={() => editHandler('id=xxx')}
+              />,
+              <DeleteOutlined
+                size="mini"
+                key="delete"
+                onClick={() => deleteHandler('id=xxx')}
+              />
+            ]
+          : []
+      }
     >
       <div style={{ width: '100%', height }}>{children}</div>
     </Card>

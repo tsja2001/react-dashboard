@@ -3,13 +3,12 @@ import { Col, Row, App } from 'antd'
 import { connect } from 'react-redux'
 
 import style from './Content.module.scss'
-import ChartDemo from '@/component/chart/LineDemo'
-import ChartWrap from '../cpns/cardWrap/CardWrap'
-import CardModal from '../cpns/cardModal/CardModal'
 import DynamicChartCpnWithDataFetch from '@/component/chart/DynamicChartCpnWithDataFetch'
 import { fetchCreatedCharts } from '@/store/features/view/home/chart'
 import { useNavigate } from 'react-router-dom'
-import ChartDetailModal from '@/view/home/chart/cpns/chartDetailModal/ChartDetailModal'
+
+import ChartWrap from '@/component/chart/cardWrap/CardWrap'
+import ChartDetailModal from '@/component/chart/chartDetailModal/ChartDetailModal'
 
 const Content = (props) => {
   const { cardSize, createdCharts = [], fetchCreatedChartsDispatch } = props
@@ -20,8 +19,6 @@ const Content = (props) => {
     // 发送请求获取已创建的图表
     fetchCreatedChartsDispatch()
   }, [])
-
-  const [ifShowModal, setIfShowModal] = useState(false)
 
   const deleteHandler = (chartId) => {
     console.log('deleteHandler', chartId)
@@ -55,9 +52,6 @@ const Content = (props) => {
 
   return (
     <div className={style.content}>
-      <CardModal ifShowModal={ifShowModal} setIfShowModal={setIfShowModal}>
-        {/* <DynamicChartCpnWithDataFetch {...createdChartConfig} /> */}
-      </CardModal>
       <Row gutter={16} className={style.row}>
         {createdCharts?.map((createdChartConfig, index) => {
           return (

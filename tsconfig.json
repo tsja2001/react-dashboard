@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
+    "baseUrl": ".",
     "strict": true,
     "noImplicitReturns": true,
     "module": "es6",
@@ -13,5 +14,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src/**/*"]
+  // "include": ["./src/**/*"]
+  "include": ["src"]
 }

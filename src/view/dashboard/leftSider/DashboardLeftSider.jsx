@@ -1,10 +1,10 @@
 import { memo, useEffect } from 'react'
-import { chartDataList } from './chartDataList'
 import style from './DashboardLeftSider.module.scss'
 import Delete from '../cpns/delete/Delete'
 import { fetchCreatedCharts } from '@/store/features/view/home/chart'
 import { connect } from 'react-redux'
 import DynamicChartCpnWithDataFetch from '@/component/chart/DynamicChartCpnWithDataFetch'
+import ChartWrap from '@/component/chart/cardWrap/CardWrap'
 
 const DashboardLeftSider = (prop) => {
   const { onDragStart = () => {}, onDrogDelete = () => {} } = prop
@@ -16,32 +16,28 @@ const DashboardLeftSider = (prop) => {
 
   return (
     <div className={style.chartList}>
-      {/* {chartDataList.map((item, index) => (
-        <div
-          id={item.id}
-          key={index}
-          className={style.item}
-          onDragStart={(event) => onDragStart(event, item)}
-          draggable={true}
-        >
-          <span>{item.name}</span>
-        </div>
-      ))} */}
+      <Delete onDrogDelete={onDrogDelete} />
       {prop.createdCharts.map((createdChartConfig, index) => {
         return (
-          <div
-            id={createdChartConfig.id}
-            key={index}
-            className={style.item}
-            onDragStart={(event) => onDragStart(event, createdChartConfig)}
-            draggable={true}
-          >
-            <span>{createdChartConfig.chartName ?? '暂无标题'}</span>
-            <DynamicChartCpnWithDataFetch {...createdChartConfig} />
+          <div id={createdChartConfig.id} key={index} className={style.item}>
+            {/* <span>{createdChartConfig.chartName ?? '暂无标题'}</span> */}
+            <ChartWrap
+              height="300px"
+              title={createdChartConfig.chartName ?? '暂无标题'}
+              showBtn={false}
+            >
+              <DynamicChartCpnWithDataFetch
+                selfProps={{
+                  onDragStart: (event) =>
+                    onDragStart(event, createdChartConfig),
+                  draggable: true
+                }}
+                {...createdChartConfig}
+              />
+            </ChartWrap>
           </div>
         )
       })}
-      <Delete onDrogDelete={onDrogDelete} />
     </div>
   )
 }
